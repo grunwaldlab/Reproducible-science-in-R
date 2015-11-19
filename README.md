@@ -7,6 +7,7 @@ Welcome! This primer provides a concise introduction to conducting reproducible 
 # Chapters
 
 1. Introduction
-2. Markdown
-3. Git and github
-3. Zach's package
+2. 2. Getting ready to use R
+3. Markdown
+4. Git and github
+5. Zach's package
