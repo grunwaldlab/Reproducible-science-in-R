@@ -1,6 +1,8 @@
 # Reproducible-science-in-R
 
-This site provides information on conducting reproducible science using the R language.
+*Zachary Foster,Zhian N. Kamvar, and  Niklaus J. Gr&uuml;nwald*
+
+Welcome! This primer provides a concise introduction to conducting reproducible science in R. While this primer does not require extensive knowledge of programming in R, the user is expected to install R and all packages required for this primer.
 
 # Chapters
 
