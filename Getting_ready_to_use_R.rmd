@@ -1,7 +1,7 @@
 ```{r,message=FALSE,echo=FALSE}
   library("knitcitations")
   library("knitr")
-  cite_options(citation_format = "pandoc", max.names = 3, style = "html", hyperlink = "to.doc")
+  cite_options(max.names = 3, style = "html", hyperlink = "to.doc")
   bib <- read.bibtex("bibtexlib.bib")
   opts_chunk$set(tidy = FALSE, message = FALSE, warning = FALSE, cache = TRUE) 
   # use this to set knitr options: 
@@ -176,5 +176,7 @@ formatting and loading population genetic data into R.
 
 References
 ----------
-
+```{r, results = 'asis', echo=FALSE}
+  bibliography()
+```
 <!--->

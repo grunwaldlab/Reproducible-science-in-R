@@ -1,12 +1,11 @@
 ---
-output: pdf_document
+output: html_document
 ---
 ```{r,message=FALSE,echo=FALSE}
   library("knitcitations")
-  bib <- read.bibtex("bibtexlib.bib")
+#  bib <- read.bibtex("bibtexlib.bib")
   library("knitr")
-  cite_options(citation_format = "pandoc", max.names = 3, style = "html", hyperlink = "to.doc")
-  opts_chunk$set(tidy = FALSE, message = FALSE, warning = FALSE) 
+  cite_options(max.names = 3, style = "html", hyperlink = "to.doc")
 ```
 ---
 title: "1: Introduction"
@@ -33,5 +32,8 @@ updated) as appropriate.
 
 References
 ----------
+```{r, results = 'asis', echo=FALSE}
+  bibliography()
+```
 
 <!--- ref --->
