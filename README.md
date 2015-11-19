@@ -1,4 +1,4 @@
-# Reproducible-science-in-R
+# Reproducible science in R
 
 *Zachary Foster, Zhian N. Kamvar, and  Niklaus J. Gr&uuml;nwald*
 
