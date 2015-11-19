@@ -1,3 +1,3 @@
 # Introduction
 
-Reproducible science or research provide the ability thea bility to replicate research results from a published study. This idea ultimately also includes the full computational enviroment comprising code and data to replicate the analysis [ref](DOI 10.1126/science.1213847). 
+Reproducible science or research provide the ability thea bility to replicate research results from a published study. This idea ultimately also includes the full computational enviroment comprising code and data to replicate the analysis [XXX](http://www.sciencemag.org/content/334/6060/1226). 
