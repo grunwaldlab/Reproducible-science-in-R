@@ -1,4 +1,16 @@
-# Introduction
+---
+output: pdf_document
+---
+```{r,message=FALSE,echo=FALSE}
+  library("knitcitations")
+  bib <- read.bibtex("bibtexlib.bib")
+  library("knitr")
+  cite_options(citation_format = "pandoc", max.names = 3, style = "html", hyperlink = "to.doc")
+  opts_chunk$set(tidy = FALSE, message = FALSE, warning = FALSE) 
+```
+---
+title: "1: Introduction"
+---
 
 Reproducible science or research provide the ability thea bility to replicate research results from a published study. This idea ultimately also includes the full computational enviroment comprising code and data to replicate the analysis [XXX](http://www.sciencemag.org/content/334/6060/1226). 
 
@@ -18,3 +30,8 @@ updated) as appropriate.
 
 > Any R user needs to make sure all components are up-to-date and that versions
 > are compatible.
+
+References
+----------
+
+<!--- ref --->
