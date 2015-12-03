@@ -1,0 +1,224 @@
+---
+output: html_document
+---
+
+
+```{r init, echo=FALSE}
+library(knitr)
+library(xtable)
+opts_chunk$set(fig.width =10,
+               fig.height = 5,
+               cache = FALSE)
+```
+
+
+
+# Markdown
+
+## Introduction
+
+- Plain text formatting syntax
+- Readable by both people and computers
+- Parsed into HTML
+- Only a handful of universal rules
+- Many slightly different implementations
+
+<table style="width:100%; text-align: left; padding: 15px;"><tr>
+
+<td style ="padding: 15px;">
+```
+Text can be
+**bold** or *italic*
+
+Here is a
+[link]("www.google.com")
+```
+<\td>
+<td style ="padding: 15px;">
+Text can be
+**bold** or *italic*
+
+Here is a
+[link]("www.google.com")
+</td>
+</tr></table>
+
+
+##  Text formatting
+
+<table style="width:100%; text-align: left; padding: 15px;"><tr>
+
+<td style ="padding: 15px;">
+```
+# Header 1
+
+## Header 2
+
+### Header 3
+
+Normal text
+
+*italic* **bold**
+`monospace`
+
+super^script
+
+> block quote
+```
+<\td>
+<td style ="padding: 15px;">
+# Header 1
+
+## Header 2
+
+### Header 3
+
+Normal text
+
+*italic* **bold**
+`monospace`
+
+super^script
+
+> block quote
+</td>
+</tr></table>
+
+
+## Lists
+
+<table style="width:100%; text-align: left; padding: 15px;"><tr>
+
+<td style ="padding: 15px;">
+```
+### Unordered:
+
+* apples
+* oranges
+* pears
+
+### Ordered:
+
+1. apples
+1. oranges
+1. pears
+```
+<\td>
+<td style ="padding: 15px;">
+### Unordered:
+
+* apples
+* oranges
+* pears
+
+### Ordered:
+
+1. apples
+1. oranges
+1. pears
+</td>
+</tr></table>
+
+
+## Links
+
+<table style="width:100%; text-align: left;"><tr>
+
+<td style ="padding: 15px;">
+```
+### Unnamed link:
+
+URLs are recognized
+by their prefix.
+
+www.google.com
+
+google.com (not link)
+
+### Named links:
+
+[link](www.google.com)
+```
+<\td>
+<td style ="padding: 15px;">
+### Unnamed link:
+
+URLs are recognized
+by their prefix.
+
+www.google.com
+
+google.com (not link)
+
+### Named links:
+
+[link](www.google.com)
+
+</td>
+</tr></table>
+
+## Images
+
+
+<table style="width:100%; text-align: left;"><tr>
+
+<td style ="padding: 15px;">
+```
+![](rstudio.jpeg)
+
+![](r.png)
+```
+<\td>
+<td style ="padding: 15px;">
+![](rstudio.jpeg)
+
+![](r.png)
+</td>
+</tr></table>
+
+
+## R markdown: Latex equations
+
+<table style="width:100%; text-align: left;"><tr>
+
+<td style ="padding: 15px;">
+```
+a line: $y=mx+b$
+
+$$
+ \frac{1}{1+
+  \frac{1}{2+
+  \frac{1}{3}}}}
+$$
+
+$$
+\begin{eqnarray}
+ y &=& x^4 + 4 \\
+ &=& (x^2+2)^2 -4x^2 \\
+ &\le&(x^2+2)^2 \\
+\end{eqnarray}
+$$
+```
+
+<\td>
+<td style ="padding: 15px;">
+a line: $y=mx+b$
+
+$$
+ \frac{1}{1+
+  \frac{1}{2+
+  \frac{1}{3}}}
+$$
+
+$$ 
+\begin{eqnarray}
+ y &=& x^4 + 4 \\
+ &=& (x^2+2)^2 -4x^2 \\
+ &\le&(x^2+2)^2 \\
+\end{eqnarray}
+$$
+
+</td>
+</tr></table>
+
+
