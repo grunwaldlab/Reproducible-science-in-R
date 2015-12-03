@@ -6,8 +6,11 @@ Welcome! This primer provides a concise introduction to conducting reproducible 
 
 # Chapters
 
-1. Introduction
-2. Getting ready to use R
-3. Markdown
-4. Git and github
-5. Zach's package
+1. Introduction (Nik)
+2. Getting ready to use R (Nik)
+3. Data formatting and read/write
+3. Markdown (Zach)
+4. R markdown (Zach)
+5. Git and github (Zhian)
+6. Quiltr package (Zach)
+7. Writing a paper in R (Zhian; Frontiers paper)
