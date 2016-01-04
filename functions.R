@@ -1,3 +1,8 @@
+
+#' Print step number
+#' 
+#' Generates a closure (i.e. function with data) that prints a step header and increments the step number each time it is called. 
+#' 
 make_step_counter_function <- function() {
   step <- 0
   function() {
@@ -6,6 +11,15 @@ make_step_counter_function <- function() {
   }
 }
 
+
+
+#' Generate example HTML 
+#' 
+#' Generates a closure (i.e. function with data) that prints a peice of RMarkdown markup and the results of rendering it to HTML.
+#' The function generated can remember the information from previous calls and append content.
+#' 
+#' @param content (\code{character} of lenght one) RMarkdown text to display and render.
+#' 
 make_markdown_example_function <- function(content) {
   counter <- 0
   previous_content <- ""
