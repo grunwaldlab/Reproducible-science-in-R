@@ -6,219 +6,111 @@ output: html_document
 ```{r init, echo=FALSE}
 library(knitr)
 library(xtable)
+library(tools)
 opts_chunk$set(fig.width =10,
                fig.height = 5,
-               cache = FALSE)
+               cache = FALSE,
+               echo = FALSE)
 ```
 
+```{r}
+make_step_counter_function <- function() {
+  step <- 0
+  function() {
+    step <<- step + 1
+    paste0("Step ", step, ")")
+  }
+}
+
+make_markdown_example_function <- function(content) {
+  counter <- 0
+  
+  function(content) {
+    # increment counter so that file names can be unique
+    counter <<- counter + 1
+    
+    # get input document information
+    current_file_name <- knitr:::knit_concord$get("infile")
+    current_folder <- knitr:::.knitEnv$input.dir
+    
+    # Make output folder
+    output_folder_name <- paste0(file_path_sans_ext(current_file_name), "_", "example_files")
+    if (!dir.exists(output_folder_name)) {
+      dir.create(output_folder_name)
+    }
+    
+    # Create source Rmd file
+    source_name <- paste0("example_file_", counter, ".Rmd")
+    source_path <- normalizePath(file.path(current_folder, output_folder_name, source_name))
+    abs_source_path <-  normalizePath(source_path)
+    cat(content, file = abs_source_path)
+    
+    # Render source file to html
+    output_name <- paste0("example_file_", counter, ".html")
+    output_path <- file.path(current_folder, output_folder_name, output_name)
+    abs_output_path <-  normalizePath(output_path)
+    rmarkdown::render(input = abs_source_path, output_file = abs_output_path, quiet = TRUE)
+    
+    
+    # Generate markdown to display source
+    cat(paste0("<pre>", content, "</pre>"))
+    
+    # Generate html to display knit image
+    img_path <- "./markdown_images/pressing_knit_down_arrow.png"
+    css <- "display: block; margin-left: auto; margin-right: auto"
+    cat(paste0("<img src = '", img_path, "' style = '", css, "'>"))
+    
+    # Generate html iframe to display rendered file
+    cat(paste0("<iframe src='", output_path,  "' width=100%></iframe>"))
+  }
+}
+  
+
+```
+
+
+```{r}
+step <- make_step_counter_function()
+rmd_example <- make_markdown_example_function()
+```
 
 
 # Markdown
 
-## Introduction
+Markdown is a simple, human-readable [plain text](https://en.wikipedia.org/wiki/Plain_text) format that can be rendered as HTML or PDF files by numerous program, including RStudio.
+The format is just a set of conventions for formating plain text files that is understood by many programs.
+Some programs support features others do not, but the basics of Mardown are the same for most.
+This portion of the tutorial will cover the aspects of Markdown that are shared by all programs able to interpret it. 
 
-- Plain text formatting syntax
-- Readable by both people and computers
-- Parsed into HTML
-- Only a handful of universal rules
-- Many slightly different implementations
+## Getting started
 
-<table style="width:100%; text-align: left; padding: 15px;"><tr>
+Unlike R code, which can be executed line-by-line in an R console, Markdown is processed as a whole file.
+When a Markdown file is processed (i.e. "executed") it produces an output file, usually a HTML or PDF file. 
+Therefore, the first thing we will do is create an empty file to practice on.
 
-<td style ="padding: 15px;">
+**`r step()` In RStudio, click on the new file dropdown menu at the top left and select "R Markdown".**
+
+![](markdown_images/new_rmarkdown_file_screenshot.png)
+
+**`r step()` A new menu window will appear; just click "OK" to use the default settings.**
+
+![](markdown_images/confirm_new_rmarkdown_file_screenshot.png)
+
+**There will be some template text in the new file. Just delete everything so we have a clean file to work from.**
+**You should now have a blank file like the one pictured below.**
+
+![](markdown_images/blank_rmarkdown_file_screenshot.png)
+
+
+```{r, results='asis', echo=FALSE}
+rmd_example("
+# tatjf
+
+## title 2
+
+
+
+**sd fd**
+            ")
 ```
-Text can be
-**bold** or *italic*
-
-Here is a
-[link]("www.google.com")
-```
-<\td>
-<td style ="padding: 15px;">
-Text can be
-**bold** or *italic*
-
-Here is a
-[link]("www.google.com")
-</td>
-</tr></table>
-
-
-##  Text formatting
-
-<table style="width:100%; text-align: left; padding: 15px;"><tr>
-
-<td style ="padding: 15px;">
-```
-# Header 1
-
-## Header 2
-
-### Header 3
-
-Normal text
-
-*italic* **bold**
-`monospace`
-
-super^script
-
-> block quote
-```
-<\td>
-<td style ="padding: 15px;">
-# Header 1
-
-## Header 2
-
-### Header 3
-
-Normal text
-
-*italic* **bold**
-`monospace`
-
-super^script
-
-> block quote
-</td>
-</tr></table>
-
-
-## Lists
-
-<table style="width:100%; text-align: left; padding: 15px;"><tr>
-
-<td style ="padding: 15px;">
-```
-### Unordered:
-
-* apples
-* oranges
-* pears
-
-### Ordered:
-
-1. apples
-1. oranges
-1. pears
-```
-<\td>
-<td style ="padding: 15px;">
-### Unordered:
-
-* apples
-* oranges
-* pears
-
-### Ordered:
-
-1. apples
-1. oranges
-1. pears
-</td>
-</tr></table>
-
-
-## Links
-
-<table style="width:100%; text-align: left;"><tr>
-
-<td style ="padding: 15px;">
-```
-### Unnamed link:
-
-URLs are recognized
-by their prefix.
-
-www.google.com
-
-google.com (not link)
-
-### Named links:
-
-[link](www.google.com)
-```
-<\td>
-<td style ="padding: 15px;">
-### Unnamed link:
-
-URLs are recognized
-by their prefix.
-
-www.google.com
-
-google.com (not link)
-
-### Named links:
-
-[link](www.google.com)
-
-</td>
-</tr></table>
-
-## Images
-
-
-<table style="width:100%; text-align: left;"><tr>
-
-<td style ="padding: 15px;">
-```
-![](rstudio.jpeg)
-
-![](r.png)
-```
-<\td>
-<td style ="padding: 15px;">
-![](rstudio.jpeg)
-
-![](r.png)
-</td>
-</tr></table>
-
-
-## R markdown: Latex equations
-
-<table style="width:100%; text-align: left;"><tr>
-
-<td style ="padding: 15px;">
-```
-a line: $y=mx+b$
-
-$$
- \frac{1}{1+
-  \frac{1}{2+
-  \frac{1}{3}}}}
-$$
-
-$$
-\begin{eqnarray}
- y &=& x^4 + 4 \\
- &=& (x^2+2)^2 -4x^2 \\
- &\le&(x^2+2)^2 \\
-\end{eqnarray}
-$$
-```
-
-<\td>
-<td style ="padding: 15px;">
-a line: $y=mx+b$
-
-$$
- \frac{1}{1+
-  \frac{1}{2+
-  \frac{1}{3}}}
-$$
-
-$$ 
-\begin{eqnarray}
- y &=& x^4 + 4 \\
- &=& (x^2+2)^2 -4x^2 \\
- &\le&(x^2+2)^2 \\
-\end{eqnarray}
-$$
-
-</td>
-</tr></table>
-
 
