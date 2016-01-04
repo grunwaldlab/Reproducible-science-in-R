@@ -2,6 +2,19 @@
 output: html_document
 ---
 
+```{r, results='asis'}
+# Add javascript to cause the iframes to be scrolled down all the way. 
+cat('
+<script type="text/javascript">
+$(window).load(function ()
+{
+    var $contents = $(".frame").contents();
+    $contents.scrollTop(10000);
+});
+</script>
+  ')
+
+```
 
 ```{r init, echo=FALSE}
 library(knitr)
@@ -95,13 +108,8 @@ rmd_example("
 
 Text can be displayed in a `monospace` font inline.
 
-### Part A
-
-    Whole blocks
-    of text can
+    Whole blocks of text can
     can also be monospace.
-
-### Part B
 
 > Block quotes are also possible.
 >
@@ -120,13 +128,15 @@ Starting lines with `1. ` (or any other number) indicates a numbered list.
 
 ```{r, results='asis'}
 rmd_example("
-## Recipe
+## Assay 3
+
+### Recipe
 
 - eggs
 - milk
 - flour
 
-## Instructions
+### Instructions
 
 1. mix
 2. bake
@@ -143,9 +153,13 @@ A horizontal line can be made by three or more `-` on the same line alone.
 
 ```{r, results='asis'}
 rmd_example("
-------
+## Assay 4
 
-------
+---
+
+- - -- - -
+
+---     ---
                         ")
 ```
 
@@ -161,6 +175,8 @@ To insert and image, use the same syntax, but add a `!` in front: `![mouse hover
 
 ```{r, results='asis'}
 rmd_example("
+## Assay 5
+
 I used [Google](https://www.google.com/) to find this image:
 
 ![An image](https://www.r-project.org/Rlogo.png)

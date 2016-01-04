@@ -66,6 +66,6 @@ make_markdown_example_function <- function(content) {
     cat(paste0("<img src = '", img_path, "' style = '", css, "'>"))
     
     # Generate html iframe to display rendered file
-    cat(paste0("<iframe src='", rel_output_path,  "' width=100% height=300px></iframe>"))
+    cat(paste0("<iframe src='", rel_output_path,  "' width=100% height=300px class='frame'></iframe>"))
   }
 }
