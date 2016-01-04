@@ -1,4 +1,3 @@
-
 #' Print step number
 #' 
 #' Generates a closure (i.e. function with data) that prints a step header and increments the step number each time it is called. 
@@ -48,7 +47,7 @@ make_markdown_example_function <- function(content) {
     
     # Create source Rmd file
     source_name <- paste0("example_file_", counter, ".Rmd")
-    source_path <- normalizePath(file.path(current_folder, output_folder_name, source_name))
+    source_path <- file.path(current_folder, output_folder_name, source_name)
     cat(content, file = source_path)
     
     # Render source file to html
