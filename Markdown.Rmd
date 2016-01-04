@@ -11,65 +11,11 @@ opts_chunk$set(fig.width =10,
                fig.height = 5,
                cache = FALSE,
                echo = FALSE)
-```
-
-```{r}
-make_step_counter_function <- function() {
-  step <- 0
-  function() {
-    step <<- step + 1
-    paste0("Step ", step, ")")
-  }
-}
-
-make_markdown_example_function <- function(content) {
-  counter <- 0
-  
-  function(content) {
-    # increment counter so that file names can be unique
-    counter <<- counter + 1
-    
-    # get input document information
-    current_file_name <- knitr:::knit_concord$get("infile")
-    current_folder <- knitr:::.knitEnv$input.dir
-    
-    # Make output folder
-    output_folder_name <- paste0(file_path_sans_ext(current_file_name), "_", "example_files")
-    if (!dir.exists(output_folder_name)) {
-      dir.create(output_folder_name)
-    }
-    
-    # Create source Rmd file
-    source_name <- paste0("example_file_", counter, ".Rmd")
-    source_path <- normalizePath(file.path(current_folder, output_folder_name, source_name))
-    abs_source_path <-  normalizePath(source_path)
-    cat(content, file = abs_source_path)
-    
-    # Render source file to html
-    output_name <- paste0("example_file_", counter, ".html")
-    output_path <- file.path(current_folder, output_folder_name, output_name)
-    abs_output_path <-  normalizePath(output_path)
-    rmarkdown::render(input = abs_source_path, output_file = abs_output_path, quiet = TRUE)
-    
-    
-    # Generate markdown to display source
-    cat(paste0("<pre>", content, "</pre>"))
-    
-    # Generate html to display knit image
-    img_path <- "./markdown_images/pressing_knit_down_arrow.png"
-    css <- "display: block; margin-left: auto; margin-right: auto"
-    cat(paste0("<img src = '", img_path, "' style = '", css, "'>"))
-    
-    # Generate html iframe to display rendered file
-    cat(paste0("<iframe src='", output_path,  "' width=100%></iframe>"))
-  }
-}
-  
 
 ```
 
-
 ```{r}
+source("functions.R")
 step <- make_step_counter_function()
 rmd_example <- make_markdown_example_function()
 ```
@@ -96,21 +42,80 @@ Therefore, the first thing we will do is create an empty file to practice on.
 
 ![](markdown_images/confirm_new_rmarkdown_file_screenshot.png)
 
-**There will be some template text in the new file. Just delete everything so we have a clean file to work from.**
+**`r step()` There will be some template text in the new file. Just delete everything so we have a clean file to work from.**
 **You should now have a blank file like the one pictured below.**
 
 ![](markdown_images/blank_rmarkdown_file_screenshot.png)
 
 
-```{r, results='asis', echo=FALSE}
+**Save the file.**
+
+Note that the file extension is ".Rmd" rather than  ".md" (the typical extension for Markdown files).
+This is for **R**Markdown, a file format that adds the ability to incorperate R code with standard Markdown.
+We are using ".Rmd" instead of ".md" since we will be covering RMarkdown in the next section.
+
+##  Basic text formatting
+
+Markdown is meant to be easily read by humans as well as computers.
+Therefore, it has a minimal set of simple syntax rules that dont inteferre with the readability of the source file. 
+
+Headings are specified by starting a line with one to four `#` characters.
+The more `#` characters, the smaller the header (e.g. `# Title` makes bigger text than `## Subtitle`). 
+
+Surrounding text with `*` makes that section italic and surrounding text with `**` makes it bold. 
+
+**`r step()` Copy the text from the first box below and paste it into your new file (or create your own content with a similar format). Press the "Knit HTML" button at the top of the document. A window should pop up displaying the rendered HTML document with conent similar to that of the second box.**
+
+```{r, results='asis'}
 rmd_example("
-# tatjf
+# Experimental protocol
 
-## title 2
+Text with no special formatting is displayed in the default font.
 
+## Assay 1
 
-
-**sd fd**
+Text can also be **bold** or *italic*.
             ")
 ```
+
+The window that pops up displays the newly created HTML file.
+This file is self-contained and can be viewed using any web browser.
+At the top of the pop-up window displaying the document there is a botton labeled "Open in Browser" that will open the new file in your default web browser.
+
+
+## Code and quotes
+
+Text also can be formatted to look like monospace code by surrounding text with <code>\`</code> or by indenting lines with 4 or more spaces.
+Starting lines with one or more `>` turns lines of text into block quotes; the number of `>` characters corresponds to the level of nesting.
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r, results='asis'}
+rmd_example("
+## Assay 2
+
+Text can be displayed in a `monospace` font inline.
+
+### Part A
+
+    Whole blocks
+    of text can
+    can also be monospace.
+
+### Part B
+
+> Block quotes are also possible.
+>
+>> They can even be nested!
+>
+            ")
+```
+
+## Lists
+
+
+## Horizontal rules
+
+
+## Links and images
 
