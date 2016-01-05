@@ -2,6 +2,22 @@
 output: html_document
 ---
 
+```{r init, echo=FALSE}
+library(knitr)
+library(xtable)
+library(tools)
+opts_chunk$set(fig.width = 10,
+               fig.height = 5,
+               cache = FALSE,
+               echo = FALSE)
+```
+
+```{r}
+source("functions.R")
+step <- make_step_counter_function()
+rmd_example <- make_markdown_example_function()
+```
+
 ```{r, results='asis'}
 # Add javascript to cause the iframes to be scrolled down all the way when the page loads. 
 cat('
@@ -15,23 +31,6 @@ $(window).load(function ()
   ')
 
 ```
-
-```{r init, echo=FALSE}
-library(knitr)
-library(xtable)
-library(tools)
-opts_chunk$set(fig.width =10,
-               fig.height = 5,
-               cache = FALSE,
-               echo = FALSE)
-```
-
-```{r}
-source("functions.R")
-step <- make_step_counter_function()
-rmd_example <- make_markdown_example_function()
-```
-
 
 # Markdown
 
@@ -187,3 +186,15 @@ I used [Google](https://www.google.com/) to find this image:
 ![An image](https://www.r-project.org/Rlogo.png)
                                     ")
 ```
+
+
+## Additional resources
+
+- [Daring Fireball](https://daringfireball.net/projects/markdown/): The website of the original author of the Markdown language.
+  It is the closes thing to an offical syntax definition.
+- [GitHub Markdown](https://guides.github.com/features/mastering-markdown/): A guide to using the GitHub "flavor" of Markdown.
+- [Markdown Tutorial](http://markdowntutorial.com/): An interactive tutorial to help learn markdown.
+- [Babelmark 2](http://johnmacfarlane.net/babelmark2/):
+  A tool that displays the HTML produced by many different Markdown renderers for any snippet of Markdown code.
+  Programs might differ in the details of how Markdown is translated into HTML.
+- [Wikipedia](https://en.wikipedia.org/wiki/Markdown): The Wikipedia page on Markdown.

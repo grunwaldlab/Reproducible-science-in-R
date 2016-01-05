@@ -1,0 +1,23 @@
+---
+output: html_document
+---
+
+```{r init, echo=FALSE}
+library(knitr)
+library(xtable)
+library(tools)
+opts_chunk$set(fig.width = 10,
+               fig.height = 5,
+               cache = FALSE,
+               echo = FALSE)
+```
+
+```{r}
+source("functions.R")
+step <- make_step_counter_function()
+rmd_example <- make_markdown_example_function()
+```
+
+
+# **R**Markdown
+
