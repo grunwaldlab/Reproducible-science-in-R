@@ -3,7 +3,7 @@ output: html_document
 ---
 
 ```{r, results='asis'}
-# Add javascript to cause the iframes to be scrolled down all the way. 
+# Add javascript to cause the iframes to be scrolled down all the way when the page loads. 
 cat('
 <script type="text/javascript">
 $(window).load(function ()
@@ -122,7 +122,8 @@ Text can be displayed in a `monospace` font inline.
 
 Both numbered and unnumbered lists are supported.
 Consecutive lines starting with `-` are interpreted as a bulleted list.
-Starting lines with `1. ` (or any other number) indicates a numbered list. 
+Starting lines with `1. ` (or any other number) indicates a numbered list.
+Lists can be nested by indenting the nested list 4 spaces.
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
@@ -140,6 +141,8 @@ rmd_example("
 
 1. mix
 2. bake
+    - 400 F
+    - 30 minutes
 3. eat
             ")
 ```
@@ -160,6 +163,8 @@ rmd_example("
 - - -- - -
 
 ---     ---
+
+-  -        -
                         ")
 ```
 
