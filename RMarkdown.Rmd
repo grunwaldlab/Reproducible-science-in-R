@@ -1,5 +1,7 @@
 ---
-output: html_document
+output:
+  html_document:
+    css: tutorial.css
 ---
 
 ```{r init, echo=FALSE}
@@ -13,23 +15,14 @@ rmd_example <- make_markdown_example_function()
 
 ```{r java, results='asis', echo = FALSE}
 # Add javascript to cause the iframes to be scrolled down all the way when the page loads. 
-cat('
-<script type="text/javascript">
-$(window).load(function ()
-{
-    var $contents = $(".frame").contents();
-    $contents.scrollTop(10000);
-});
-</script>
-  ')
-
+pre_scroll_iframe()
 ```
 
 
 # **R**Markdown
 
 RMarkdown is an extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered.
-This can range from minor bits of code to add the current date to entire analyses being conducted during the rendering of the document, making the rendered document a record of the analysis.
+Types of uses range from adding minor bits of code to timestamp notes to runnning complex analyses and making a report of the results.
 Rmarkdown is implemented using an R package called `knitr`.
 
 ## Mixing R and Markdown
@@ -43,7 +36,7 @@ Unlike the inline method, chunks of code defined this way have many options cono
 
 ```{r intro, results='asis', echo = FALSE}
 rmd_example("
-# Analysis 1
+## Analysis 1
 
 Date: `r Sys.time()` 
 
@@ -58,37 +51,29 @@ median(my_data)
 
 
 
+
+
 ## Code evaluation
 
-In the above example, the code in the chuck was both displayed and evaluated.
-However, it is possible to show code without evaluating it and evaluate it without showing it.
-There are many chunk options that modify how the code is handled; these options are defined in the curly braces after the `r`. 
-Setting the chunk option `include` to `FALSE` causes the chunk to not be displayed in the rendered document. 
+In the above example, the code in the chuck was both displayed and executed.
+However, it is possible to show code without executing it.
+`eval` is one of many chunk options that modify how the code is handled; these options are defined in the curly braces after the `r`. 
 Setting the chunk option `eval` to `FALSE` causes the code not to be executed. 
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
 ```{r code_eval, results='asis', echo = FALSE}
 rmd_example("
-## Code evaluation
+### Code evaluation
 
-Do not include chunk, but still run code: 
-
-\`\`\`{r, include=FALSE}
-var(my_data)
-x = 'I just saved this sentence.'
-\`\`\`
-
-
-Normal evaluation:
+#### Normal evaluation:
 
 \`\`\`{r}
-var(my_data)
-print(x)
+var(my_data) # how to calculate standard deviation in R
 \`\`\`
 
 
-Do not evaluate code: 
+#### Unevaluated code: 
 
 \`\`\`{r, eval=FALSE}
 var(my_data)
@@ -98,11 +83,98 @@ var(my_data)
 ```
 
 
-## Results
+## Text Results
 
 What results of the code are included in the rendered document can also be controlled with chunk options.
+There are at least 9 options that influence how code effects the output document, but we will only cover the most commonly needed here.
+
+### Displaying code
+
+The `echo` option controls wether the code is displayed or not.
+Setting `echo = FALSE` will cause the code to not be shown in the output, but will not effect its execution. 
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r echo_example, results='asis', echo = FALSE}
+rmd_example("
+### Text Results
+
+#### Invisible code:
+
+\`\`\`{r, echo=FALSE}
+var(my_data)
+\`\`\`
+            ")
+
+```
+
+### Displaying results
+
+You can hide the typical text output of chunks by setting `results = 'hide'`.
+This does not effect things like warnings, errors, and graphs. 
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+
+```{r results_example, results='asis', echo = FALSE}
+rmd_example("
+#### Invisible results:
+
+\`\`\`{r, results = 'hide'}
+x = 'This code was executed'
+print(x)
+\`\`\`
+
+
+\`\`\`{r}
+print(x)
+\`\`\`
+            ")
+
+```
+
+### Other text output
+
+There are other types of R text output besides the common type used to display variable values. 
+These include the `message`, `warning`, and `error` messages that well-designed R code uses to alert users of unusual behavior.
+Each of these output types has a corresponding chunk option to control its output.
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r other_text_output, results='asis', echo = FALSE, warning = FALSE}
+rmd_example("
+#### Messages, warnings, and errors:
+
+\`\`\`{r, results = 'hide'}
+print(x)
+message('Messages are used for things like progress updates. They are not effected by `results=\\'hide\\'`.')
+\`\`\`
+
+
+\`\`\`{r, warning = FALSE}
+warning('Hey! Listen to me! Something is wrong!')
+message('The warning was ignored.')
+\`\`\`
+            ")
+
+```
+
+
+Unlike `message` and `warning`, `error` is `FALSE` by default and any errors that occur stop the rendering of the document. 
+If `error` is set to `TRUE`, errors will be displayed and not stop the rendering of the document. 
+
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r error_example, results='asis', echo = FALSE, warning = FALSE}
+rmd_example("
+\`\`\`{r, error = TRUE}
+stop('`stop` is used to signal an error has occured.')
+\`\`\`
+            ")
+
+```
+
 
 ## Figures
 

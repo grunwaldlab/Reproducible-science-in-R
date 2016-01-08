@@ -19,11 +19,16 @@ make_step_counter_function <- function() {
 #' 
 #' @param content (\code{character} of lenght one) RMarkdown text to display and render.
 #' 
-make_markdown_example_function <- function(content) {
+make_markdown_example_function <- function(content, horizontal = TRUE) {
   counter <- 0
   previous_content <- ""
   
-  function(content, cumulative  = TRUE) {
+  function(content, cumulative  = TRUE, height = NULL) {
+    # Set default figure height 
+    if (is.null(height)) {
+      height <- (length(gregexpr("\\n", content)[[1]]) + 1) * 20
+    }
+    
     # increment counter so that file names can be unique
     counter <<- counter + 1
     
@@ -58,14 +63,43 @@ make_markdown_example_function <- function(content) {
     
     
     # Generate html to display source
-    cat(paste0("<pre>", currrent_content, "</pre>"))
+    source_html <- paste0("<pre class = 'rmd_example_code'>", currrent_content, "</pre>")
     
     # Generate html to display knit image
     img_path <- "./markdown_images/pressing_knit_down_arrow.png"
-    css <- "display: block; margin-left: auto; margin-right: auto"
-    cat(paste0("<img src = '", img_path, "' style = '", css, "'>"))
+    image_html <- paste0("<img src='", img_path, "' class='knit_image'>")
     
-    # Generate html iframe to display rendered file
-    cat(paste0("<iframe src='", rel_output_path,  "' width=100% height=300px class='frame'></iframe>"))
+    
+    
+    # Display result
+    if (horizontal) {
+      result_html <- paste0("<iframe src='", rel_output_path,  "' class='example_frame'></iframe>")
+      cat(paste0('<div class = "rmd_example_container" style="height: ', height, 'px">',
+                 '<div class = "rmd_example_inner">', source_html, '</div>',
+                 '<div class = "rmd_example_inner">', result_html, '</div>',
+                 '</div><div style="clear: left;></div>'))
+    } else {
+      result_html <- paste0("<iframe src='", rel_output_path,  "' class='example_frame' style='height: ", height, "px'></iframe>")
+      cat(source_html)
+      cat(image_html)
+      cat(result_html)
+    }
   }
+}
+
+
+
+#' Scrolls iframes
+#' 
+#' Prints Javascript to make iframes scrolled down when page loads
+pre_scroll_iframe <- function() {
+  cat('
+<script type="text/javascript">
+$(window).load(function ()
+{
+    var $contents = $(".example_frame").contents();
+    $contents.scrollTop(10000);
+});
+</script>
+  ')
 }

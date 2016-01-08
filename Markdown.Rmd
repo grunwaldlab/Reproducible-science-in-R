@@ -1,5 +1,7 @@
 ---
-output: html_document
+output:
+  html_document:
+    css: tutorial.css
 ---
 
 ```{r init, echo=FALSE}
@@ -20,15 +22,7 @@ rmd_example <- make_markdown_example_function()
 
 ```{r, results='asis'}
 # Add javascript to cause the iframes to be scrolled down all the way when the page loads. 
-cat('
-<script type="text/javascript">
-$(window).load(function ()
-{
-    var $contents = $(".frame").contents();
-    $contents.scrollTop(10000);
-});
-</script>
-  ')
+pre_scroll_iframe()
 
 ```
 
