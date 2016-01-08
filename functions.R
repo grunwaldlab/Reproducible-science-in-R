@@ -41,7 +41,7 @@ make_markdown_example_function <- function(content) {
     
     # Make output folder
     output_folder_name <- paste0(file_path_sans_ext(current_file_name), "--", "computer_generated_files")
-    if (!dir.exists(output_folder_name)) {
+    if (!file.exists(output_folder_name)) {
       dir.create(output_folder_name)
     }
     
@@ -57,7 +57,7 @@ make_markdown_example_function <- function(content) {
     rmarkdown::render(input = source_path, output_file = output_path, quiet = TRUE)
     
     
-    # Generate markdown to display source
+    # Generate html to display source
     cat(paste0("<pre>", currrent_content, "</pre>"))
     
     # Generate html to display knit image
