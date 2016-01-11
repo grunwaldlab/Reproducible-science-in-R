@@ -1,5 +1,7 @@
 ---
-output: html_document
+output:
+  html_document:
+    css: tutorial.css
 ---
 
 ```{r init, echo=FALSE}
@@ -20,15 +22,7 @@ rmd_example <- make_markdown_example_function()
 
 ```{r, results='asis'}
 # Add javascript to cause the iframes to be scrolled down all the way when the page loads. 
-cat('
-<script type="text/javascript">
-$(window).load(function ()
-{
-    var $contents = $(".frame").contents();
-    $contents.scrollTop(10000);
-});
-</script>
-  ')
+pre_scroll_iframe()
 
 ```
 
@@ -45,15 +39,21 @@ Unlike R code, which can be executed line-by-line in an R console, Markdown is p
 When a Markdown file is processed (i.e. "executed") it produces an output file, usually a HTML or PDF file. 
 Therefore, the first thing we will do is create an empty file to practice on.
 
-**`r step()` In RStudio, click on the new file dropdown menu at the top left and select "R Markdown".**
+### `r step()`
+
+**In RStudio, click on the new file dropdown menu at the top left and select "R Markdown".**
 
 ![](markdown_images/new_rmarkdown_file_screenshot.png)
 
-**`r step()` A new menu window will appear; just click "OK" to use the default settings.**
+### `r step()`
+
+**A new menu window will appear; just click "OK" to use the default settings.**
 
 ![](markdown_images/confirm_new_rmarkdown_file_screenshot.png)
 
-**`r step()` There will be some template text in the new file. Just delete everything so we have a clean file to work from.**
+### `r step()`
+
+**There will be some template text in the new file. Just delete everything so we have a clean file to work from.**
 **You should now have a blank file like the one pictured below.**
 
 ![](markdown_images/blank_rmarkdown_file_screenshot.png)
@@ -75,7 +75,9 @@ The more `#` characters, the smaller the header (e.g. `# Title` makes bigger tex
 
 Surrounding text with `*` makes that section italic and surrounding text with `**` makes it bold. 
 
-**`r step()` Copy the text from the first box below and paste it into your new file (or create your own content with a similar format). Press the "Knit HTML" button at the top of the document. A window should pop up displaying the rendered HTML document with conent similar to that of the second box.**
+### `r step()`
+
+**Copy the text from the first box below and paste it into your new file (or create your own content with a similar format). Press the "Knit HTML" button at the top of the document. A window should pop up displaying the rendered HTML document with conent similar to that of the second box.**
 
 ```{r, results='asis'}
 rmd_example("
@@ -99,7 +101,9 @@ At the top of the pop-up window displaying the document there is a button labele
 Text also can be formatted to look like mono-space code by surrounding text with <code>\`</code> or by indenting lines with 4 or more spaces.
 Starting lines with one or more `>` turns lines of text into block quotes; the number of `>` characters corresponds to the level of nesting.
 
-**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+### `r step()`
+
+**Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
 ```{r, results='asis'}
 rmd_example("
@@ -124,7 +128,9 @@ Consecutive lines starting with `-` are interpreted as a bulleted list.
 Starting lines with `1. ` (or any other number) indicates a numbered list.
 Lists can be nested by indenting the nested list 4 spaces.
 
-**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+### `r step()`
+
+**Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
 ```{r, results='asis'}
 rmd_example("
@@ -151,7 +157,9 @@ rmd_example("
 A horizontal line can be made by three or more `-` on the same line alone. 
 
 
-**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+### `r step()`
+
+**Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
 ```{r, results='asis'}
 rmd_example("
@@ -175,7 +183,9 @@ Adding links and images uses a similar syntax.
 Links can be added using the form `[link name](link location)`, where "link name" is what is displayed and "link location" is a URL or file path.
 To insert and image, use the same syntax, but add a `!` in front: `![mouse hover text](image path)`.
 
-**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+### `r step()` 
+
+**Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
 ```{r, results='asis'}
 rmd_example("
