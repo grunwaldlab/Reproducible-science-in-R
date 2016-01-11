@@ -59,8 +59,10 @@ make_markdown_example_function <- function(content, horizontal = TRUE) {
     output_name <- paste0("example_file_", counter, ".html")
     rel_output_path <- file.path(output_folder_name, output_name)
     output_path <- file.path(current_folder, rel_output_path)
+    current_knit_opts <- opts_chunk$get() # Save external knit parameters to restore later
+    opts_chunk$restore() # Set knitr to use default chunk options
     rmarkdown::render(input = source_path, output_file = output_path, quiet = TRUE)
-    
+    do.call(opts_chunk$set, current_knit_opts) # Restore external knit parameters
     
     # Generate html to display source
     source_html <- paste0("<pre class = 'rmd_example_code'>", currrent_content, "</pre>")
