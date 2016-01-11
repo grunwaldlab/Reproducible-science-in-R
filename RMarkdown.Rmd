@@ -11,6 +11,10 @@ library(tools)
 source("functions.R")
 step <- make_step_counter_function()
 rmd_example <- make_markdown_example_function()
+opts_chunk$set(warning = FALSE,
+               message = FALSE,
+               echo = FALSE)
+
 ```
 
 ```{r java, results='asis', echo = FALSE}
@@ -141,7 +145,7 @@ Each of these output types has a corresponding chunk option to control its outpu
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
-```{r other_text_output, results='asis', echo = FALSE, warning = FALSE}
+```{r other_text_output, results='asis', echo = FALSE}
 rmd_example("
 #### Messages, warnings, and errors:
 
@@ -166,7 +170,7 @@ If `error` is set to `TRUE`, errors will be displayed and not stop the rendering
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
-```{r error_example, results='asis', echo = FALSE, warning = FALSE}
+```{r error_example, results='asis', echo = FALSE}
 rmd_example("
 \`\`\`{r, error = TRUE}
 stop('`stop` is used to signal an error has occured.')
@@ -176,10 +180,10 @@ stop('`stop` is used to signal an error has occured.')
 ```
 
 
-## Figures
+## Adding figures
 
 One of the major advantages of mixing R with markdown is access to R's well known graphical prowess.
-Graphs can be inserted into RMArkdown documents the same way text results are.
+Graphs can be inserted into RMarkdown documents the same way text results are.
 There two primary ways graphs are made in R: the original included graphics capibilities and the newer ggplot2 package. 
 Both are very flexible and each have ther adherants. 
 The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics. 
@@ -187,12 +191,17 @@ We will show examples of both graphing systems, but not attempt to teach either 
 
 ### Typical usage
 
+By default, any plots made are displayed after the line of code that created them.
+The example below uses the R base graphics to plot the distribution of 10 number drawn from a normal distribution.
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
-```{r figure_example, results='asis', echo = FALSE, warning = FALSE}
+```{r figure_example, results='asis', echo = FALSE}
 rmd_example(height = 500, "
-#### Graphing
+### Adding figures
+
+#### Typical usage
+
 
 \`\`\`{r}
 x = rnorm(10)
@@ -203,15 +212,15 @@ hist(x)
 ```
 
 
-### Hiding
+### Hiding figures
 
-
+Figured can be excluded from the output document by setting the chunck option `fig.show` to `'hide'`
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
-```{r hide_figure_example, results='asis', echo = FALSE, warning = FALSE}
+```{r hide_figure_example, results='asis', echo = FALSE}
 rmd_example("
-#### Hiding graphs
+#### Hiding figures
 
 \`\`\`{r, fig.show='hide'}
 x = rnorm(10)
@@ -222,10 +231,121 @@ hist(x)
 ```
 
 
+### Figure sizes
+
+The size of the figures made in a given chunk can be changed using the options `fig.width` and `fig.height`, specified in inches.
+The example below uses `ggplot2` to make a graph similar to the previous ones. 
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r scale_figure_example, results='asis', echo = FALSE}
+rmd_example(height = 500, "
+#### Figure sizes
+
+\`\`\`{r, fig.width=2, fig.height=4}
+library(ggplot2)
+x = data.frame(var = rnorm(100))
+ggplot(x) +
+  geom_histogram(aes(x = var), binwidth = 0.2)
+\`\`\`
+
+\`\`\`{r, fig.width=4, fig.height=2}
+ggplot(x) +
+  geom_histogram(aes(x = var), binwidth = 0.2)
+\`\`\`
+            ")
+```
+
+
+### Animated figures
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r animate_figure_example, results='asis', echo = FALSE}
+rmd_example(height = 500, "
+#### Animated figures
+
+\`\`\`{r,  fig.show='animate', fig.width=5, fig.height=4}
+for (count in 1:4) {
+  n = 10 ^ count
+  x = data.frame(var = rnorm(n))
+  print(ggplot(x) +
+    geom_histogram(aes(x = var), binwidth = 0.2) +
+    ggtitle(paste('n =', n)))
+}
+\`\`\`
+            ")
+
+```
+
+
 
 ## Tables
 
+Like much in R, there are multiple ways to create tables.
+Tables can be created "by hand" using an Rmarkdown syntax, or made using a few R functions.
+Data can be entered manually in a grid of `-` and `|`, with `:` being used to indicate the alignment of cell contents.
+The same format is made automatically with the `kable` function from the `knitr` package using data from data stored in R variables.
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r tables_example, results='asis', echo = FALSE}
+rmd_example(height = 400, "
+### Tables
+
+#### Manual tables
+
+|  x| squared| cubed|
+|--:|-------:|-----:|
+|  1|       1|     1|
+|  2|       4|     8|
+|  3|       9|    27|
+
+#### Kable tables
+
+\`\`\`{r}
+library(knitr)
+data = data.frame(x = 1:3)
+data$squared = data$x ^ 2
+data$cubed = data$x ^ 3
+kable(data)
+\`\`\`
+            ")
+```
+
+A simple HTML table can also be made using a package called `xtable`.
+However, this package is focused mostly on making table for PDF ouptut rather than HTML. 
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r xtables_example, results='asis', echo = FALSE}
+rmd_example(height = 200, "
+#### Xtable tables
+
+\`\`\`{r, results='asis'}
+library(xtable)
+print(xtable(data), type = 'html', include.rownames = F)
+\`\`\`
+            ")
+```
+
 ## Caching
+
+A potential downside of combining code used to analyse data and notes/interpretation is that every time you rerun the RMarkdown document to make a small change (e.g. add or update notes), all of the code is run again even if no changes to the code are made.
+For analyses that take a long time, this can make using RMarkdown impractical.
+Fortunatly, there is a feature called caching that allows the results of each chunk to be saved independently and reused if no changes are made to that chunk.
+Setting the chunk option `cache` to `TRUE` will mean that after a code chunk is run for the first time it will not need to be run again unless it changes.
+
+```{r caching_example, results='asis', echo = FALSE}
+rmd_example(height = 200, "
+#### Xtable tables
+
+\`\`\`{r, results='asis'}
+library(xtable)
+print(xtable(data), type = 'html', include.rownames = F)
+\`\`\`
+            ")
+```
 
 ## YAML headers
 
