@@ -178,6 +178,51 @@ stop('`stop` is used to signal an error has occured.')
 
 ## Figures
 
+One of the major advantages of mixing R with markdown is access to R's well known graphical prowess.
+Graphs can be inserted into RMArkdown documents the same way text results are.
+There two primary ways graphs are made in R: the original included graphics capibilities and the newer ggplot2 package. 
+Both are very flexible and each have ther adherants. 
+The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics. 
+We will show examples of both graphing systems, but not attempt to teach either since they are both rather complex.
+
+### Typical usage
+
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r figure_example, results='asis', echo = FALSE, warning = FALSE}
+rmd_example(height = 500, "
+#### Graphing
+
+\`\`\`{r}
+x = rnorm(10)
+print(x)
+hist(x)
+\`\`\`
+            ")
+```
+
+
+### Hiding
+
+
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r hide_figure_example, results='asis', echo = FALSE, warning = FALSE}
+rmd_example("
+#### Hiding graphs
+
+\`\`\`{r, fig.show='hide'}
+x = rnorm(10)
+print(x)
+hist(x)
+\`\`\`
+            ")
+```
+
+
+
 ## Tables
 
 ## Caching
