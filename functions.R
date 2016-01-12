@@ -23,7 +23,7 @@ make_markdown_example_function <- function(content, horizontal = TRUE) {
   counter <- 0
   previous_content <- ""
   
-  function(content, cumulative  = TRUE, height = NULL) {
+  function(content, cumulative  = TRUE, height = NULL, prefix = FALSE) {
     # Set default figure height 
     if (is.null(height)) {
       height <- (length(gregexpr("\\n", content)[[1]]) + 1) * 20
@@ -35,7 +35,12 @@ make_markdown_example_function <- function(content, horizontal = TRUE) {
     # implement content saving
     currrent_content <- content
     if (cumulative) {
-      content <- paste0(previous_content, content)
+      if (prefix) {
+        content <- paste0(content, previous_content)
+        
+      } else {
+        content <- paste0(previous_content, content)
+      }
       previous_content <<- content
     }
     
