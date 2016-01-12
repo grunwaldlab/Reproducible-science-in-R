@@ -26,15 +26,15 @@ pre_scroll_iframe()
 # **R**Markdown
 
 RMarkdown is an extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered.
-Types of uses range from adding minor bits of code to timestamp notes to runnning complex analyses and making a report of the results.
+Types of uses range from adding minor bits of code to time-stamp notes to running complex analyses and making a report of the results.
 Rmarkdown is implemented using an R package called `knitr`.
 
 ## Mixing R and Markdown
 
 There are two ways to add R code to Markdown: inline, and chunks.
-The syntax to adding inline code is the same as specifying a monospace font (surounding text with <code>\`</code>), except that an `r` is added after the first <code>\`</code>.
+The syntax to adding inline code is the same as specifying a monospace font (surrounding text with <code>\`</code>), except that an `r` is added after the first <code>\`</code>.
 Multiple lines of code (called a "chunk") can be added by putting the lines of code between <code>\`\`\`{r}</code> and <code>\`\`\`</code>, each on their own line. 
-Unlike the inline method, chunks of code defined this way have many options conotroling how they are handled; we will cover some of these options soon.
+Unlike the inline method, chunks of code defined this way have many options controlling how they are handled; we will cover some of these options soon.
 
 **`r step()` Create a new markdown document and delete all the default template content. Paste in the code below, save the file, and press "Knit HTML".**
 
@@ -94,7 +94,7 @@ There are at least 9 options that influence how code effects the output document
 
 ### Displaying code
 
-The `echo` option controls wether the code is displayed or not.
+The `echo` option controls whether the code is displayed or not.
 Setting `echo = FALSE` will cause the code to not be shown in the output, but will not effect its execution. 
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
@@ -184,8 +184,8 @@ stop('`stop` is used to signal an error has occured.')
 
 One of the major advantages of mixing R with markdown is access to R's well known graphical prowess.
 Graphs can be inserted into RMarkdown documents the same way text results are.
-There two primary ways graphs are made in R: the original included graphics capibilities and the newer ggplot2 package. 
-Both are very flexible and each have ther adherants. 
+There two primary ways graphs are made in R: the original included graphics capabilities and the newer ggplot2 package. 
+Both are very flexible and each have their adherents. 
 The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics. 
 We will show examples of both graphing systems, but not attempt to teach either since they are both rather complex.
 
@@ -214,7 +214,7 @@ hist(x)
 
 ### Hiding figures
 
-Figured can be excluded from the output document by setting the chunck option `fig.show` to `'hide'`
+Figured can be excluded from the output document by setting the chunk option `fig.show` to `'hide'`
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
@@ -314,7 +314,7 @@ kable(data)
 ```
 
 A simple HTML table can also be made using a package called `xtable`.
-However, this package is focused mostly on making table for PDF ouptut rather than HTML. 
+However, this package is focused mostly on making table for PDF output rather than HTML. 
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
@@ -334,7 +334,7 @@ print(xtable(data), type = 'html',
 
 A potential downside of combining code used to analyse data and notes/interpretation is that every time you rerun the RMarkdown document to make a small change (e.g. add or update notes), all of the code is run again even if no changes to the code are made.
 For analyses that take a long time, this can make using RMarkdown impractical.
-Fortunatly, there is a feature called caching that allows the results of each chunk to be saved independently and reused if no changes are made to that chunk.
+Fortunately, there is a feature called caching that allows the results of each chunk to be saved independently and reused if no changes are made to that chunk.
 Setting the chunk option `cache` to `TRUE` will mean that after a code chunk is run for the first time it will not need to be run again unless it changes.
 
 Below is an example of code to draw a [Barnsley Fern](https://en.wikipedia.org/wiki/Barnsley_fern) borrowed from an [RPub by Kui-Ming Chen](https://rpubs.com/BenChen/fern_fractal).
@@ -400,8 +400,8 @@ output:
 ```
 
 On of the best uses of the YAML header is to specify the format you want the output document to be when it is rendered.
-There are multiple output types, but the used besides HTML is PDF. 
-The code below showes how to set the output type to pdf.
+There are multiple output types, but the most used besides HTML is PDF. 
+The code below shows how to set the output type to pdf.
 
 **`r step()` Replace the YAML header _at the start_ of your Markdown document with the one below and press "Knit HTML".**
 
@@ -415,6 +415,115 @@ output:
 ```
 
 
-## Other output formats
+## Adding a bibliography
+
+There are a few ways of adding references/bibliographies to your RMarkdown document automatically.
+We will be using an external file containing a list of references in a standard format called BibTeX. 
+Like RMarkdown, this is simply a plain text format viewable in any text editor.
+Text files of any format can be made in RStudio by clicking on the "New file" dropdown menu and choosing "Text file".
+
+**`r step()` Click on the "New file" dropdown menu and choose "Text file". Paste the text below into the file and save it as "bibliography.bibtex".**
+
+```{r make_bib, include = FALSE}
+current_file_name <- knitr:::knit_concord$get("infile")
+output_folder_name <- paste0(file_path_sans_ext(current_file_name), "--", "computer_generated_files")
+bib_path <- file.path(output_folder_name, "bibliography.bibtex")
+bib_content <-"
+@article{baumer2014r,
+  title={R Markdown: Integrating a reproducible analysis tool into introductory statistics},
+  author={Baumer, Ben and Cetinkaya-Rundel, Mine and Bray, Andrew and Loi, Linda and Horton, Nicholas J},
+  journal={arXiv preprint arXiv:1402.1894},
+  year={2014}
+}
+@article{racine2012rstudio,
+  title={RStudio: A Platform-Independent IDE for R and Sweave},
+  author={Racine, Jeffrey S},
+  journal={Journal of Applied Econometrics},
+  volume={27},
+  number={1},
+  pages={167--172},
+  year={2012},
+  publisher={Wiley Online Library}
+}
+"
+cat(bib_content, file = bib_path)
+```
+
+
+```{r print_bib, results='hide', echo = FALSE, }
+paste0("```\n",
+       bib_content,
+       "```\n")
+```
+
+
+```
+@article{baumer2014r,
+  title={R Markdown: Integrating a reproducible analysis tool into introductory statistics},
+  author={Baumer, Ben and Cetinkaya-Rundel, Mine and Bray, Andrew and Loi, Linda and Horton, Nicholas J},
+  journal={arXiv preprint arXiv:1402.1894},
+  year={2014}
+}
+@article{racine2012rstudio,
+  title={RStudio: A Platform-Independent IDE for R and Sweave},
+  author={Racine, Jeffrey S},
+  journal={Journal of Applied Econometrics},
+  volume={27},
+  number={1},
+  pages={167--172},
+  year={2012},
+  publisher={Wiley Online Library}
+}
+```
+
+Now, the information for a few papers are stored in a file format both computers and humans can read.
+Next, we will associate the bibliography file with the RMarkdown file.
+This is done using a setting in the YAML header.
+
+**`r step()` Replace the YAML header _at the start_ of your Markdown document with the one below.**
+
+
+```{r bibliography, results='asis', echo = FALSE}
+rmd_example(height = 300, prefix = TRUE, "
+---
+output:
+  html_document:
+    toc: true
+    number_sections: true
+bibliography: bibliography.bibtex
+---
+")
+```
+
+Now the two files are associated with each other, but the papers are not yet cited in the RMarkdown document.
+There is an ID for each article stored in the bibtex file located in the lines that start with `@article{`.
+Inline citations can be inserted by adding `@` followed by the ID of the paper.
+Surrounding the `@ID` with `[` and `]` changes the format of the citation slightly.
+Citing any papers will cause the bibliography to be added to the bottom of the rendered document. 
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r bib_example, results='asis', echo = FALSE}
+rmd_example(height = 200, "
+### Adding a bibliography
+
+RMarkdown [@baumer2014r] is referenced in the @racine2012rstudio paper.  
+
+### References
+            ")
+```
+
+
 
 ## Additional resources
+
+RMarkdown is much more complex than pure Markdown due to all the subtle ways code can be handled and the results displayed. 
+Most people will need to constantly reference documentation and "cheat sheets" to remind themselves of ways to do occasionally necessary tasks.
+It is best to commit to memory only the most commonly used tools and know where to look up the rest.
+
+Albert Einstein once said "Never memorize something that you can look up."
+In that spirit, here are some great places to look things up:
+
+- [The RMarkdown website](http://rmarkdown.rstudio.com/): This is the official website for RMarkdown. It contains examples of most of the features of RMarkdown.
+- [The Knitr website](http://yihui.name/knitr/): Information on the primary tool used by RMarkdown to render documents. This is official source of information on chunk options. 
+- [An RMarkdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf): This summarizes the main tools of RMarkdown in just two pages. 
