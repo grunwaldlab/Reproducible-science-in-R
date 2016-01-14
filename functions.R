@@ -23,7 +23,7 @@ make_markdown_example_function <- function(content, horizontal = TRUE) {
   counter <- 0
   previous_content <- ""
   
-  function(content, cumulative  = TRUE, height = NULL, prefix = FALSE) {
+  function(content, cumulative  = FALSE, height = NULL, prefix = FALSE) {
     # Set default figure height 
     if (is.null(height)) {
       height <- (length(gregexpr("\\n", content)[[1]]) + 1) * 20
