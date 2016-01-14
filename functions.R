@@ -84,7 +84,7 @@ make_markdown_example_function <- function(content, horizontal = TRUE) {
       cat(paste0('<div class = "rmd_example_container" style="height: ', height, 'px">',
                  '<div class = "rmd_example_inner">', source_html, '</div>',
                  '<div class = "rmd_example_inner">', result_html, '</div>',
-                 '</div><div style="clear: left;></div>'))
+                 '</div><div style="clear: left;"></div>'))
     } else {
       result_html <- paste0("<iframe src='", rel_output_path,  "' class='example_frame' style='height: ", height, "px'></iframe>")
       cat(source_html)
