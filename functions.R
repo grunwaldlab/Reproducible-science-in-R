@@ -19,7 +19,7 @@ make_step_counter_function <- function() {
 #' 
 #' @param content (\code{character} of lenght one) RMarkdown text to display and render.
 #' 
-make_markdown_example_function <- function(content, horizontal = TRUE) {
+make_markdown_example_function <- function(content, horizontal = FALSE) {
   counter <- 0
   previous_content <- ""
   
