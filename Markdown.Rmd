@@ -26,34 +26,28 @@ pre_scroll_iframe()
 
 ```
 
-# Markdown
+## Markdown
 
 Markdown is a simple, human-readable [plain text](https://en.wikipedia.org/wiki/Plain_text) format that can be rendered as HTML or PDF files by numerous program, including RStudio.
 The format is just a set of conventions for formatting plain text files that is understood by many programs.
 Some programs support features others do not, but the basics of Markdown are the same for most.
 This portion of the tutorial will cover the aspects of Markdown that are shared by all programs able to interpret it. 
 
-## Getting started
+### Getting started
 
 Unlike R code, which can be executed line-by-line in an R console, Markdown is processed as a whole file.
 When a Markdown file is processed (i.e. "executed") it produces an output file, usually a HTML or PDF file. 
 Therefore, the first thing we will do is create an empty file to practice on.
 
-### `r step()`
-
-**In RStudio, click on the new file dropdown menu at the top left and select "R Markdown".**
+**`r step()` In RStudio, click on the new file dropdown menu at the top left and select "R Markdown".**
 
 ![](markdown_images/new_rmarkdown_file_screenshot.png)
 
-### `r step()`
-
-**A new menu window will appear; just click "OK" to use the default settings.**
+**`r step()` A new menu window will appear; just click "OK" to use the default settings.**
 
 ![](markdown_images/confirm_new_rmarkdown_file_screenshot.png)
 
-### `r step()`
-
-**There will be some template text in the new file. Just delete everything so we have a clean file to work from.**
+**`r step()` There will be some template text in the new file. Just delete everything so we have a clean file to work from.**
 **You should now have a blank file like the one pictured below.**
 
 ![](markdown_images/blank_rmarkdown_file_screenshot.png)
@@ -63,29 +57,26 @@ Therefore, the first thing we will do is create an empty file to practice on.
 
 Note that the file extension is ".Rmd" rather than  ".md" (the typical extension for Markdown files).
 This is for **R**Markdown, a file format that adds the ability to incorporate R code with standard Markdown.
-We are using ".Rmd" instead of ".md" since we will be covering RMarkdown in the next section.
+We are using ".Rmd" instead of ".md" since we will be covering RMarkdown in the next section, but nothing in this section is specific to RMarkdown.
 
-##  Basic text formatting
+### Basic text formatting
 
 Markdown is meant to be easily read by humans as well as computers.
-Therefore, it has a minimal set of simple syntax rules that font interfere with the readability of the source file. 
+Therefore, it has a minimal set of simple syntax rules that are designed to not interfere with the readability of the source file. 
 
 Headings are specified by starting a line with one to four `#` characters.
 The more `#` characters, the smaller the header (e.g. `# Title` makes bigger text than `## Subtitle`). 
-
 Surrounding text with `*` makes that section italic and surrounding text with `**` makes it bold. 
 
-### `r step()`
-
-**Copy the text from the first box below and paste it into your new file (or create your own content with a similar format). Press the "Knit HTML" button at the top of the document. A window should pop up displaying the rendered HTML document with conent similar to that of the second box.**
+**`r step()` Copy the text from the first box below and paste it into your new file (or create your own content with a similar format). Press the "Knit HTML" button at the top of the document. A window should pop up displaying the rendered HTML document with conent similar to that of the second box.**
 
 ```{r, results='asis'}
 rmd_example("
-# Experimental protocol
+## Markdown
 
 Text with no special formatting is displayed in the default font.
 
-## Assay 1
+### Basic text formatting
 
 Text can also be **bold** or *italic*.
             ")
@@ -96,19 +87,15 @@ This file is self-contained and can be viewed using any web browser.
 At the top of the pop-up window displaying the document there is a button labeled "Open in Browser" that will open the new file in your default web browser.
 
 
-## Code and quotes
+### Code and quotes
 
 Text also can be formatted to look like mono-space code by surrounding text with <code>\`</code> or by indenting lines with 4 or more spaces.
 Starting lines with one or more `>` turns lines of text into block quotes; the number of `>` characters corresponds to the level of nesting.
 
-### `r step()`
-
-**Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
 ```{r, results='asis'}
 rmd_example("
-## Assay 2
-
 Text can be displayed in a `monospace` font inline.
 
     Whole blocks of text can
@@ -121,28 +108,28 @@ Text can be displayed in a `monospace` font inline.
             ")
 ```
 
-## Lists
+### Lists
 
 Both numbered and unnumbered lists are supported.
 Consecutive lines starting with `-` are interpreted as a bulleted list.
 Starting lines with `1. ` (or any other number) indicates a numbered list.
 Lists can be nested by indenting the nested list 4 spaces.
 
-### `r step()`
+#### `r step()`
 
-**Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
 ```{r, results='asis'}
 rmd_example("
-## Assay 3
+### Lists
 
-### Recipe
+#### Unordered
 
 - eggs
 - milk
 - flour
 
-### Instructions
+#### Ordered/Nested
 
 1. mix
 2. bake
@@ -152,44 +139,38 @@ rmd_example("
             ")
 ```
 
-## Horizontal rules
+### Horizontal rules
 
 A horizontal line can be made by three or more `-` on the same line alone. 
 
 
-### `r step()`
-
-**Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
 ```{r, results='asis'}
 rmd_example("
-## Assay 4
+### Horizontal rules
 
 ---
 
 - - -- - -
 
 ---     ---
-
--  -        -
                         ")
 ```
 
 
 
-## Links and images
+### Links and images
 
 Adding links and images uses a similar syntax.
 Links can be added using the form `[link name](link location)`, where "link name" is what is displayed and "link location" is a URL or file path.
 To insert and image, use the same syntax, but add a `!` in front: `![mouse hover text](image path)`.
 
-### `r step()` 
-
-**Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
 ```{r, results='asis'}
 rmd_example("
-## Assay 5
+### Links and images
 
 I used [Google](https://www.google.com/) to find this image:
 
@@ -198,10 +179,10 @@ I used [Google](https://www.google.com/) to find this image:
 ```
 
 
-## Additional resources
+### Additional resources
 
 - [Daring Fireball](https://daringfireball.net/projects/markdown/): The website of the original author of the Markdown language.
-  It is the closes thing to an offical syntax definition.
+  It is the closes thing to an official syntax definition.
 - [GitHub Markdown](https://guides.github.com/features/mastering-markdown/): A guide to using the GitHub "flavor" of Markdown.
 - [Markdown Tutorial](http://markdowntutorial.com/): An interactive tutorial to help learn markdown.
 - [Babelmark 2](http://johnmacfarlane.net/babelmark2/):

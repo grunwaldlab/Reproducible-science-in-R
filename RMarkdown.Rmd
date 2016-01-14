@@ -23,13 +23,16 @@ pre_scroll_iframe()
 ```
 
 
-# **R**Markdown
+## **R**Markdown
 
 RMarkdown is an extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered.
 Types of uses range from adding minor bits of code to time-stamp notes to running complex analyses and making a report of the results.
 Rmarkdown is implemented using an R package called `knitr`.
+Unlike pure Markdown, RMarkdown is very flexible and complex.
+Therefore, as you go through the exercises, it is probably best to focus on remembering *what* RMarkdown can do rather than *how* to do it.
+At the end of the section there are resources that you can reference when you need to look up how to do a specific task.
 
-## Mixing R and Markdown
+### Mixing R and Markdown
 
 There are two ways to add R code to Markdown: inline, and chunks.
 The syntax to adding inline code is the same as specifying a monospace font (surrounding text with <code>\`</code>), except that an `r` is added after the first <code>\`</code>.
@@ -40,7 +43,7 @@ Unlike the inline method, chunks of code defined this way have many options cont
 
 ```{r intro, results='asis', echo = FALSE}
 rmd_example("
-## Analysis 1
+## **R**Markdown
 
 Date: `r Sys.time()` 
 
@@ -57,7 +60,7 @@ median(my_data)
 
 
 
-## Code evaluation
+### Code evaluation
 
 In the above example, the code in the chuck was both displayed and executed.
 However, it is possible to show code without executing it.
@@ -87,12 +90,12 @@ var(my_data)
 ```
 
 
-## Text Results
+### Text Results
 
 What results of the code are included in the rendered document can also be controlled with chunk options.
 There are at least 9 options that influence how code effects the output document, but we will only cover the most commonly needed here.
 
-### Displaying code
+#### Displaying code
 
 The `echo` option controls whether the code is displayed or not.
 Setting `echo = FALSE` will cause the code to not be shown in the output, but will not effect its execution. 
@@ -112,7 +115,7 @@ var(my_data)
 
 ```
 
-### Displaying results
+#### Displaying results
 
 You can hide the typical text output of chunks by setting `results = 'hide'`.
 This does not effect things like warnings, errors, and graphs. 
@@ -137,7 +140,7 @@ print(x)
 
 ```
 
-### Other text output
+#### Other text output
 
 There are other types of R text output besides the common type used to display variable values. 
 These include the `message`, `warning`, and `error` messages that well-designed R code uses to alert users of unusual behavior.
@@ -180,7 +183,7 @@ stop('`stop` is used to signal an error has occured.')
 ```
 
 
-## Adding figures
+### Adding figures
 
 One of the major advantages of mixing R with markdown is access to R's well known graphical prowess.
 Graphs can be inserted into RMarkdown documents the same way text results are.
@@ -189,7 +192,7 @@ Both are very flexible and each have their adherents.
 The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics. 
 We will show examples of both graphing systems, but not attempt to teach either since they are both rather complex.
 
-### Typical usage
+#### Typical usage
 
 By default, any plots made are displayed after the line of code that created them.
 The example below uses the R base graphics to plot the distribution of 10 number drawn from a normal distribution.
@@ -212,7 +215,7 @@ hist(x)
 ```
 
 
-### Hiding figures
+#### Hiding figures
 
 Figured can be excluded from the output document by setting the chunk option `fig.show` to `'hide'`
 
@@ -231,7 +234,7 @@ hist(x)
 ```
 
 
-### Figure sizes
+#### Figure sizes
 
 The size of the figures made in a given chunk can be changed using the options `fig.width` and `fig.height`, specified in inches.
 The example below uses `ggplot2` to make a graph similar to the previous ones. 
@@ -257,7 +260,7 @@ ggplot(x) +
 ```
 
 
-### Animated figures
+#### Animated figures
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
@@ -280,7 +283,7 @@ for (count in 1:4) {
 
 
 
-## Tables
+### Tables
 
 Like much in R, there are multiple ways to create tables.
 Tables can be created "by hand" using an Rmarkdown syntax, or made using a few R functions.
@@ -330,7 +333,7 @@ print(xtable(data), type = 'html',
             ")
 ```
 
-## Caching
+### Caching
 
 A potential downside of combining code used to analyse data and notes/interpretation is that every time you rerun the RMarkdown document to make a small change (e.g. add or update notes), all of the code is run again even if no changes to the code are made.
 For analyses that take a long time, this can make using RMarkdown impractical.
@@ -377,7 +380,7 @@ plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
 There are subtle issues that can occur when mixing cached and uncached chunks that reference the same variables, so you should learn more about the details of how caching works before relying on it too heavily.
 
 
-## YAML headers
+### YAML headers
 
 As you might have noticed, the top of the template document RStudio provides when creating a new RMarkdown document contains some settings in a distinct format.
 This header information of RMarkdown file in a language called YAML, used to store information.
@@ -415,7 +418,7 @@ output:
 ```
 
 
-## Adding a bibliography
+### Adding a bibliography
 
 There are a few ways of adding references/bibliographies to your RMarkdown document automatically.
 We will be using an external file containing a list of references in a standard format called BibTeX. 
@@ -515,7 +518,7 @@ RMarkdown [@baumer2014r] is referenced in the @racine2012rstudio paper.
 
 
 
-## Additional resources
+### Additional resources
 
 RMarkdown is much more complex than pure Markdown due to all the subtle ways code can be handled and the results displayed. 
 Most people will need to constantly reference documentation and "cheat sheets" to remind themselves of ways to do occasionally necessary tasks.
