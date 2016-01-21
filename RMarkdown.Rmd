@@ -11,6 +11,7 @@ library(tools)
 source("functions.R")
 step <- make_step_counter_function()
 rmd_example <- make_markdown_example_function()
+gloss <- make_glossary_function()
 opts_chunk$set(warning = FALSE,
                message = FALSE,
                echo = FALSE)
@@ -25,27 +26,29 @@ pre_scroll_iframe()
 
 ## **R**Markdown
 
+While Markdown is useful for simple note taking and writing, `r gloss("RMarkdown", "An extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered")` can be used to mix complex analyses and programming with all the features of Markdown.
+Graphs, tables, file input/output, and bibliographies can all be incorperated using RMarkdown.
 RMarkdown is an extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered.
-Types of uses range from adding minor bits of code to time-stamp notes to running complex analyses and making a report of the results.
+Typical uses range from adding minor bits of code to time-stamp notes to running complex analyses and making a report of the results.
 Unlike pure Markdown, RMarkdown is very flexible and complex.
 Therefore, as you go through the exercises, it is probably best to focus on remembering *what* RMarkdown can do rather than *how* to do it.
 At the end of the section there are resources that you can reference when you need to look up how to do a specific task.
 
-Note that the rendering of RMarkdown is implemented using an R package called `knitr` so you might see references to things like "knitr options".
-This is also the reason the button you press to render RMarkdown into its output document is labeled "Knit HTML".
-
+Note that the rendering of RMarkdown is implemented using an R package called `r gloss("knitr", "An R package used to render RMarkdown, as well as other mixes of programming and markup languages")` so you might see references to things like "knitr options".
+This is also the reason the button you press to render RMarkdown into an output document is labeled "Knit HTML".
 
 ### Mixing R and Markdown
 
 There are two ways to add R code to Markdown: inline, and chunks.
 The syntax to adding inline code is the same as specifying a monospace font (surrounding text with <code>\`</code>), except that an `r` is added after the first <code>\`</code>.
-Multiple lines of code (called a "chunk") can be added by putting the lines of code between <code>\`\`\`{r}</code> and <code>\`\`\`</code>, each on their own line. 
-Unlike the inline method, chunks of code defined this way have many options controlling how they are handled; we will cover some of these options soon.
+Multiple lines of code can be added by putting the lines of code between <code>\`\`\`{r}</code> and <code>\`\`\`</code>, each on their own line.
+This is reffered to as a `r gloss("chunk", "One or more consecuative lines of code in a RMarkdown file")`.
+Unlike the inline method, chunks of code defined this way have many options controlling how they are processed when a document is rendered; we will cover some of these options soon.
 
 **`r step()` Create a new markdown document and delete all the default template content. Paste in the code below, save the file, and press "Knit HTML".**
 
 ```{r intro, results='asis', echo = FALSE}
-rmd_example("
+rmd_example(show_knit_button= TRUE, "
 ## **R**Markdown
 
 Date: `r Sys.time()` 
@@ -190,7 +193,7 @@ stop('`stop` is used to signal an error has occured.')
 
 One of the major advantages of mixing R with markdown is access to R's well known graphical prowess.
 Graphs can be inserted into RMarkdown documents the same way text results are.
-There two primary ways graphs are made in R: the original included graphics capabilities and the newer ggplot2 package. 
+There two primary ways graphs are made in R: the `r gloss("R base graphics", "original graphing capabilities that are part of the core R language")` and the newer `r gloss("ggplot2", "An R package used for graphing as an alternative to the base graphics")` package. 
 Both are very flexible and each have their adherents. 
 The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics. 
 We will show examples of both graphing systems, but not attempt to teach either since they are both rather complex.
@@ -298,8 +301,8 @@ kable(data)
             ")
 ```
 
-A simple HTML table can also be made using a package called `xtable`.
-However, this package is focused mostly on making table for PDF output rather than HTML. 
+A simple HTML table can also be made using a package called `r gloss("xtable", "An R package to print PDF/HTML tables from data encoded in R variables")`.
+However, this package is focused mostly on making table for PDF output rather than HTML, so the tables it produces look rather primative without additional styling. 
 
 **`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
 
@@ -322,7 +325,7 @@ print(xtable(data), type = 'html',
 ### YAML headers
 
 As you might have noticed, the top of the template document RStudio provides when creating a new RMarkdown document contains some settings in a distinct format.
-This header information of RMarkdown file in a language called YAML, used to store information.
+This header information of RMarkdown file in a language called `r gloss("YAML", "A plain text computer language used to store heirarchical information")`, used to store information.
 In this case, the YAML is used to change settings of the functions that render the Markdown to various formats when you press "Knit".
 The YAML header can be used to do things like change the output format to PDF, add a table of contents, and specify themes. 
 
@@ -359,8 +362,8 @@ output:
 
 ### Adding a bibliography
 
-There are a few ways of adding references/bibliographies to your RMarkdown document automatically.
-We will be using an external file containing a list of references in a standard format called BibTeX. 
+There are a few ways of adding citations/bibliographies to your RMarkdown document automatically.
+We will be using an external file containing a list of references in a standard format called `r gloss("BibTeX", "A plain text format used to store citation/bibliography information")`. 
 Like RMarkdown, this is simply a plain text format viewable in any text editor.
 Text files of any format can be made in RStudio by clicking on the "New file" dropdown menu and choosing "Text file".
 
@@ -461,3 +464,11 @@ In that spirit, here are some great places to look things up:
 - [The RMarkdown website](http://rmarkdown.rstudio.com/): This is the official website for RMarkdown. It contains examples of most of the features of RMarkdown.
 - [The Knitr website](http://yihui.name/knitr/): Information on the primary tool used by RMarkdown to render documents. This is official source of information on chunk options. 
 - [An RMarkdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf): This summarizes the main tools of RMarkdown in just two pages. 
+
+
+### Glossary
+
+```{r glossary, results = 'asis'}
+gloss(display = TRUE)
+```
+

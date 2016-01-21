@@ -111,4 +111,31 @@ $(window).load(function ()
 }
 
 
+#' Glossary
+#'
+#' Handles the defining and printing of glossary terms. 
+make_glossary_function <- function() {
+  glossary  <- list()
+  function(term = NULL, description = NULL, display_glossary = FALSE) {
+    if (display_glossary) {
+      for (index in seq_along(glossary)) {
+        glossary <<- glossary[order(names(glossary))]
+        cat(paste0("<strong><ins>", names(glossary)[index], "</ins></strong>: ", glossary[[index]], "\n\n"))
+      }
+    } else {
+      if (is.null(term) | is.null(description)) {
+        stop("Glossary term and/or description required")
+      }
+      # Save term in glossary
+      glossary[term] <<- description
+      
+      # Print formatted term
+      rendered_term <- paste0("<strong><ins>", term, "</ins></strong>")
+      return(rendered_term)
+    }
+  }
+}
+
+
+
 
