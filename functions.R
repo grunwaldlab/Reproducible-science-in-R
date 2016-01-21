@@ -48,26 +48,17 @@ make_markdown_example_function <- function(content, horizontal = FALSE) {
     # get input document information
     current_file_name <- knitr:::knit_concord$get("infile")
     current_folder <- normalizePath(knitr:::.knitEnv$input.dir)
-    
-    # Make output folder
-    output_folder_name <- paste0(file_path_sans_ext(current_file_name), "--", "computer_generated_files")
-    if (!file.exists(output_folder_name)) {
-      dir.create(output_folder_name)
-    }
-    
+
     # Create source Rmd file
-    source_name <- paste0("example_file_", counter, ".Rmd")
-    source_path <- file.path(current_folder, output_folder_name, source_name)
+    source_path <- tempfile(pattern = "rmarkdown_example", fileext = ".Rmd", tmpdir = current_folder)
     cat(content, file = source_path)
     
     # Render source file to html
-    output_name <- paste0("example_file_", counter, ".html")
-    rel_output_path <- file.path(output_folder_name, output_name)
-    output_path <- file.path(current_folder, rel_output_path)
+    output_path <- tempfile(pattern = "rmarkdown_example", fileext = ".html", tmpdir = current_folder)
     current_knit_opts <- opts_chunk$get() # Save external knit parameters to restore later
     opts_chunk$restore() # Set knitr to use default chunk options
-    rmarkdown::render(input = source_path, output_file = output_path, quiet = TRUE)
-    do.call(opts_chunk$set, current_knit_opts) # Restore external knit parameters
+    rmarkdown::render(input = source_path, output_file = output_path, quiet = TRUE, output_format = "html_fragment")
+   
     
     # Generate html to display source
     source_html <- paste0("<pre class = 'rmd_example_code'>", currrent_content, "</pre>")
@@ -76,20 +67,28 @@ make_markdown_example_function <- function(content, horizontal = FALSE) {
     img_path <- "./markdown_images/pressing_knit_down_arrow.png"
     image_html <- paste0("<img src='", img_path, "' class='knit_image'>")
     
+    # Rendered HTML
+    result_html <- readChar(output_path, file.info(output_path)$size)
     
+    on.exit({
+      do.call(opts_chunk$set, current_knit_opts) # Restore external knit parameters
+      file.remove(source_path)
+      file.remove(output_path)
+    })
     
     # Display result
     if (horizontal) {
-      result_html <- paste0("<iframe src='", rel_output_path,  "' class='example_frame'></iframe>")
-      cat(paste0('<div class = "rmd_example_container" style="height: ', height, 'px">',
-                 '<div class = "rmd_example_inner">', source_html, '</div>',
-                 '<div class = "rmd_example_inner">', result_html, '</div>',
+      cat(paste0('<div class = "rmd_example_container">',
+                 '<div class = "rmd_example_inner rmd_example_source">', source_html, '</div>',
+                 '<div class = "rmd_example_inner rmd_example_result">', result_html, '</div>',
                  '</div><div style="clear: left;"></div>'))
     } else {
-      result_html <- paste0("<iframe src='", rel_output_path,  "' class='example_frame' style='height: ", height, "px'></iframe>")
-      cat(source_html)
-      cat(image_html)
-      cat(result_html)
+      cat(paste0('<div class = "rmd_example_container">',
+                 '<div class = "rmd_example_source">', source_html, '</div>',
+                 image_html,
+                 '<div class = "rmd_example_result">', result_html, '</div>',
+                 '</div><div style="clear: left;"></div>'))
+      
     }
   }
 }
@@ -110,3 +109,6 @@ $(window).load(function ()
 </script>
   ')
 }
+
+
+

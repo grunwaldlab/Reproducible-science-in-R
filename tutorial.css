@@ -30,3 +30,15 @@
 .rmd_example_code {
   height: 100%
 }
+
+
+.rmd_example_result {
+  background-color: lightyellow;
+  border-style: dotted;
+  border-width: 3px;
+  border-color: #007fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  zoom: .9;
+  -moz-transform: scale(.9);
+}
