@@ -27,10 +27,13 @@ pre_scroll_iframe()
 
 RMarkdown is an extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered.
 Types of uses range from adding minor bits of code to time-stamp notes to running complex analyses and making a report of the results.
-Rmarkdown is implemented using an R package called `knitr`.
 Unlike pure Markdown, RMarkdown is very flexible and complex.
 Therefore, as you go through the exercises, it is probably best to focus on remembering *what* RMarkdown can do rather than *how* to do it.
 At the end of the section there are resources that you can reference when you need to look up how to do a specific task.
+
+Note that the rendering of RMarkdown is implemented using an R package called `knitr` so you might see references to things like "knitr options".
+This is also the reason the button you press to render RMarkdown into its output document is labeled "Knit HTML".
+
 
 ### Mixing R and Markdown
 
