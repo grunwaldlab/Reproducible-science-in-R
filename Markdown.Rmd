@@ -41,16 +41,16 @@ Therefore, the first thing we will do is create an empty file to practice on.
 
 **`r step()` In RStudio, click on the new file dropdown menu at the top left and select "R Markdown".**
 
-![](markdown_images/new_rmarkdown_file_screenshot.png)
+![](images/new_rmarkdown_file_screenshot.png)
 
 **`r step()` A new menu window will appear; just click "OK" to use the default settings.**
 
-![](markdown_images/confirm_new_rmarkdown_file_screenshot.png)
+![](images/confirm_new_rmarkdown_file_screenshot.png)
 
 **`r step()` There will be some template text in the new file. Just delete everything so we have a clean file to work from.**
 **You should now have a blank file like the one pictured below.**
 
-![](markdown_images/blank_rmarkdown_file_screenshot.png)
+![](images/blank_rmarkdown_file_screenshot.png)
 
 
 **Save the file.**
