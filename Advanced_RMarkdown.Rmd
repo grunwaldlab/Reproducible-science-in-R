@@ -1,0 +1,97 @@
+---
+output:
+  html_document:
+    css: tutorial.css
+---
+
+```{r init, echo=FALSE}
+library(knitr)
+library(xtable)
+library(tools)
+source("functions.R")
+step <- make_step_counter_function()
+rmd_example <- make_markdown_example_function()
+opts_chunk$set(warning = FALSE,
+               message = FALSE,
+               echo = FALSE)
+
+```
+
+```{r java, results='asis', echo = FALSE}
+# Add javascript to cause the iframes to be scrolled down all the way when the page loads. 
+pre_scroll_iframe()
+```
+
+
+## Advanced **R**Markdown
+
+
+### Animated figures
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+
+```{r animate_figure_example, results='asis', echo = FALSE}
+rmd_example(height = 500, "
+#### Animated figures
+
+\`\`\`{r,  fig.show='animate', fig.width=5, fig.height=4}
+for (count in 1:4) {
+  n = 10 ^ count
+  x = data.frame(var = rnorm(n))
+  print(ggplot(x) +
+    geom_histogram(aes(x = var), binwidth = 0.2) +
+    ggtitle(paste('n =', n)))
+}
+\`\`\`
+            ")
+
+```
+
+
+### Caching
+
+A potential downside of combining code used to analyse data and notes/interpretation is that every time you rerun the RMarkdown document to make a small change (e.g. add or update notes), all of the code is run again even if no changes to the code are made.
+For analyses that take a long time, this can make using RMarkdown impractical.
+Fortunately, there is a feature called caching that allows the results of each chunk to be saved independently and reused if no changes are made to that chunk.
+Setting the chunk option `cache` to `TRUE` will mean that after a code chunk is run for the first time it will not need to be run again unless it changes.
+
+Below is an example of code to draw a [Barnsley Fern](https://en.wikipedia.org/wiki/Barnsley_fern) borrowed from an [RPub by Kui-Ming Chen](https://rpubs.com/BenChen/fern_fractal).
+
+**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML". It should take at least a few seconds extra to draw the complicated graph. Once it is done, press "Knit HTML" again. It should take nearly the same amount of time as it had before adding the graph. Now, change the value of the `iter` variable on the first line to something else near 10000 and press "Knit HTML" again. Since the code has changed, it should once again take more time to remake the graph.**
+
+```{r caching_example, results='asis', echo = FALSE}
+rmd_example(height = NULL, "
+### Caching
+
+\`\`\`{r, cache=TRUE}
+iter = 10000
+p = runif(iter)
+coord = matrix(c(0, 0), ncol = 1)
+df = rbind(data.frame(), t(coord))
+for (i in 1:iter) {
+    if (p[i] <= 0.05) {
+        m = matrix(c(0, 0, 0, 0.16), nrow = 2, ncol = 2)
+        const = matrix(c(0, 0), ncol = 1)
+    } else if (p[i] > 0.05 && p[i] <= 0.86) {
+        m = matrix(c(0.85, -0.04, 0.04, 0.85), nrow = 2, ncol = 2)
+        const = matrix(c(0, 1.6), ncol = 1)
+    } else if (p[i] > 0.86 && p[i] <= 0.93) {
+        m = matrix(c(0.2, 0.23, -0.26, 0.22), nrow = 2, ncol = 2)
+        const = matrix(c(0, 1.6), ncol = 1)
+
+    } else {
+        m = matrix(c(-0.15, 0.26, 0.28, 0.24), nrow = 2, ncol = 2)
+        const = matrix(c(0, 0.44), ncol = 1)
+    }
+    coord = m %*% coord + const
+    df = rbind(df, t(coord))
+}
+
+plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
+\`\`\`
+            ")
+```
+
+There are subtle issues that can occur when mixing cached and uncached chunks that reference the same variables, so you should learn more about the details of how caching works before relying on it too heavily.
+
+
