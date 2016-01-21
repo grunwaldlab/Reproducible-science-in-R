@@ -64,7 +64,7 @@ make_markdown_example_function <- function(content, horizontal = FALSE) {
     source_html <- paste0("<pre class = 'rmd_example_code'>", currrent_content, "</pre>")
     
     # Generate html to display knit image
-    img_path <- "./markdown_images/pressing_knit_down_arrow.png"
+    img_path <- "./images/pressing_knit_down_arrow.png"
     image_html <- paste0("<img src='", img_path, "' class='knit_image'>")
     
     # Rendered HTML
