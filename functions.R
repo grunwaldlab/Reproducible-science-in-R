@@ -23,7 +23,7 @@ make_markdown_example_function <- function(content, horizontal = FALSE) {
   counter <- 0
   previous_content <- ""
   
-  function(content, cumulative  = FALSE, height = NULL, prefix = FALSE) {
+  function(content, cumulative  = FALSE, height = NULL, prefix = FALSE, show_knit_button = FALSE) {
     # Set default figure height 
     if (is.null(height)) {
       height <- (length(gregexpr("\\n", content)[[1]]) + 1) * 20
@@ -85,7 +85,7 @@ make_markdown_example_function <- function(content, horizontal = FALSE) {
     } else {
       cat(paste0('<div class = "rmd_example_container">',
                  '<div class = "rmd_example_source">', source_html, '</div>',
-                 image_html,
+                 ifelse(show_knit_button, image_html, ""),
                  '<div class = "rmd_example_result">', result_html, '</div>',
                  '</div><div style="clear: left;"></div>'))
       
