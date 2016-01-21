@@ -8,6 +8,7 @@ output:
 library(knitr)
 library(xtable)
 library(tools)
+library(ggplot2)
 source("functions.R")
 step <- make_step_counter_function()
 rmd_example <- make_markdown_example_function()
@@ -35,6 +36,7 @@ rmd_example(height = 500, "
 #### Animated figures
 
 \`\`\`{r,  fig.show='animate', fig.width=5, fig.height=4}
+library(ggplot2)
 for (count in 1:4) {
   n = 10 ^ count
   x = data.frame(var = rnorm(n))
