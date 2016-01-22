@@ -96,4 +96,3 @@ plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
 
 There are subtle issues that can occur when mixing cached and uncached chunks that reference the same variables, so you should learn more about the details of how caching works before relying on it too heavily.
 
-test changes
