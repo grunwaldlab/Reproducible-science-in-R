@@ -6,7 +6,7 @@ make_step_counter_function <- function() {
   step <- 0
   function(content) {
     step <<- step + 1
-    paste0("####", "Step ", step, ")\n**", content, "**")
+    paste0("**<mark><input type='checkbox'>", " Step ", step, ")</mark> ", content, "**")
   }
 }
 
