@@ -4,9 +4,9 @@
 #' 
 make_step_counter_function <- function() {
   step <- 0
-  function() {
+  function(content) {
     step <<- step + 1
-    paste0("Step ", step, ")")
+    paste0("####", "Step ", step, ")\n**", content, "**")
   }
 }
 
