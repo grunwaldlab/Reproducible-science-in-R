@@ -425,6 +425,9 @@ RMarkdown [@baumer2014r] is referenced in the @racine2012rstudio paper.
             ")
 ```
 
+```{r delete_bib, include=FALSE}
+file.remove(bib_path)
+```
 
 
 ### Additional resources
