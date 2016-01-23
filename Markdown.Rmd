@@ -33,18 +33,18 @@ pre_scroll_iframe()
 `r gloss("Markdown", "a simple, human-readable plain text format that is typically rendered as HTML or PDF")` is a simple, human-readable `r gloss("plain text format", "Any systematic way of writing that only uses unformatted characters, numbers, and punctuation marks. For example, Notepad is a common editor for plain text, whereas Microsoft Word is not.")` that can be converted to other file formats, such as `r gloss("HTML", "The markup language read by web browsers like internet explorer and firefox")` and PDF by numerous programs.
 The format is just a set of conventions for writing plain text files.
 Its simplicity is actually its greatest advantage; Markdown can be learned in a day and its intuitive syntax is easily read by those who have never seen it before.
-There are no special file formats that only specific versions of certain proprietary programs can open (e.g. Microsoft Word) and the types of output files it is typically converted to are equally universal.
-This encourages writers to focus on content and ideas rather than endless fiddling with fonts, line spacing, image placement, and other non-essential formatting.
-All such aesthetic considerations are handled by the computer when Markdown is rendered into an output file, ensuring consistency.
-Markdown is so versatile that it could be written in an old flip-phone, texted to an iPhone, copied and pasted into an email opened in Windows Vista, uploaded to a Linux server, downloaded on a Mac, and still be converted into a HTML file that all those devices could open without installing any software. 
+There are no special file formats that only specific versions of certain proprietary programs can open (e.g., Microsoft Word) and output files are typically equally universal.
+This encourages writers to focus on content and ideas rather than the minutae of formatting items like fonts, pagragraphs, indentation, line spacing, or image placement.
+All such aesthetic considerations are handled by the computer when Markdown is rendered into an output file, ensuring consistency and the ability to reformat content anytime.
+Markdown is so versatile that it could be written on a flip-phone, texted to an smart phone, copied and pasted into an email, uploaded to a linux server, downloaded to a Mac or Windows OS, and still be converted into a HTML file that all those devices could open without installing any software. 
+The hallmark of Markdown is the simple syntax, realiable portability and repeated translatability intp various, reproducible formats (e.g., html, pdf, etc.). 
 
 This portion of the tutorial will cover the aspects of Markdown that are shared by all programs able to interpret it.
 Some programs that convert Markdown to output documents support additional features that others do not, but the basics of Markdown are the same for all.
-You will learn how to write Markdown and convert it into HTML, PDF, and Word files using RStudio.
+You will learn how to write Markdown and convert it into HTML, PDF, and Word files using [RStudio](https://www.rstudio.com/).
 Curious about what those output documents look like? 
-You're reading one now; this tutorial was written in Markdown and converted to the HTML file you are viewing.
+You're reading one now; this tutorial was written in Markdown and converted to this HTML file you are viewing.
 So, if you are ready to stop spending your time positioning pictures, messing with margins, and fiddling with fonts, just to find out that your collaborator's/customer's/student's computer thinks the pictures should be elsewhere and the fonts you chose don't exist, then its time to learn Markdown!
-
 
 ### Getting started
 
@@ -173,7 +173,7 @@ rmd_example("
 
 Adding links and images uses a similar syntax.
 Links can be added using the form `[link name](link location)`, where "link name" is what is displayed and "link location" is a URL or file path.
-To insert and image, use the same syntax, but add a `!` in front: `![mouse hover text](image path)`.
+To insert an image, use the same syntax, but add a `!` in front: `![mouse hover text](image path)`.
 
 `r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
 
