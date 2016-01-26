@@ -26,25 +26,30 @@ pre_scroll_iframe()
 
 ## **R**Markdown
 
-While Markdown is useful for simple note taking and writing, `r gloss("RMarkdown", "An extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered")` can be used to mix complex analyses and programming with all the features of Markdown.
+While Markdown is useful for simple note taking and writing, `r gloss("RMarkdown", "An extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered")` can be used to mix complex analyses and programming in the R language with all the features of Markdown.
 RMarkdown is an extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered.
 Graphs, tables, file input/output, and bibliographies can all be incorporated using embedded R code.
 Typical uses range from adding minor bits of code to time-stamp notes to running complex analyses and making a report of the results.
+RMarkdown is thus ideal for lab notebooks and reproducible science as the scripts can be run over and over as they are modified. 
+Imagine you find one small mistake in a data point.
+In RMarkdown you change the data point and just render the document again and all changes will be ported through to every intermediate and final analyses.
 
-In this section of the tutorial, we will summarizing the most commonly used features of RMarkdown, but there are many aspects that we will not cover.
+In this section of the tutorial, we will be summarizing the most commonly used features of RMarkdown, but there are many aspects that we will not cover.
 Unlike pure Markdown, RMarkdown is very flexible and complex.
 Therefore, as you go through the exercises, it is probably best to focus on remembering *what* RMarkdown can do rather than *how* to do it.
 At the end of the section there are resources that you can reference when you need to look up how to do a specific task.
 
 ### Mixing R and Markdown
 
-There are two ways to add R code to Markdown: inline, and chunks.
+There are two ways to add R code to Markdown: namele as inline or as code chunks.
 The syntax for adding inline code is the same as specifying a monospace font (surrounding text with <code>\`</code>), except that an `r` is added after the first <code>\`</code>.
 Inline code syntax is used for short, simple pieces of code that display their results mid-sentence.
 
 Multiple lines of code can be added by putting the lines of code between <code>\`\`\`{r}</code> and <code>\`\`\`</code>, each on their own line.
 This is refereed to as a `r gloss("chunk", "One or more consecuative lines of code in a RMarkdown file")`.
 Unlike the inline method, chunks of code defined this way have many options controlling how they are processed when a document is rendered; we will cover some of these options soon.
+
+Following, we will work with RMarkdwon to learn the basic syntax and work through a set of demonstrations:
 
 `r step('Create a new markdown document and delete all the default template content. Paste in the code below, save the file as "rmarkdown-tutorial.Rmd", and press "Knit HTML".')`
 
@@ -62,10 +67,6 @@ median(my_data)
             ")
 
 ```
-
-
-
-
 
 ### Code evaluation
 
@@ -96,16 +97,15 @@ var( c(1, 3, 2.4, 6, 7.2) )
 
 ```
 
-
 ### Text Results
 
 What results of the code are included in the rendered document can also be controlled with chunk options.
-There are at least 9 options that influence how code effects the output document, but we will only cover the most commonly used here.
+There are at least 9 options that influence how code affects the output document, but we will only cover the most commonly used here.
 
 #### Displaying code
 
 The `echo` option controls whether the code is displayed or not.
-Setting `echo = FALSE` will cause the code to not be shown in the output, but will not effect its execution. 
+Setting `echo = FALSE` will cause the code to not be shown in the output, but will not affect its execution. 
 
 `r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
 
@@ -125,7 +125,7 @@ var( c(1, 3, 2.4, 6, 7.2) )
 #### Displaying results
 
 You can hide the typical text output of chunks by setting `results = 'hide'`.
-This does not effect things like warnings, errors, and graphs. 
+This does not affect things like warnings, errors, and graphs. 
 
 `r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
 
@@ -161,7 +161,7 @@ rmd_example("
 
 \`\`\`{r, results = 'hide'}
 print('This code was executed')
-message('Messages are used for things like progress updates. They are not effected by `results=\\'hide\\'`.')
+message('Messages are used for things like progress updates. They are not affected by `results=\\'hide\\'`.')
 \`\`\`
 
 
@@ -189,15 +189,14 @@ stop('`stop` is used to signal an error has occured.')
 
 ```
 
-
 ### Adding figures
 
 One of the major advantages of mixing R with markdown is access to R's well known graphical prowess.
 Graphs can be inserted into RMarkdown documents the same way text results are.
-There two commonly used ways to make graphs in R: the `r gloss("R base graphics", "original graphing capabilities that are part of the core R language")` and the newer `r gloss("ggplot2", "An R package used for graphing as an alternative to the base graphics")` package. 
+There are two commonly used ways to make graphs in R: the `r gloss("R base graphics", "original graphing capabilities that are part of the core R language")` and the newer `r gloss("ggplot2", "An R package used for graphing as an alternative to the base graphics")` package. 
 Both are very flexible and each have their adherents. 
-The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics. 
-We will show examples of both graphing systems, but not attempt to teach either since they are both rather complex.
+The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics as well as the ability to crete complex graphics. 
+We will demonstrate both graphing systems, but will not go into details here.
 
 #### Typical usage
 
