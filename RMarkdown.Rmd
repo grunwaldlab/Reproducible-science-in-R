@@ -41,7 +41,7 @@ At the end of the section there are resources that you can reference when you ne
 
 ### Mixing R and Markdown
 
-There are two ways to add R code to Markdown: namele as inline or as code chunks.
+There are two ways to add R code to Markdown: namely as inline or as code chunks.
 The syntax for adding inline code is the same as specifying a monospace font (surrounding text with <code>\`</code>), except that an `r` is added after the first <code>\`</code>.
 Inline code syntax is used for short, simple pieces of code that display their results mid-sentence.
 
@@ -49,7 +49,7 @@ Multiple lines of code can be added by putting the lines of code between <code>\
 This is refereed to as a `r gloss("chunk", "One or more consecuative lines of code in a RMarkdown file")`.
 Unlike the inline method, chunks of code defined this way have many options controlling how they are processed when a document is rendered; we will cover some of these options soon.
 
-Following, we will work with RMarkdwon to learn the basic syntax and work through a set of demonstrations:
+Following, we will work with RMarkdown to learn the basic syntax and work through a set of demonstrations:
 
 `r step('Create a new markdown document and delete all the default template content. Paste in the code below, save the file as "rmarkdown-tutorial.Rmd", and press "Knit HTML".')`
 
@@ -195,7 +195,7 @@ One of the major advantages of mixing R with markdown is access to R's well know
 Graphs can be inserted into RMarkdown documents the same way text results are.
 There are two commonly used ways to make graphs in R: the `r gloss("R base graphics", "original graphing capabilities that are part of the core R language")` and the newer `r gloss("ggplot2", "An R package used for graphing as an alternative to the base graphics")` package. 
 Both are very flexible and each have their adherents. 
-The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics as well as the ability to crete complex graphics. 
+The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics as well as the ability to create complex graphics. 
 We will demonstrate both graphing systems, but will not go into details here.
 
 #### Typical usage
@@ -360,7 +360,8 @@ number_sections: true
 There are a few ways of adding citations/bibliographies to your RMarkdown document automatically.
 We will be using an external file containing a list of references in a standard format called `r gloss("BibTeX", "A plain text format used to store citation/bibliography information")`. 
 Like RMarkdown, this is simply a plain text format viewable in any text editor.
-Text files of any format can be made in RStudio by clicking on the "New file" dropdown menu and choosing "Text file".
+Google scholar provides convenient links for references in BibTeX format that can easily be copied and pasted into file containing the references to be cited.
+Text files of any format can be made in RStudio by clicking on the "New file" drop-down menu and choosing "Text file".
 
 `r step('Click on the "New file" dropdown menu and choose "Text file". Paste the text below into the file and save it as "example_bibliography.bibtex".')`
 
@@ -397,7 +398,7 @@ Now the information for a few papers are stored in a file format both computers 
 Next, we will associate the bibliography file with the RMarkdown file and add a few citations.
 This is done using a setting in the YAML header.
 
-There is an ID for each article stored in the bibtex file located in the lines that start with `@article{`.
+There is an ID for each article stored in the BibTeX file located in the lines that start with `@article{`.
 Inline citations can be inserted by adding `@` followed by the ID of the paper.
 Surrounding the `@ID` with `[` and `]` changes the format of the citation slightly.
 Any papers cited will appear in a bibliography added to the bottom of the rendered document. 
