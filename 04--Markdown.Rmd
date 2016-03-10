@@ -183,7 +183,7 @@ rmd_example("
 
 I used [Google](https://www.google.com/) to find this image:
 
-![An image](https://www.r-project.org/Rlogo.png)
+![An image](https://www.rstudio.com/wp-content/uploads/2014/03/blue-125.png)
                                     ")
 ```
 

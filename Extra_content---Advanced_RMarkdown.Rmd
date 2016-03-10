@@ -29,9 +29,9 @@ pre_scroll_iframe()
 
 ### Animated figures
 
-**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".**
+`r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
 
-```{r animate_figure_example, results='asis', echo = FALSE}
+```{r animate_figure_example, results='asis', echo = FALSE, eval = FALSE}
 rmd_example(height = 500, "
 #### Animated figures
 
@@ -59,7 +59,7 @@ Setting the chunk option `cache` to `TRUE` will mean that after a code chunk is 
 
 Below is an example of code to draw a [Barnsley Fern](https://en.wikipedia.org/wiki/Barnsley_fern) borrowed from an [RPub by Kui-Ming Chen](https://rpubs.com/BenChen/fern_fractal).
 
-**`r step()` Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML". It should take at least a few seconds extra to draw the complicated graph. Once it is done, press "Knit HTML" again. It should take nearly the same amount of time as it had before adding the graph. Now, change the value of the `iter` variable on the first line to something else near 10000 and press "Knit HTML" again. Since the code has changed, it should once again take more time to remake the graph.**
+`r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML". It should take at least a few seconds extra to draw the complicated graph. Once it is done, press "Knit HTML" again. It should take nearly the same amount of time as it had before adding the graph. Now, change the value of the "iter" variable on the first line to something else near 10000 and press "Knit HTML" again. Since the code has changed, it should once again take more time to remake the graph.')` 
 
 ```{r caching_example, results='asis', echo = FALSE}
 rmd_example(height = NULL, "
