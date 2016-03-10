@@ -14,3 +14,8 @@ Welcome! This primer provides a concise introduction to conducting reproducible 
 1. Git and github (Zhian)
 1. Quiltr package (Zach)
 1. Writing a paper in R (Zhian; Frontiers paper)
+
+
+# 
+
+[Our website](http://grunwaldlab.github.io/Reproducible-science-in-R/)
