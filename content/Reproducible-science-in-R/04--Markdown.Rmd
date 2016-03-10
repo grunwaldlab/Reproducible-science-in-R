@@ -1,0 +1,216 @@
+---
+output:
+  html_document:
+    css: tutorial.css
+  word_document: default
+---
+
+```{r init, echo=FALSE}
+library(knitr)
+library(xtable)
+library(tools)
+opts_chunk$set(fig.width = 10,
+               fig.height = 5,
+               cache = FALSE,
+               echo = FALSE)
+```
+
+```{r}
+source("functions.R")
+step <- make_step_counter_function()
+rmd_example <- make_markdown_example_function()
+gloss <- make_glossary_function()
+```
+
+```{r, results='asis'}
+# Add javascript to cause the iframes to be scrolled down all the way when the page loads. 
+pre_scroll_iframe()
+
+```
+
+## Markdown
+
+`r gloss("Markdown", "a simple, human-readable plain text format that is typically rendered as HTML or PDF")` is a simple, human-readable `r gloss("plain text format", "Any systematic way of writing that only uses unformatted characters, numbers, and punctuation marks. For example, Notepad is a common editor for plain text, whereas Microsoft Word is not.")` that can be converted to other file formats, such as `r gloss("HTML", "The markup language read by web browsers like internet explorer and firefox")` and PDF by numerous programs.
+The format is just a set of conventions for writing plain text files.
+Its simplicity is actually its greatest advantage; Markdown can be learned in a day and its intuitive syntax is easily read by those who have never seen it before.
+There are no special file formats that only specific versions of certain proprietary programs can open (e.g., Microsoft Word) and output files are typically equally universal.
+This encourages writers to focus on content and ideas rather than the minutae of formatting items like fonts, pagragraphs, indentation, line spacing, or image placement.
+All such aesthetic considerations are handled by the computer when Markdown is rendered into an output file, ensuring consistency and the ability to reformat content anytime.
+Markdown is so versatile that it could be written on a flip-phone, texted to an smart phone, copied and pasted into an email, uploaded to a linux server, downloaded to a Mac or Windows OS, and still be converted into a HTML file that all those devices could open without installing any software. 
+The hallmark of Markdown is the simple syntax, realiable portability and repeated translatability intp various, reproducible formats (e.g., html, pdf, etc.). 
+
+This portion of the tutorial will cover the aspects of Markdown that are shared by all programs able to interpret it.
+Some programs that convert Markdown to output documents support additional features that others do not, but the basics of Markdown are the same for all.
+You will learn how to write Markdown and convert it into HTML, PDF, and Word files using [RStudio](https://www.rstudio.com/).
+Curious about what those output documents look like? 
+You're reading one now; this tutorial was written in Markdown and converted to this HTML file you are viewing.
+So, if you are ready to stop spending your time positioning pictures, messing with margins, and fiddling with fonts, just to find out that your collaborator's/customer's/student's computer thinks the pictures should be elsewhere and the fonts you chose don't exist, then its time to learn Markdown!
+
+### Getting started
+
+Unlike R code, which can be executed line-by-line in an `r gloss("R console", "A text prompt in which R commands can be run one at a time interactivly and their results displayed")`, Markdown is processed as a whole file.
+Therefore, the first thing we will do is create an empty file to practice on.
+Any simple text editor such as Notepad or TextEdit can be used to write Markdown, but we will be using RStudio, since it has features that will be useful in other tutorials. 
+
+`r step('In RStudio, click on the new file dropdown menu at the top left and select "R Markdown".')`
+
+![](images/new_rmarkdown_file_screenshot.png)
+
+`r step('A new menu window will appear; just click "OK" to use the default settings.')`
+
+![](images/confirm_new_rmarkdown_file_screenshot.png)
+
+`r step('There will be some template text in the new file. Delete everything so we have a clean file to work from. You should now have a blank file like the one pictured below. Save the file as "markdown-tutorial.Rmd".')`
+
+![](images/blank_rmarkdown_file_screenshot.png)
+
+
+The conventional file extension for Markdown is ".md", but most programs that interpret Markdown will accept any extension. 
+Note that we are using ".Rmd" instead; This is for **R**Markdown, a file format that adds the ability to incorporate R code with standard Markdown.
+We are using ".Rmd" since we will be covering RMarkdown in the next section, but nothing in this section is specific to RMarkdown, so don't worry about it for now.
+
+### Basic text formatting
+
+Markdown is meant to be easily read by humans as well as computers.
+Therefore, it has a minimal set of simple syntax rules that are designed to not interfere with the readability of the source file. 
+
+Headings are specified by starting a line with one to four `#` characters.
+The more `#` characters, the smaller the header (e.g. `# Title` makes bigger text than `## Subtitle`). 
+Surrounding text with `*` makes that section italic and surrounding text with `**` makes it bold. 
+
+`r step('Copy the text from the first box below and paste it into your new file (or create your own content with a similar format). Press the "Knit HTML" button at the top of the document. A window should pop up displaying the rendered HTML document with conent similar to that of the second box.')` 
+
+```{r, results='asis'}
+rmd_example(show_knit_button = TRUE, "
+## Markdown
+
+Text with no special formatting is displayed in the default font.
+
+### Basic text formatting
+
+Text can also be **bold** or *italic*.
+            ")
+```
+
+The window that pops up displays the newly created HTML file.
+This file is self-contained and can be viewed using any web browser.
+At the top of the pop-up window displaying the document there is a button labeled "Open in Browser" that will open the new file in your default web browser.
+
+
+### Code and quotes
+
+Text also can be formatted to look like `r gloss("monospace", "A font in which every character has the same width, often used to display computer code")` code by surrounding text with <code>\`</code> or by indenting lines with 4 or more spaces.
+Starting lines with one or more `>` turns lines of text into block quotes; the number of `>` characters corresponds to the level of nesting.
+
+`r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
+
+```{r, results='asis'}
+rmd_example("
+Text can be displayed in a `monospace` font inline.
+
+    Whole blocks of text can
+    can also be monospace.
+
+> Block quotes are also possible.
+>
+>> They can even be nested!
+>
+            ")
+```
+
+### Lists
+
+Both numbered and unnumbered lists are supported.
+Consecutive lines starting with `-` are interpreted as a bulleted list.
+Starting lines with any number followed by a period indicates a numbered list.
+The numbers used don't actually determine the numbers displayed.
+This might seem odd, but it allows numbered lists to be rearranged without redoing the numbering manually.
+Lists can be nested by indenting the nested list 4 spaces.
+
+`r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
+
+```{r, results='asis'}
+rmd_example("
+### Lists
+
+#### Unordered
+
+- eggs
+- milk
+- flour
+
+#### Ordered/Nested
+
+1. mix
+1. bake
+    - 400 F
+    - 30 minutes
+1. eat
+            ")
+```
+
+### Horizontal rules
+
+A horizontal line can be made by three or more `-` on the same line alone. 
+
+`r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')` 
+
+```{r, results='asis'}
+rmd_example("
+### Horizontal rules
+
+---
+
+- - -- - -
+
+---     ---
+                        ")
+```
+
+
+
+### Links and images
+
+Adding links and images uses a similar syntax.
+Links can be added using the form `[link name](link location)`, where "link name" is what is displayed and "link location" is a URL or file path.
+To insert an image, use the same syntax, but add a `!` in front: `![mouse hover text](image path)`.
+
+`r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
+
+```{r, results='asis'}
+rmd_example("
+### Links and images
+
+I used [Google](https://www.google.com/) to find this image:
+
+![An image](https://www.rstudio.com/wp-content/uploads/2014/03/blue-125.png)
+                                    ")
+```
+
+
+### Other output formats
+
+So far, we have been converting Markdown to HTML.
+To make a PDF or Word document, simply click on the dropdown menu immediately to the right of the "knit HTML" button and select the format you want to try.
+
+
+### Additional resources
+
+That's pretty much all there is to it!
+Below are a few links that might be useful if you want to explore the more esoteric corners of the Markdown universe.
+
+- [Daring Fireball](https://daringfireball.net/projects/markdown/): The website of the original author of the Markdown language.
+  It is the closes thing to an official syntax definition.
+- [GitHub Markdown](https://guides.github.com/features/mastering-markdown/): A guide to using the GitHub "flavor" of Markdown.
+- [Markdown Tutorial](http://markdowntutorial.com/): An interactive tutorial to help learn markdown.
+- [Babelmark 2](http://johnmacfarlane.net/babelmark2/):
+  A tool that displays the HTML produced by many different Markdown renderers for any snippet of Markdown code.
+  Programs might differ in the details of how Markdown is translated into HTML.
+- [Wikipedia](https://en.wikipedia.org/wiki/Markdown): The Wikipedia page on Markdown.
+
+
+### Glossary
+
+```{r glossary, results = 'asis'}
+gloss(display = TRUE)
+```
