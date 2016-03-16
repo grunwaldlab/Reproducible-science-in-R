@@ -8,6 +8,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Why should I use git?
 
+becasuse [branching is cool](http://imgur.com/YG8In8X)
+
 # Resources
 
 # Your first repository
