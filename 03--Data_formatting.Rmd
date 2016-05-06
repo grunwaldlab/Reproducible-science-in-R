@@ -1,4 +1,40 @@
+---
+output:
+  html_document:
+    css: tutorial.css
+  word_document: default
+---
+
+# Formatting Data
+
+GIGO is an acronym that stands for "Garbage In, Garbage Out", and this is often 
+a mantra to remember when gathering data. The same goes for entering and storing
+data in a spreadsheet. Often, the first point of error for any analysis is at 
+the data entry stage. This section will show you the best practices of data 
+storage and why this is important for your analyses, whether you are analyzing 
+disease progress, fungicide resistance, or even bioinformatic data. Much of this
+is based off of the Data Carpentry module [Using Spreadsheet Programs for
+Scientific Data](http://www.datacarpentry.org/2015-03-09-ISI-CODATA/lessons/excel/ecology-examples/00-intro.html)
+designed by Christie Bahlai and Aleksandra Pawlik. Please refer to the previous
+link if you need any more information.
+
+## Isn't Excel good enough?
+
+No: http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-5-80
+
+For data entry, Excel is a fantastic program because it's intuitive to enter data into cells, but Excel also reinforces a lot of bad habits that happen with data. 
 
 
 
-## Data formatting and read/write
+## The good
+
+Long or wide data in a text file 
+
+## The bad
+
+As above, but with color formatting to encode data. 
+
+## The ugly
+
+Separate tables within the spreadsheet, coded by color and stored only within
+excel.
