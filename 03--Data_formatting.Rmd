@@ -1,9 +1,23 @@
 ---
+bibliography: bibtexlib.bib
 output:
   html_document:
     css: tutorial.css
   word_document: default
 ---
+
+```{r init, echo=FALSE}
+library(knitr)
+library(xtable)
+library(tools)
+library(knitcitations)
+opts_chunk$set(fig.width = 10,
+               fig.height = 5,
+               cache = FALSE)
+cite_options(citation_format = "pandoc", max.names = 3, style = "html", 
+             hyperlink = "to.doc")
+bib <- read.bibtex("bibtexlib.bib")
+```
 
 # Formatting Data
 
@@ -20,7 +34,10 @@ link if you need any more information.
 
 ## Isn't Excel good enough?
 
-No: http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-5-80
+No `r citep(bib["zeeberg2004mistaken"])`: 
+![An example of gene names accidentally being converted to dates in Microsoft
+Excel](images/excel_date_error.jpg) 
+
 
 For data entry, Excel is a fantastic program because it's intuitive to enter data into cells, but Excel also reinforces a lot of bad habits that happen with data. 
 
