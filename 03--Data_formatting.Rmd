@@ -19,7 +19,7 @@ cite_options(citation_format = "pandoc", max.names = 3, style = "html",
 bib <- read.bibtex("bibtexlib.bib")
 ```
 
-# Formatting Data
+# Data Formatting
 
 GIGO is an acronym that stands for "Garbage In, Garbage Out", and this is often 
 a mantra to remember when gathering data. The same goes for entering and storing
@@ -32,15 +32,23 @@ Scientific Data](http://www.datacarpentry.org/2015-03-09-ISI-CODATA/lessons/exce
 designed by Christie Bahlai and Aleksandra Pawlik. Please refer to the previous
 link if you need any more information.
 
-## Isn't Excel good enough?
+## Isn't Excel/OpenOffice/Google Sheets good enough?
 
 No `r citep(bib["zeeberg2004mistaken"])`: 
 ![An example of gene names accidentally being converted to dates in Microsoft
-Excel](images/excel_date_error.jpg) 
+Excel](images/excel_date_error.jpg)
+
+For data entry, Excel is a fantastic program because it's intuitive to enter data into cells, but Excel also reinforces a lot of bad habits that can make your data inaccessable to analyses down the line.
+
+## How should I format my data?
 
 
-For data entry, Excel is a fantastic program because it's intuitive to enter data into cells, but Excel also reinforces a lot of bad habits that happen with data. 
 
+ - Observations in rows (note: 1 sample ≠ 1 observation)
+ - Variables in columns (e.g. Treatment, Replicate, Response)
+ - Data in cells
+ - Saved as a flat text file (e.g. `.csv`, `.tsv`, `.txt`)
+ 
 
 
 ## The good
