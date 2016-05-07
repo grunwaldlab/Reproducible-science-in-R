@@ -19,9 +19,10 @@ cite_options(citation_format = "pandoc", max.names = 3, style = "html",
 bib <- read.bibtex("bibtexlib.bib")
 source("functions.R")
 gloss <- make_glossary_function()
-invisible(gloss("flat text file", paste0("a text file to hold data in a tabular format, ",
-  "where cells are separated by a common character such as comma or tab. ",
-  "Common formats are csv and tsv")))
+ftf_def <- paste(
+  "a text file to hold data in a tabular format, where cells are separated by a",
+  "common character such as comma or tab. Common formats are csv and tsv."
+)
 ```
 
 # Data Formatting
@@ -39,7 +40,7 @@ link if you need any more information.
 
 ## Isn't Excel/OpenOffice/Google Sheets good enough?
 
-**No** `r citep(bib["zeeberg2004mistaken"])`: 
+**No** `r citep(bib["zeeberg2004mistaken"])`. 
 ![An example of gene names accidentally being converted to dates in Microsoft
 Excel](images/excel_date_error.jpg)
 
@@ -51,8 +52,8 @@ For data entry, Excel is a fantastic program because it's intuitive to enter dat
 
  - Observations in rows (note: 1 sample ≠ 1 observation)
  - Variables in columns (e.g. Treatment, Replicate, Response)
- - Data in cells
- - Saved as a flat text file (e.g. `.csv`, `.tsv`, `.txt`)
+ - One datum per cell
+ - Saved as a `r gloss("flat text file", ftf_def)` (e.g. `.csv`, `.tsv`, `.txt`)
  
 
 
