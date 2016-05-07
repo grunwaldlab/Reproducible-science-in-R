@@ -17,6 +17,11 @@ opts_chunk$set(fig.width = 10,
 cite_options(citation_format = "pandoc", max.names = 3, style = "html", 
              hyperlink = "to.doc")
 bib <- read.bibtex("bibtexlib.bib")
+source("functions.R")
+gloss <- make_glossary_function()
+invisible(gloss("flat text file", paste0("a text file to hold data in a tabular format, ",
+  "where cells are separated by a common character such as comma or tab. ",
+  "Common formats are csv and tsv")))
 ```
 
 # Data Formatting
@@ -34,7 +39,7 @@ link if you need any more information.
 
 ## Isn't Excel/OpenOffice/Google Sheets good enough?
 
-No `r citep(bib["zeeberg2004mistaken"])`: 
+**No** `r citep(bib["zeeberg2004mistaken"])`: 
 ![An example of gene names accidentally being converted to dates in Microsoft
 Excel](images/excel_date_error.jpg)
 
@@ -63,3 +68,11 @@ As above, but with color formatting to encode data.
 
 Separate tables within the spreadsheet, coded by color and stored only within
 excel.
+
+# Glossary
+
+```{r glossary, results = 'asis', echo = FALSE}
+gloss(display = TRUE)
+```
+
+# References
