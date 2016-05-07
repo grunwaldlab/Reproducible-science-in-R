@@ -16,7 +16,6 @@ opts_chunk$set(fig.width = 10,
                cache = FALSE)
 cite_options(citation_format = "pandoc", max.names = 3, style = "html", 
              hyperlink = "to.doc")
-bib <- read.bibtex("bibtexlib.bib")
 source("functions.R")
 gloss <- make_glossary_function()
 ftf_def <- paste(
@@ -40,7 +39,7 @@ link if you need any more information.
 
 ## Isn't Excel/OpenOffice/Google Sheets good enough?
 
-**No** `r citep(bib["zeeberg2004mistaken"])`. 
+**No** [@zeeberg2004mistaken]. 
 ![An example of gene names accidentally being converted to dates in Microsoft
 Excel](images/excel_date_error.jpg)
 
