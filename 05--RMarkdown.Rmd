@@ -148,11 +148,9 @@ print(x)
 
 ```
 
-#### Other text output
+#### Hiding warnings and errors
 
-There are other types of R text output besides the common type used to display variable values. 
-These include the `message`, `warning`, and `error` messages that well-designed R code uses to alert users of unusual behavior.
-Each of these output types has a corresponding chunk option to control its output.
+As R is an interactive language, some functions will occasionally display text that conveys a message to you, but is not necessarily part of your data. These are known as `r gloss("messages", "text displayed to convey extra information to the user such as a function's progress.")`, `r gloss("warnings", "text displayed to convey non-normal behavior that the user might be concerned about.")`, and `r gloss("errors", "text displayed to the user to let them know what went wrong in their code.")`. By default, the options are set to show you all warnings and messages and to stop the execution of your document if an error comes up. You can control these by using the corresponding chunk options.
 
 `r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
 
@@ -160,15 +158,28 @@ Each of these output types has a corresponding chunk option to control its outpu
 rmd_example("
 #### Messages, warnings, and errors:
 
-\`\`\`{r, results = 'hide'}
-print('This code was executed')
-message('Messages are used for things like progress updates. They are not affected by `results=\\'hide\\'`.')
+Using the `poppr.amova()` function from *poppr*. This will normally display
+progress messages of how it treats the data before the analysis. The following 
+code will only display messages.
+
+\`\`\`{r, results = 'hide', message = FALSE}
+library('poppr') # This normally prints a message
+data(monpop)
+splitStrata(monpop) <- ~Tree/Year/Symptom
+print(poppr.amova(monpop, hier = ~Tree)) # Here, we get warnings of Zero distance(s)
 \`\`\`
 
+This will display the output and messages, but no warnings.
 
 \`\`\`{r, warning = FALSE}
-warning('Hey! Listen to me! Something is wrong!')
-message('The warning was ignored.')
+print(poppr.amova(monpop, hier = ~Tree)) # No warnings, but we get messages
+\`\`\`
+
+This code will not display any warnings or messages. This is the cleanest way
+to display things for publication.
+
+\`\`\`{r, warning = FALSE, message = FALSE}
+print(poppr.amova(monpop, hier = ~Tree)) # No warnings or messages :)
 \`\`\`
             ")
 
@@ -184,7 +195,7 @@ If `error` is set to `TRUE`, errors will be displayed and not stop the rendering
 ```{r error_example, results='asis', echo = FALSE}
 rmd_example("
 \`\`\`{r, error = TRUE}
-stop('`stop` is used to signal an error has occured.')
+poppr.amova(monpop, hier = Tree) # Forgot the tilde (~)
 \`\`\`
             ")
 
