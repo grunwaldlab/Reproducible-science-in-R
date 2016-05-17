@@ -1,0 +1,42 @@
+---
+output: html_document
+---
+
+```
+## Warning: package 'knitr' was built under R version 3.2.5
+```
+---
+title: "1: Introduction"
+---
+
+Reproducible science or research provide the ability to replicate research results from a published study. This idea ultimately also includes the full computational environment comprising code and data to replicate the analysis (<a href='http://dx.doi.org/10.1126/science.1213847'>Peng, 2011</a>). 
+
+Over recent years our research group has settled on using the R statistical and computing environment together with R studio, R markdown and latex with some or our own scripts and packages to conduct reproducible science. 
+
+Why use R?
+-----
+
+R provides a toolbox with its packages that
+allows analysis of most data conveniently without tedious reformatting on all
+major computing platforms including Microsoft Windows, Linux, and Apple's OS X.
+R is an open source statistical programming and graphing language that includes
+tools for statistical, epidemiological, population genetic, genomic, phylogenetic, and
+comparative genomic analyses. 
+
+Note that the R user community is very active and that both R and its packages
+are regularly updated, critically modified, and noted as deprecated (no longer
+updated) as appropriate.
+
+> Any R user needs to make sure all components are up-to-date and that versions
+> are compatible.
+
+References
+----------
+<p><a id='bib-Peng_2011'></a><a href="#cite-Peng_2011">[1]</a><cite>
+R. D. Peng.
+&ldquo;Reproducible Research in Computational Science&rdquo;.
+In: <em>Science</em> 334.6060 (Dec. 2011), pp. 1226&ndash;1227.
+DOI: <a href="http://dx.doi.org/10.1126/science.1213847">10.1126/science.1213847</a>.
+URL: <a href="http://dx.doi.org/10.1126/science.1213847">http://dx.doi.org/10.1126/science.1213847</a>.</cite></p>
+
+<!--- ref --->
