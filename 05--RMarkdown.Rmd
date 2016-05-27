@@ -27,16 +27,17 @@ pre_scroll_iframe()
 ## **R**Markdown
 
 While Markdown is useful for simple note taking and writing, `r gloss("RMarkdown", "An extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered")` can be used to mix complex analyses and programming in the R language with all the features of Markdown.
-RMarkdown is an extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered.
+**RMarkdown is an extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered.**
 Graphs, tables, file input/output, and bibliographies can all be incorporated using embedded R code.
 Typical uses range from adding minor bits of code to time-stamp notes to running complex analyses and making a report of the results.
 RMarkdown is thus ideal for lab notebooks and reproducible science as the scripts can be run over and over as they are modified. 
-Imagine you find one small mistake in a data point.
-In RMarkdown you change the data point and just render the document again and all changes will be ported through to every intermediate and final analyses.
+Imagine you find one small mistake in a data point after finishing a complicated analysis.
+If you used RMarkdown, you simply change the data, rerun the analysis with a single click, and the change will be applied to every graph and result.
+If you use excel and/or manually-manipulated graphs, you have to everything again the exact way you did it last time. 
 
 In this section of the tutorial, we will be summarizing the most commonly used features of RMarkdown, but there are many aspects that we will not cover.
-Unlike pure Markdown, RMarkdown is very flexible and complex.
-Therefore, as you go through the exercises, it is probably best to focus on remembering *what* RMarkdown can do rather than *how* to do it.
+**Unlike pure Markdown, RMarkdown is very flexible and complex.
+Therefore, as you go through the exercises, it is probably best to focus on remembering *what* RMarkdown can do rather than *how* to do it.**
 At the end of the section there are resources that you can reference when you need to look up how to do a specific task.
 
 ### Mixing R and Markdown
@@ -158,7 +159,7 @@ As R is an interactive language, some functions will occasionally display text t
 rmd_example("
 #### Messages, warnings, and errors:
 
-Using the `poppr.amova()` function from *poppr*. This will normally display
+The `poppr.amova()` function from *poppr*, will normally display
 progress messages of how it treats the data before the analysis. The following 
 code will only display messages.
 
@@ -166,20 +167,20 @@ code will only display messages.
 library('poppr') # This normally prints a message
 data(monpop)
 splitStrata(monpop) <- ~Tree/Year/Symptom
-print(poppr.amova(monpop, hier = ~Tree)) # Here, we get warnings of Zero distance(s)
+poppr.amova(monpop, hier = ~Tree) # Here, we get warnings of Zero distance(s)
 \`\`\`
 
 This will display the output and messages, but no warnings.
 
 \`\`\`{r, warning = FALSE}
-print(poppr.amova(monpop, hier = ~Tree)) # No warnings, but we get messages
+poppr.amova(monpop, hier = ~Tree) # No warnings, but we get messages
 \`\`\`
 
-This code will not display any warnings or messages. This is the cleanest way
+The code below will not display any warnings or messages. This is the cleanest way
 to display things for publication.
 
 \`\`\`{r, warning = FALSE, message = FALSE}
-print(poppr.amova(monpop, hier = ~Tree)) # No warnings or messages :)
+poppr.amova(monpop, hier = ~Tree) # No warnings or messages :)
 \`\`\`
             ")
 

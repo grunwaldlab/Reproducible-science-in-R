@@ -37,7 +37,7 @@ There are no special file formats that only specific versions of certain proprie
 This encourages writers to focus on content and ideas rather than the minutae of formatting items like fonts, pagragraphs, indentation, line spacing, or image placement.
 All such aesthetic considerations are handled by the computer when Markdown is rendered into an output file, ensuring consistency and the ability to reformat content anytime.
 Markdown is so versatile that it could be written on a flip-phone, texted to an smart phone, copied and pasted into an email, uploaded to a linux server, downloaded to a Mac or Windows OS, and still be converted into a HTML file that all those devices could open without installing any software. 
-The hallmark of Markdown is the simple syntax, realiable portability and repeated translatability intp various, reproducible formats (e.g., html, pdf, etc.). 
+The hallmark of Markdown is the simple syntax, realiable portability and repeated translatability into various universal formats (e.g., html, pdf, etc.). 
 
 This portion of the tutorial will cover the aspects of Markdown that are shared by all programs able to interpret it.
 Some programs that convert Markdown to output documents support additional features that others do not, but the basics of Markdown are the same for all.
