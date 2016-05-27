@@ -4,13 +4,27 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction to Git
 
+
+
 ## What is git?
+
+In technical terms, [git](https://git-scm.com/) is a distributed version control
+system that is often used to keep track of software development. In not so
+technical terms, it is a personal archivist/time machine that keeps track of all
+the changes you make in a (writing or data analysis) project. Normally, when you
+save progress on an analysis, the old version of that analysis is
+lost. With git, as you make your steps toward completion of the analysis, you continue to save your progress, but you also tell git to remember what your analysis looks like at a certain time by 'committing' to all the changes that have happened. 
 
 ## Why should I use git?
 
-becasuse [branching is cool](http://imgur.com/YG8In8X)
+- becasuse [branching is cool](http://imgur.com/YG8In8X)
+- because [You want to be able to recover your files quickly if they are accidentally deleted](https://elizabethwickes.com/2016/05/10/how-i-use-github-in-500-words/)
+- because you want a way to remember your thought process coming up with an analysis
+- because you wrote something that makes no sense and just want to go back to a previous version of the project without having to manually delete everything.
 
 # Resources
+
+
 
 # Your first repository
 
