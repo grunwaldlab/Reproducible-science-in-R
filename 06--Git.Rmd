@@ -15,7 +15,28 @@ the changes you make in a (writing or data analysis) project. Normally, when you
 save progress on an analysis, the old version of that analysis is
 lost. With git, as you make your steps toward completion of the analysis, you continue to save your progress, but you also tell git to remember what your analysis looks like at a certain time by 'committing' to all the changes that have happened. 
 
+
+
+
+
+"save a version"
+
 ## Why should I use git?
+
+Git allows you to not only save your work, but to save different versions of your work through time. Imagine that you were working on writing up an analysis, but wanted to save a version of your work at the end of the day every day so that you could go back to it at any time. You would likely have a series of files that looks like this at the end of three days:
+
+```
+analysis_one_2016-05-25.Rmd
+analysis_one_2016-05-26.Rmd
+analysis_one_2016-05-27.Rmd
+```
+
+After three days, it's manageable, but after 20 days, it's difficult to remember what you did between day 6 and day 7. With git, you only need one file:
+
+```
+analysis_one.Rmd
+```
+
 
 - becasuse [branching is cool](http://imgur.com/YG8In8X)
 - because [You want to be able to recover your files quickly if they are accidentally deleted](https://elizabethwickes.com/2016/05/10/how-i-use-github-in-500-words/)
