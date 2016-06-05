@@ -59,7 +59,7 @@ Date:   Mon May 23 13:05:05 2016 -0700
     added field data and packages
 ```
 
-
+In this log, you can see three entries on three consecutive days with a message associated with it (don't worry about the "commit" line, we'll cover that below). We can see that on Tuesday, data and packages were added, Wednesday, the AUDPC calculation was performed, and on Thursday, a figure was created.
 
 - becasuse [branching is cool](http://imgur.com/YG8In8X)
 - because [You want to be able to recover your files quickly if they are accidentally deleted](https://elizabethwickes.com/2016/05/10/how-i-use-github-in-500-words/)
