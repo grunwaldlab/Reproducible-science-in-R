@@ -26,16 +26,39 @@ lost. With git, as you make your steps toward completion of the analysis, you co
 Git allows you to not only save your work, but to save different versions of your work through time. Imagine that you were working on writing up an analysis, but wanted to save a version of your work at the end of the day every day so that you could go back to it at any time. You would likely have a series of files that looks like this at the end of three days:
 
 ```
-analysis_one_2016-05-25.Rmd
-analysis_one_2016-05-26.Rmd
-analysis_one_2016-05-27.Rmd
+audpc_2016-05-25.Rmd
+audpc_2016-05-26.Rmd
+audpc_2016-05-27.Rmd
 ```
 
 After three days, it's manageable, but after 20 days, it's difficult to remember what you did between day 6 and day 7. With git, you only need one file:
 
 ```
-analysis_one.Rmd
+audpc.Rmd
 ```
+
+Because you've been recording your progress with git, you not only have access to all the different versions of your files, but you also have a sensible log of everything that's been done to the file. Here's what the output of one such `git log` looks like:
+
+```
+commit b8392d0b47528091d4b1a4883d677ed02bdbbe32
+Author: Zhian Kamvar <kamvarz@science.oregonstate.edu>
+Date:   Wed May 25 14:04:11 2016 -0700
+
+    made figure for publication
+
+commit e3bb7501bf09d597532007b02a8a4fb5bff8ca15
+Author: Zhian Kamvar <kamvarz@science.oregonstate.edu>
+Date:   Tue May 24 13:41:48 2016 -0700
+
+    calculated audpc
+
+commit 8379234d4c70367dc08d52eabddfc02ef67244fe
+Author: Zhian Kamvar <kamvarz@science.oregonstate.edu>
+Date:   Mon May 23 13:05:05 2016 -0700
+
+    added field data and packages
+```
+
 
 
 - becasuse [branching is cool](http://imgur.com/YG8In8X)
