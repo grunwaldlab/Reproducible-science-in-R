@@ -89,7 +89,24 @@ work.
 
 # Resources
 
+## Interfaces
+Git is primarily a program on the command line, but there are several graphical
+user interfaces that are available for it:
 
+ - [GitHub Desktop](https://desktop.github.com/)
+ - [Sourcetree](https://www.atlassian.com/software/sourcetree)
+ - [Git Kraken](https://www.gitkraken.com/)
+
+## Tutorials
+
+There are often a plethora of tutorials at your fingertips with a simple google
+search of "learn git".
+
+Here are a few that we've found to be helpful:
+
+ - [Try Git (from GitHub)](https://try.github.io/)
+ - [UBC's STAT 545 page on Git, GitHub, and Rstudio](http://stat545.com/git00_index.html)
+ - [Hadely Wickham's take on git](http://r-pkgs.had.co.nz/git.html)
 
 # Your first repository
 
