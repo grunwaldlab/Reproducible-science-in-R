@@ -1,4 +1,5 @@
 ---
+title: Introduction to git
 output:
   html_document:
     toc: true
@@ -7,10 +8,6 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-# Introduction to Git
-
-
 
 ## What is git?
 
@@ -81,7 +78,7 @@ giving you the freedom to try out new things without risk of losing all of your
 work.
 
 <!--
-- becasuse [branching is cool](http://imgur.com/YG8In8X)
+- because [branching is cool](http://imgur.com/YG8In8X)
 - because [You want to be able to recover your files quickly if they are accidentally deleted](https://elizabethwickes.com/2016/05/10/how-i-use-github-in-500-words/)
 - because you want a way to remember your thought process coming up with an analysis
 - because you wrote something that makes no sense and just want to go back to a previous version of the project without having to manually delete everything.
@@ -105,15 +102,34 @@ search of "learn git".
 Here are a few that we've found to be helpful:
 
  - [Try Git (from GitHub)](https://try.github.io/)
- - [UBC's STAT 545 page on Git, GitHub, and Rstudio](http://stat545.com/git00_index.html)
+ - [UBC's STAT 545 page on Git, GitHub, and Rstudio](http://stat545.com/git00_index.html) (This has been field tested with students with varying degrees of computer literacy)
  - [Hadely Wickham's take on git](http://r-pkgs.had.co.nz/git.html)
 
 # Your first repository
 
-## git init
+Let's say you started a new project in R. 
 
-## git add
+### git init
 
-## git commit
+![](images/rstudio-new.png)
+![](images/rstudio-empty.png)
+![](images/rstudio-create.png)
+![](images/rstudio-gitrepo.png)
 
-# Conclusions
+### git add
+
+![](images/rstudio-git-add.png)
+
+### git commit
+
+![](images/rstudio-commit.png)
+![](images/rstudio-commit-confirm.png)
+
+## Adding a new file and making changes
+
+![](images/rstudio-rmd.png)
+![](images/rstudio-rmd-add.png)
+![](images/rstudio-rmd-commit.png)
+![](images/rstudio-history.png)
+
+
