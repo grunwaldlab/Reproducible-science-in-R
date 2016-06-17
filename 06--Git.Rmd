@@ -189,6 +189,10 @@ of the file that have changed. Green lines are those that have been added and
 red for those that were deleted. We don't see any red here because nothing has
 been deleted.
 
+> Pro Tip! Commit messages should be very short messages. If you want to write
+more, add a blank line after your message and then write as much as you want
+(see below).
+
 In the upper right, you have a message box. For each commit, you should write a
 message as to why you are making that commit. This allows you to look back
 through your history and understand why you made the changes you did. Write a
@@ -202,11 +206,42 @@ with git and Rstudio. The next step is to set up your analysis.
 
 ## Step 2: adding a new Rmd file and making changes
 
-
+ 1. Create a new Rmarkdown file by using the menu item **File > New File > R Markdown**
+ 2. Give it a title like "AUDPC Analysis"
+ 3. Save it in your folder as "AUDPC.Rmd"
+ 4. Delete the demo script
+ 5. Add a section and code chunk loading 'acricolae', 'dplyr', and 'ggplot2'
+ 6. Add a section for the session information.
+ 7. Save the file.
+ 
+Your new file should look like this:
 
 ![](images/rstudio-rmd.png)
+
+Now you should **add** and **commit** that file just like you did for the others
+before, but add a different commit message: "add AUDPC Rmd file".
+
+When you've done that, add some text explaining what the chunks are doing and
+why you are using the specific packages like so:
+
 ![](images/rstudio-rmd-add.png)
+
+Notice that, in the above image, the indicator for the file in the git pane is 
+now a blue box with an "M" in the middle. This means that you have modified a 
+file that git is tracking. **Add** that file by clicking on the check box, hit
+the **Commit** button, and then add a commit message saying what you did. Here's
+an example:
+
 ![](images/rstudio-rmd-commit.png)
+
+Now hit the **Commit** button and then click on the button at the top that says
+**History**. You should see the following:
+
 ![](images/rstudio-history.png)
 
+This is a history of all the commits that you have made in this repository for
+the analysis. You can see when you made changes to the file and reasoning behind
+why you made these changes.
+
+# Conclusions
 
