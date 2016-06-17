@@ -107,15 +107,46 @@ Here are a few that we've found to be helpful:
 
 # Your first repository
 
-Let's say you started a new project in R. 
+This part will walk you through, in pictures and words, how to create your first
+git repository using R and Rstudio.
+
+> It is assumed that you have correctly set up git and Rstudio to talk to each
+other. The links above are wonderful resources for getting started.
+
+## Step one: telling git that you want a repository
+
+In this step, we are going to create a new Rproject in a new folder on your
+computer and initialize it as a git repository
 
 ### git init
 
+First thing's first, you should select **File > New Project...** from the
+menubar. When you have done that, this window will appear:
+
 ![](images/rstudio-new.png)
+
+Select **New Directory**. If you already had your analyses and data ready, you
+would choose "Existing Directory".
+
+Now you should see this window:
+
 ![](images/rstudio-empty.png)
+
+Select **Empty Project**. 
+
+Now you see this window:
+
 ![](images/rstudio-create.png)
+
+> If you are unable to check the box labeled Create git repository, make sure that your Rstudio is set up with git.
+
+In the Directory Name box, type "audpc\_analysis". This will put the folder "audpc\_analysis" inside of your Documents folder. The most important part is to make sure that the **Create git repository** box is checked.
+
+Hit the button labeled **Create Project**, the Rstudio window will refresh and you should see this:
+
 ![](images/rstudio-gitrepo.png)
 
+Now you have your first git repository! 
 ### git add
 
 ![](images/rstudio-git-add.png)
