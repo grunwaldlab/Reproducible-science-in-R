@@ -179,10 +179,30 @@ wants you to **commit** to adding these files.
 
 ### git commit
 
+You can commit to adding these files by clicking on the **Commit** button in
+that pane. When you do, this window will pop up:
+
 ![](images/rstudio-commit.png)
+
+Here, you can see what files you will be committing and also the specific parts 
+of the file that have changed. Green lines are those that have been added and
+red for those that were deleted. We don't see any red here because nothing has
+been deleted.
+
+In the upper right, you have a message box. For each commit, you should write a
+message as to why you are making that commit. This allows you to look back
+through your history and understand why you made the changes you did. Write a
+message in the box and then click on the button that says **Commit**. You should
+see the following message:
+
 ![](images/rstudio-commit-confirm.png)
 
-## Adding a new file and making changes
+Now you have your git repository set up with the basic things needed to work
+with git and Rstudio. The next step is to set up your analysis.
+
+## Step 2: adding a new Rmd file and making changes
+
+
 
 ![](images/rstudio-rmd.png)
 ![](images/rstudio-rmd-add.png)
