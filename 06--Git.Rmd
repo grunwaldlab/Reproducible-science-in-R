@@ -138,18 +138,44 @@ Now you see this window:
 
 ![](images/rstudio-create.png)
 
-> If you are unable to check the box labeled Create git repository, make sure that your Rstudio is set up with git.
+> If you are unable to check the box labeled Create git repository, make sure
+that your Rstudio is set up with git.
 
-In the Directory Name box, type "audpc\_analysis". This will put the folder "audpc\_analysis" inside of your Documents folder. The most important part is to make sure that the **Create git repository** box is checked.
+In the Directory Name box, type "audpc\_analysis". This will put the folder
+"audpc\_analysis" inside of your Documents folder. The most important part is to
+make sure that the **Create git repository** box is checked.
 
-Hit the button labeled **Create Project**, the Rstudio window will refresh and you should see this:
+Hit the button labeled **Create Project**, the Rstudio window will refresh and
+you should see this:
 
 ![](images/rstudio-gitrepo.png)
 
-Now you have your first git repository! 
+Now you have your first git repository! On the upper right hand side, you see
+the git pane. In it you see that you have two files:
+
+- .gitignore - audpc_analysis.Rproj
+
+The file `.gitignore` tells git what it doesn't need to keep track of. By
+default, these are things like your .Rhistory and .Rdata files. The file
+audpc_analysis.Rproj is the file that tells Rstudio that you are in an R project
+and that it should start Rstudio in that folder when you have that project open.
+
+Notice, however that there are two yellow blocks with question marks inside of
+them under a column labled "Status". This is letting you know that there are
+files there that git sees, but isn't keeping track of. To let git know that we
+want to keep track of these files, we need to add them first.
+
 ### git add
 
+Click the check boxes under the "Staged" column and the yellow boxes will change
+to one green box that says "A" inside:
+
 ![](images/rstudio-git-add.png)
+
+This means that you are telling git that you want to add these files to your 
+repository. It's important to know that, while you have told git you want to add
+them, it wants to know that you are serious about adding these files, so it 
+wants you to **commit** to adding these files.
 
 ### git commit
 
