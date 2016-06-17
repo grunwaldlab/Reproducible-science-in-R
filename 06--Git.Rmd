@@ -206,13 +206,13 @@ with git and Rstudio. The next step is to set up your analysis.
 
 ## Step 2: adding a new Rmd file and making changes
 
- 1. Create a new Rmarkdown file by using the menu item **File > New File > R Markdown**
- 2. Give it a title like "AUDPC Analysis"
- 3. Save it in your folder as "AUDPC.Rmd"
- 4. Delete the demo script
- 5. Add a section and code chunk loading 'acricolae', 'dplyr', and 'ggplot2'
- 6. Add a section for the session information.
- 7. Save the file.
+1. Create a new Rmarkdown file by using the menu item **File > New File > R Markdown**
+2. Give it a title like "AUDPC Analysis"
+3. Save it in your folder as "AUDPC.Rmd"
+4. Delete the demo script
+5. Add a section and code chunk loading 'acricolae', 'dplyr', and 'ggplot2'
+6. Add a section for the session information.
+7. Save the file.
  
 Your new file should look like this:
 
@@ -245,3 +245,10 @@ why you made these changes.
 
 # Conclusions
 
+This was not meant to be a comprehensive tutorial on everything related to git,
+but it should be enough to get you started. We hope that, after reading this
+tutorial, you have the resources you need to keep track of your analyses using
+git and explore reproducible research.
+
+The next step is to utilize GitHub so that you can collaborate and store your
+git repositories remotely.
