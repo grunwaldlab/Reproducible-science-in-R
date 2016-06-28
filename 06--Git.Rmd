@@ -3,6 +3,7 @@ title: Introduction to git
 output:
   html_document:
     toc: true
+    css: tutorial.css
 ---
 
 ```{r setup, include=FALSE}
@@ -126,20 +127,20 @@ computer and initialize it as a git repository
 First thing's first, you should select **File > New Project...** from the
 menubar. When you have done that, this window will appear:
 
-![](images/rstudio-new.png)
+![](images/rstudio-new.png){.small_window .knit_border .knit_image}
 
 Select **New Directory**. If you already had your analyses and data ready, you
 would choose "Existing Directory".
 
 Now you should see this window:
 
-![](images/rstudio-empty.png)
+![](images/rstudio-empty.png){.small_window .knit_border .knit_image}
 
 Select **Empty Project**. 
 
 Now you see this window:
 
-![](images/rstudio-create.png)
+![](images/rstudio-create.png){.small_window .knit_border .knit_image}
 
 > If you are unable to check the box labeled Create git repository, make sure
 that your Rstudio is set up with git.
@@ -151,12 +152,13 @@ make sure that the **Create git repository** box is checked.
 Hit the button labeled **Create Project**, the Rstudio window will refresh and
 you should see this:
 
-![](images/rstudio-gitrepo.png)
+![](images/rstudio-gitrepo.png){.big_window .knit_border .knit_image}
 
 Now you have your first git repository! On the upper right hand side, you see
 the git pane. In it you see that you have two files:
 
-- .gitignore - audpc_analysis.Rproj
+ - .gitignore 
+ - audpc_analysis.Rproj
 
 The file `.gitignore` tells git what it doesn't need to keep track of. By
 default, these are things like your .Rhistory and .Rdata files. The file
@@ -173,7 +175,7 @@ want to keep track of these files, we need to add them first.
 Click the check boxes under the "Staged" column and the yellow boxes will change
 to one green box that says "A" inside:
 
-![](images/rstudio-git-add.png)
+![](images/rstudio-git-add.png){.small_window .knit_border .knit_image}
 
 This means that you are telling git that you want to add these files to your 
 repository. It's important to know that, while you have told git you want to add
@@ -185,7 +187,7 @@ wants you to **commit** to adding these files.
 You can commit to adding these files by clicking on the **Commit** button in
 that pane. When you do, this window will pop up:
 
-![](images/rstudio-commit.png)
+![](images/rstudio-commit.png){.med_window .knit_border .knit_image}
 
 Here, you can see what files you will be committing and also the specific parts 
 of the file that have changed. Green lines are those that have been added and
@@ -202,7 +204,7 @@ through your history and understand why you made the changes you did. Write a
 message in the box and then click on the button that says **Commit**. You should
 see the following message:
 
-![](images/rstudio-commit-confirm.png)
+![](images/rstudio-commit-confirm.png){.med_window .knit_border .knit_image}
 
 Now you have your git repository set up with the basic things needed to work
 with git and Rstudio. The next step is to set up your analysis.
@@ -219,7 +221,7 @@ with git and Rstudio. The next step is to set up your analysis.
  
 Your new file should look like this:
 
-![](images/rstudio-rmd.png)
+![](images/rstudio-rmd.png){.big_window .knit_border .knit_image}
 
 Now you should **add** and **commit** that file just like you did for the others
 before, but add a different commit message: "add AUDPC Rmd file".
@@ -227,7 +229,7 @@ before, but add a different commit message: "add AUDPC Rmd file".
 When you've done that, add some text explaining what the chunks are doing and
 why you are using the specific packages like so:
 
-![](images/rstudio-rmd-add.png)
+![](images/rstudio-rmd-add.png){.big_window .knit_border .knit_image}
 
 Notice that, in the above image, the indicator for the file in the git pane is 
 now a blue box with an "M" in the middle. This means that you have modified a 
@@ -235,12 +237,12 @@ file that git is tracking. **Add** that file by clicking on the check box, hit
 the **Commit** button, and then add a commit message saying what you did. Here's
 an example:
 
-![](images/rstudio-rmd-commit.png)
+![](images/rstudio-rmd-commit.png){.med_window .knit_border .knit_image}
 
 Now hit the **Commit** button and then click on the button at the top that says
 **History**. You should see the following:
 
-![](images/rstudio-history.png)
+![](images/rstudio-history.png){.med_window .knit_border .knit_image}
 
 This is a history of all the commits that you have made in this repository for
 the analysis. You can see when you made changes to the file and reasoning behind
