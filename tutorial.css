@@ -14,8 +14,30 @@
 .knit_image {
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
+
+.knit_border {
+  display: block;
+  border: solid black;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.big_window {
+  width: 90%;
+}
+
+.med_window {
+  width: 75%;
+}
+
+.small_window {
+  width: 50%;
+  margin-left: 0;
+}
+
+
 
 .rmd_example_outer {
   width: 100%;
