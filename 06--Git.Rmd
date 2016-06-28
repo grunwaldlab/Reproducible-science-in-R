@@ -96,12 +96,15 @@ user interfaces that are available for it:
 
 ## Tutorials
 
-There are often a plethora of tutorials at your fingertips with a simple google
-search of "learn git".
+There are often a plethora of tutorials at your fingertips with a simple google 
+search of "learn git". As this particular tutorial is only designed to introduce
+you to git, we recommend browsing through these and seeing which ones work well
+for you.
 
 Here are a few that we've found to be helpful:
 
  - [Try Git (from GitHub)](https://try.github.io/)
+ - [Happy Git and GitHub for the useR](http://happygitwithr.com/)
  - [UBC's STAT 545 page on Git, GitHub, and Rstudio](http://stat545.com/git00_index.html) (This has been field tested with students with varying degrees of computer literacy)
  - [Hadely Wickham's take on git](http://r-pkgs.had.co.nz/git.html)
 
