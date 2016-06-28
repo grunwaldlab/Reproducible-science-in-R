@@ -11,12 +11,19 @@
 }
 
 
+/* 
+Your basic centered image
+*/
 .knit_image {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
+/*
+This will place a small black border around an image and also add some padding
+to the top and bottom of an image. 
+*/
 .knit_border {
   display: block;
   border: solid black;
@@ -24,14 +31,18 @@
   margin-bottom: 20px;
 }
 
+
+/*
+Defining widths for displaying window sizes. The small window looks a bit silly
+in the center, so it's placed to the left. These are used with .knit_border and
+.knit_image
+*/
 .big_window {
   width: 90%;
 }
-
 .med_window {
   width: 75%;
 }
-
 .small_window {
   width: 50%;
   margin-left: 0;
