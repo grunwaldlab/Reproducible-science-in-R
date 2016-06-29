@@ -40,4 +40,4 @@ To build the website and subsequently push it to github (this assumes that you h
 quiltr::make_gh_website()
 ```
 
-It seems to work, but ¯\_(ツ)_/¯
+It seems to work, but ¯\\_(ツ)_/¯
