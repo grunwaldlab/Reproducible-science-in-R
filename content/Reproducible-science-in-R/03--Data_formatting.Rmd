@@ -1,4 +1,78 @@
+---
+bibliography: bibtexlib.bib
+output:
+  html_document:
+    css: tutorial.css
+  word_document: default
+---
+
+```{r init, echo=FALSE}
+library(knitr)
+library(xtable)
+library(tools)
+library(knitcitations)
+opts_chunk$set(fig.width = 10,
+               fig.height = 5,
+               cache = FALSE)
+cite_options(citation_format = "pandoc", max.names = 3, style = "html", 
+             hyperlink = "to.doc")
+source("functions.R")
+gloss <- make_glossary_function()
+ftf_def <- paste(
+  "a text file to hold data in a tabular format, where cells are separated by a",
+  "common character such as comma or tab. Common formats are csv and tsv."
+)
+```
+
+# Data Formatting
+
+GIGO is an acronym that stands for "Garbage In, Garbage Out", and this is often 
+a mantra to remember when gathering data. The same goes for entering and storing
+data in a spreadsheet. Often, the first point of error for any analysis is at 
+the data entry stage. This section will show you the best practices of data 
+storage and why this is important for your analyses, whether you are analyzing 
+disease progress, fungicide resistance, or even bioinformatic data. Much of this
+is based off of the Data Carpentry module [Using Spreadsheet Programs for
+Scientific Data](http://www.datacarpentry.org/2015-03-09-ISI-CODATA/lessons/excel/ecology-examples/00-intro.html)
+designed by Christie Bahlai and Aleksandra Pawlik. Please refer to the previous
+link if you need any more information.
+
+## Isn't Excel/OpenOffice/Google Sheets good enough?
+
+**No** [@zeeberg2004mistaken]. 
+![An example of gene names accidentally being converted to dates in Microsoft
+Excel](images/excel_date_error.jpg)
+
+For data entry, Excel is a fantastic program because it's intuitive to enter data into cells, but Excel also reinforces a lot of bad habits that can make your data inaccessable to analyses down the line.
+
+## How should I format my data?
 
 
 
-## Data formatting and read/write
+ - Observations in rows (note: 1 sample ≠ 1 observation)
+ - Variables in columns (e.g. Treatment, Replicate, Response)
+ - One datum per cell
+ - Saved as a `r gloss("flat text file", ftf_def)` (e.g. `.csv`, `.tsv`, `.txt`)
+ 
+
+
+## The good
+
+Long or wide data in a text file 
+
+## The bad
+
+As above, but with color formatting to encode data. 
+
+## The ugly
+
+Separate tables within the spreadsheet, coded by color and stored only within
+excel.
+
+# Glossary
+
+```{r glossary, results = 'asis', echo = FALSE}
+gloss(display = TRUE)
+```
+
+# References
