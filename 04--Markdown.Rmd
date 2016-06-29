@@ -54,7 +54,7 @@ Any simple text editor such as Notepad or TextEdit can be used to write Markdown
 
 `r step('In RStudio, click on the new file dropdown menu at the top left and select "R Markdown".')`
 
-![](images/new_rmarkdown_file_screenshot.png){.small_window .knit_border .knit_image}
+![](images/new_rmarkdown_file_screenshot.png){.knit_border .knit_image}
 
 `r step('A new menu window will appear; just click "OK" to use the default settings.')`
 
