@@ -12,10 +12,20 @@ Welcome! This primer provides a concise introduction to conducting reproducible 
 1. Markdown (Zach)
 1. R markdown (Zach)
 1. Git and github (Zhian)
-1. Quiltr package (Zach)
-1. Writing a paper in R (Zhian; Frontiers paper)
+1. Organizing Reproducible Research
 
 
-# 
+# Website
 
-[Our website](http://grunwaldlab.github.io/Reproducible-science-in-R/)
+You can find rendered vignettes on [our website](http://grunwaldlab.github.io/Reproducible-science-in-R/). 
+
+## Building the webite
+
+install the *quiltr* package and *knitcitations*:
+
+```r
+devtools::install_github("grunwaldlab/quiltr", "cboettig/knitcitations")
+library("quiltr")
+```
+
+All you need to do is type `quilt()` and pray.
