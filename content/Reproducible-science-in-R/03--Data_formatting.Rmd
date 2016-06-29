@@ -41,7 +41,7 @@ link if you need any more information.
 
 **No** [@zeeberg2004mistaken]. 
 ![An example of gene names accidentally being converted to dates in Microsoft
-Excel](images/excel_date_error.jpg)
+Excel](images/excel_date_error.jpg){.big_window .knit_image .knit_border}
 
 For data entry, Excel is a fantastic program because it's intuitive to enter data into cells, but Excel also reinforces a lot of bad habits that can make your data inaccessable to analyses down the line.
 
