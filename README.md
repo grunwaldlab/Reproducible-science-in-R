@@ -28,4 +28,16 @@ devtools::install_github("grunwaldlab/quiltr", "cboettig/knitcitations")
 library("quiltr")
 ```
 
-All you need to do is type `quilt()` and pray.
+To build the website locally and open it in a viewer window:
+
+```r
+quiltr::quilt()
+```
+
+To build the website and subsequently push it to github (this assumes that you have git and github already configured with ssh keys):
+
+```r
+quiltr::make_gh_website()
+```
+
+It seems to work, but ¯\_(ツ)_/¯
