@@ -1,3 +1,0 @@
-
-
-## Writing a paper in R
