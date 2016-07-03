@@ -47,7 +47,8 @@ For data entry, Excel is a fantastic program because it's intuitive to enter dat
 
 ## How should I format my data?
 
-
+It all depends on what your data is, but ultimately there are a few guidelines
+or best practices to follow:
 
  - Observations in rows (note: 1 sample ≠ 1 observation)
  - Variables in columns (e.g. Treatment, Replicate, Response)
