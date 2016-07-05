@@ -1,7 +1,5 @@
 ---
-output:
-html_document:
-css: tutorial.css
+title: RMarkdown
 ---
 
 ```{r init, echo=FALSE}
@@ -24,8 +22,6 @@ pre_scroll_iframe()
 ```
 
 
-## **R**Markdown
-
 While Markdown is useful for simple note taking and writing, `r gloss("RMarkdown", "An extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered")` can be used to mix complex analyses and programming in the R language with all the features of Markdown.
 **RMarkdown is an extension of the Markdown syntax that allows R code to be displayed and run when the document is rendered.**
 Graphs, tables, file input/output, and bibliographies can all be incorporated using embedded R code.
@@ -40,7 +36,7 @@ In this section of the tutorial, we will be summarizing the most commonly used f
 Therefore, as you go through the exercises, it is probably best to focus on remembering *what* RMarkdown can do rather than *how* to do it.**
 At the end of the section there are resources that you can reference when you need to look up how to do a specific task.
 
-### Mixing R and Markdown
+## Mixing R and Markdown
 
 There are two ways to add R code to Markdown: namely as inline or as code chunks.
 The syntax for adding inline code is the same as specifying a monospace font (surrounding text with <code>\`</code>), except that an `r` is added after the first <code>\`</code>.
@@ -69,7 +65,7 @@ median(my_data)
 
 ```
 
-### Code evaluation
+## Code evaluation
 
 In the above example, the code in the chunk was both displayed and executed.
 However, it is possible to show code without executing it.
@@ -80,16 +76,16 @@ Setting the chunk option `eval` to `FALSE` causes the code not to be executed.
 
 ```{r code_eval, results='asis', echo = FALSE}
 rmd_example("
-### Code evaluation
+## Code evaluation
 
-#### Normal evaluation:
+### Normal evaluation:
 
 \`\`\`{r}
 var( c(1, 3, 2.4, 6, 7.2) ) # how to calculate variance in R
 \`\`\`
 
 
-#### Unevaluated code: 
+### Unevaluated code: 
 
 \`\`\`{r, eval=FALSE}
 var( c(1, 3, 2.4, 6, 7.2) )
@@ -99,12 +95,12 @@ var( c(1, 3, 2.4, 6, 7.2) )
 ```
 
 
-### Text Results
+## Text Results
 
 What results of the code are included in the rendered document can also be controlled with chunk options.
 There are at least 9 options that influence how code affects the output document, but we will only cover the most commonly used here.
 
-#### Displaying code
+### Displaying code
 
 The `echo` option controls whether the code is displayed or not.
 Setting `echo = FALSE` will cause the code to not be shown in the output, but will not affect its execution. 
@@ -113,9 +109,9 @@ Setting `echo = FALSE` will cause the code to not be shown in the output, but wi
 
 ```{r echo_example, results='asis', echo = FALSE}
 rmd_example("
-### Text Results
+## Text Results
 
-#### Invisible code:
+### Invisible code:
 
 \`\`\`{r, echo=FALSE}
 var( c(1, 3, 2.4, 6, 7.2) )
@@ -124,7 +120,7 @@ var( c(1, 3, 2.4, 6, 7.2) )
 
 ```
 
-#### Displaying results
+### Displaying results
 
 You can hide the typical text output of chunks by setting `results = 'hide'`.
 This does not affect things like warnings, errors, and graphs. 
@@ -134,7 +130,7 @@ This does not affect things like warnings, errors, and graphs.
 
 ```{r results_example, results='asis', echo = FALSE}
 rmd_example("
-#### Invisible results:
+### Invisible results:
 
 \`\`\`{r, results = 'hide'}
 x = 'This code was executed'
@@ -149,7 +145,7 @@ print(x)
 
 ```
 
-#### Hiding warnings and errors
+### Hiding warnings and errors
 
 As R is an interactive language, some functions will occasionally display text that conveys a message to you, but is not necessarily part of your data. These are known as `r gloss("messages", "text displayed to convey extra information to the user such as a function's progress.")`, `r gloss("warnings", "text displayed to convey non-normal behavior that the user might be concerned about.")`, and `r gloss("errors", "text displayed to the user to let them know what went wrong in their code.")`. By default, the options are set to show you all warnings and messages and to stop the execution of your document if an error comes up. You can control these by using the corresponding chunk options.
 
@@ -157,7 +153,7 @@ As R is an interactive language, some functions will occasionally display text t
 
 ```{r other_text_output, results='asis', echo = FALSE}
 rmd_example("
-#### Messages, warnings, and errors:
+### Messages, warnings, and errors:
 
 The `poppr.amova()` function from *poppr*, will normally display
 progress messages of how it treats the data before the analysis. The following 
@@ -202,7 +198,7 @@ poppr.amova(monpop, hier = Tree) # Forgot the tilde (~)
 
 ```
 
-### Adding figures
+## Adding figures
 
 One of the major advantages of mixing R with markdown is access to R's well known graphical prowess.
 Graphs can be inserted into RMarkdown documents the same way text results are.
@@ -211,7 +207,7 @@ Both are very flexible and each have their adherents.
 The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics as well as the ability to create complex graphics. 
 We will demonstrate both graphing systems, but will not go into details here.
 
-#### Typical usage
+### Typical usage
 
 By default, any plots made are displayed after the line of code that created them.
 The example below uses the R base graphics to plot the distribution of 10 number drawn from a normal distribution.
@@ -220,9 +216,9 @@ The example below uses the R base graphics to plot the distribution of 10 number
 
 ```{r figure_example, results='asis', echo = FALSE}
 rmd_example(height = 500, "
-### Adding figures
+## Adding figures
 
-#### Typical usage
+### Typical usage
 
 
 \`\`\`{r}
@@ -234,7 +230,7 @@ hist(x)
 ```
 
 
-#### Hiding figures
+### Hiding figures
 
 Figured can be excluded from the output document by setting the chunk option `fig.show` to `'hide'`
 
@@ -242,7 +238,7 @@ Figured can be excluded from the output document by setting the chunk option `fi
 
 ```{r hide_figure_example, results='asis', echo = FALSE}
 rmd_example("
-#### Hiding figures
+### Hiding figures
 
 \`\`\`{r, fig.show='hide'}
 x = rnorm(10)
@@ -253,7 +249,7 @@ hist(x)
 ```
 
 
-#### Figure sizes
+### Figure sizes
 
 The size of the figures made in a given chunk can be changed using the options `fig.width` and `fig.height`, specified in inches.
 The example below uses `ggplot2` to make a graph similar to the previous ones. 
@@ -262,7 +258,7 @@ The example below uses `ggplot2` to make a graph similar to the previous ones.
 
 ```{r scale_figure_example, results='asis', echo = FALSE}
 rmd_example(height = 500, "
-#### Figure sizes
+### Figure sizes
 
 \`\`\`{r, fig.width=2, fig.height=4}
 library(ggplot2)
@@ -281,7 +277,7 @@ ggplot(x) +
 
 
 
-### Tables
+## Tables
 
 Like much in R, there are multiple ways to create tables.
 Tables can be created "by hand" using an RMarkdown syntax, or made using a few R functions.
@@ -292,9 +288,9 @@ The same format is made automatically with the `kable` function from the `knitr`
 
 ```{r tables_example, results='asis', echo = FALSE}
 rmd_example(height = 400, "
-### Tables
+## Tables
 
-#### Manual tables
+### Manual tables
 
 |  x| squared| cubed|
 |--:|-------:|-----:|
@@ -302,7 +298,7 @@ rmd_example(height = 400, "
 |  2|       4|     8|
 |  3|       9|    27|
 
-#### Kable tables
+### Kable tables
 
 \`\`\`{r}
 library(knitr)
@@ -321,7 +317,7 @@ However, this package is focused mostly on making tables for PDF output rather t
 
 ```{r xtables_example, results='asis', echo = FALSE}
 rmd_example(height = 200, "
-#### Xtable tables
+### Xtable tables
 
 \`\`\`{r, results='asis'}
 library(xtable)
@@ -335,7 +331,7 @@ print(xtable(data), type = 'html',
 ```
 
 
-### YAML headers
+## YAML headers
 
 As you might have noticed, the top of the template document RStudio provides when creating a new RMarkdown document contains some settings in a distinct format.
 This header information of RMarkdown file in a language called `r gloss("YAML", "A plain text computer language used to store heirarchical information")`, used to store information.
@@ -368,7 +364,7 @@ number_sections: true
 ---</code></pre>
 
 
-### Adding a bibliography
+## Adding a bibliography
 
 There are a few ways of adding citations/bibliographies to your RMarkdown document automatically.
 We will be using an external file containing a list of references in a standard format called `r gloss("BibTeX", "A plain text format used to store citation/bibliography information")`. 
@@ -430,11 +426,11 @@ bibliography: example_bibliography.bibtex
 ---
 
 
-### Adding a bibliography
+## Adding a bibliography
 
 RMarkdown [@baumer2014r] is referenced in the @racine2012rstudio paper.  
 
-### References
+## References
             ")
 ```
 
@@ -443,7 +439,7 @@ file.remove(bib_path)
 ```
 
 
-### Additional resources
+## Additional resources
 
 RMarkdown is much more complex than pure Markdown due to all the subtle ways code can be handled and the results displayed. 
 Most people will need to constantly reference documentation and "cheat sheets" to remind themselves of ways to do occasionally necessary tasks.
@@ -461,7 +457,7 @@ In that spirit, here are some great places to look things up:
 - [An RMarkdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf): This summarizes the main tools of RMarkdown in just two pages. 
 
 
-### Glossary
+## Glossary
 
 ```{r glossary, results = 'asis'}
 gloss(display = TRUE)

@@ -1,9 +1,5 @@
 ---
 title: Introduction to git
-output:
-  html_document:
-    toc: true
-    css: tutorial.css
 ---
 
 ```{r setup, include=FALSE}

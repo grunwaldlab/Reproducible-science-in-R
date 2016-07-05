@@ -1,9 +1,5 @@
 ---
 bibliography: bibtexlib.bib
-output:
-  html_document:
-    css: tutorial.css
-  word_document: default
 ---
 
 ```{r init, echo=FALSE}
