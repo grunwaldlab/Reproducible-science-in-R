@@ -133,7 +133,7 @@ rmd_example("
 ### Invisible results:
 
 \`\`\`{r, results = 'hide'}
-x = 'This code was executed'
+x <- 'This code was executed'
 print(x)
 \`\`\`
 
