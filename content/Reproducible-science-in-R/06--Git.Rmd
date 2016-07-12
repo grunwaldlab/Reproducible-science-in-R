@@ -13,6 +13,7 @@ remote_def <- "a git repository hosted on another computer or server"
 push_def <- "send changes (commits) to a remote repository"
 pull_def <- "find all new changes in a remote repository and attempt to merge them with your local changes"
 fork_def <- "a copy of someone else's repository for you to work on"
+clone_def <- "create a local copy of a remote repository on your computer"
 ```
 
 # Git
@@ -117,7 +118,7 @@ other. The links at the end of this page are wonderful resources for getting sta
 
 In this step, we are going to create a new R project in a new folder on your
 computer and initialize it as a git repository (on the command line, this would
-be `r gloss("git_init", init_def)`).
+be `r gloss("git init", init_def)`).
 
 ### git init
 
@@ -266,8 +267,8 @@ things remotely, this is similar to Dropbox or Google Drive, but that's where
 the similarities end. With GitHub, like git, you are in control of all the
 changes that are made. This section will take you through the process of setting
 up an account with GitHub and it will teach you a few new terms such as 
-`r gloss("push", push_def)`, `r gloss("pull", pull_def)`, 
-and `r gloss("fork", fork_def)`.
+`r gloss("clone", clone_def)`, `r gloss("push", push_def)`, 
+`r gloss("pull", pull_def)`, and `r gloss("fork", fork_def)`.
 
 ## Step 1: Sign up for a GitHub account
 
@@ -275,8 +276,39 @@ If you haven't already done so, you should sign up for a GitHub account. Note
 that you do not need to have git installed on your computer to do this. You can
 sign up for a GitHub account by clicking on this link: https://github.com
 
-## Step 2: 
+## Step 2: Fork a repo
 
+We've already presented two examples of handling reproducible research in R. 
+Both of these are on GitHub:
+
+ - AUDPC of *Puccinia striiformis*: https://github.com/grunwaldlab/audpc_example 
+ - Index of Association of *Phytophthora infestans*:
+   https://github.com/grunwaldlab/pinfestans_example
+
+These repositories live in the grunwaldlab account on GitHub, but you can have a
+copy for yourself. To do this, you create a `r gloss("fork", fork_def)` of the
+repository into your own account. You can do this by using the **fork** button
+in the top right corner of the webpage:
+
+![](images/pinfestans_github.png){.big_window .knit_border .knit_image}
+
+After you click this button, GitHub will copy that repository to your account
+and take you there:
+
+![](images/pinfestans_fork.png){.big_window .knit_border .knit_image}
+
+Notice that the username has changed and it says "forked from
+grunwaldlab/pinfestans_example".
+
+### Try it!
+
+Fork both of these repositories to your own account! If you have written your
+README.md from the Markdown exercise, upload it to the AUDPC repository and
+commit that change.
+
+## Step 3: Push and pull
+
+> This step requires that you have successfully installed git, signed up for a GitHub account, and have properly configuredthem to work with each other. 
 
 # Resources
 
