@@ -1,10 +1,21 @@
 ---
-title: Introduction to git
+title: Introduction to Git and GitHub
 ---
 
 ```{r setup, include=FALSE}
+source("functions.R")
 knitr::opts_chunk$set(echo = TRUE)
+gloss <- make_glossary_function()
+init_def <- "initialize a git repository in a folder"
+add_def <- "tell git that you are going to commit certain files"
+commit_def <- "record the state of your project at that moment in time"
+remote_def <- "a git repository hosted on another computer or server"
+push_def <- "send changes (commits) to a remote repository"
+pull_def <- "find all new changes in a remote repository and attempt to merge them with your local changes"
+fork_def <- "a copy of someone else's repository for you to work on"
 ```
+
+# Git
 
 ## What is git?
 
@@ -81,8 +92,18 @@ work.
 - because you wrote something that makes no sense and just want to go back to a previous version of the project without having to manually delete everything.
 -->
 
+## How do I install git?
 
-# Your first repository
+This process differs depending whether or not you're on Windows, OSX, or Linux.
+Luckily for you, descriptions for all of these have been consolidated into one
+easy to read document by Jenny Bryan at UBC:
+http://happygitwithr.com/install-git.html
+
+Please go there and follow the instructions carefully depending on your
+operating system. Note for OSX users, if you don't have Xcode installed, it may
+take a while. Ensure that you have a good and fast internet connection.
+
+## Your first git repository
 
 Although git is usually used on the command line and takes some practice to use effectivly,
 RStudio has a simple menu that makes it easy to do the most common tasks.
@@ -95,7 +116,8 @@ other. The links at the end of this page are wonderful resources for getting sta
 ## Step one: telling git that you want a repository
 
 In this step, we are going to create a new R project in a new folder on your
-computer and initialize it as a git repository
+computer and initialize it as a git repository (on the command line, this would
+be `r gloss("git_init", init_def)`).
 
 ### git init
 
@@ -143,7 +165,8 @@ and that it should start Rstudio in that folder when you have that project open.
 Notice, however that there are two yellow blocks with question marks inside of
 them under a column labled "Status". This is letting you know that there are
 files there that git sees, but isn't keeping track of. To let git know that we
-want to keep track of these files, we need to add them first.
+want to keep track of these files, we need to add them first with 
+`r gloss("git add", add_def)`.
 
 ### git add
 
@@ -155,7 +178,8 @@ to one green box that says "A" inside:
 This means that you are telling git that you want to add these files to your 
 repository. It's important to know that, while you have told git you want to add
 them, it wants to know that you are serious about adding these files, so it 
-wants you to **commit** to adding these files.
+wants you to **commit** to adding these files with 
+`r gloss("git commit", commit_def)`.
 
 ### git commit
 
@@ -223,7 +247,7 @@ This is a history of all the commits that you have made in this repository for
 the analysis. You can see when you made changes to the file and reasoning behind
 why you made these changes.
 
-# Conclusions
+## Conclusions
 
 This was not meant to be a comprehensive tutorial on everything related to git,
 but it should be enough to get you started. We hope that, after reading this
@@ -232,6 +256,27 @@ git and explore reproducible research.
 
 The next step is to utilize GitHub so that you can collaborate and store your
 git repositories remotely.
+
+# GitHub
+
+GitHub is an online service that allows you to keep your projects on the web and
+collaborate with others. In more technical terms, it serves as a 
+`r gloss("remote repository", remote_def)` for your projects. In terms of storing
+things remotely, this is similar to Dropbox or Google Drive, but that's where
+the similarities end. With GitHub, like git, you are in control of all the
+changes that are made. This section will take you through the process of setting
+up an account with GitHub and it will teach you a few new terms such as 
+`r gloss("push", push_def)`, `r gloss("pull", pull_def)`, 
+and `r gloss("fork", fork_def)`.
+
+## Step 1: Sign up for a GitHub account
+
+If you haven't already done so, you should sign up for a GitHub account. Note
+that you do not need to have git installed on your computer to do this. You can
+sign up for a GitHub account by clicking on this link: https://github.com
+
+## Step 2: 
+
 
 # Resources
 
@@ -257,3 +302,10 @@ Here are a few that we've found to be helpful:
 - [Happy Git and GitHub for the useR](http://happygitwithr.com/)
 - [UBC's STAT 545 page on Git, GitHub, and Rstudio](http://stat545.com/git00_index.html) (This has been field tested with students with varying degrees of computer literacy)
 - [Hadely Wickham's take on git](http://r-pkgs.had.co.nz/git.html)
+
+# Glossary
+
+```{r glossary, results = 'asis', echo = FALSE}
+gloss(display = TRUE)
+```
+
