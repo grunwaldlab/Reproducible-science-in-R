@@ -152,7 +152,7 @@ $(document).ready(function () {
 <li><a href="#installing-r">Installing R</a></li>
 <li><a href="#installing-the-required-packages">Installing the required packages</a></li>
 <li><a href="#a-quick-introduction-to-r-using-rstudio">A quick introduction to R using RStudio</a></li>
-<li><a href="#using-magrittr">Using <em>magrittr</em></a></li>
+<li><a href="#using-magrittrs">Using <em>magrittr</em>’s %&gt;%</a></li>
 <li><a href="#packages-and-getting-help">Packages and getting help</a></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -171,13 +171,13 @@ $(document).ready(function () {
 <p>The following packages are utilized in this primer:</p>
 <ol style="list-style-type: decimal">
 <li><a href="http://cran.r-project.org/web/packages/poppr/index.html">poppr</a></li>
+<li><a href="http://cran.r-project.org/web/packages/poppr/index.html">agricolae</a></li>
+<li><a href="http://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a></li>
+<li><a href="http://cran.r-project.org/web/packages/tidyr/index.html">tidyr</a></li>
+<li><a href="http://cran.r-project.org/web/packages/ggplot2/index.html">ggplot2</a></li>
 </ol>
 <p>Use the following script to install these packages:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;poppr&quot;</span>, <span class="st">&quot;mmod&quot;</span>, <span class="st">&quot;magrittr&quot;</span>, <span class="st">&quot;treemap&quot;</span>), <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<p>We wrote and actively maintain <em>poppr</em> <a id="cite-kamvar2014poppr"></a><a id="cite-kamvar2015novel"></a>(<a href="http://dx.doi.org/10.7717/peerj.281">Kamvar, Tabima, and Grünwald, 2014</a>; <a href="http://dx.doi.org/10.3389/fgene.2015.00208">Kamvar, Brooks, and Grünwald, 2015</a>) and it is heavily relied upon in this primer. <em>Poppr</em> is an R package. You can think of a package as a library of functions written and curated by someone in the R user community, which you can be loaded into R for use.</p>
-<p>Once you’ve installed <em>poppr</em>, you can invoke (i.e., load) it by typing or cutting and pasting:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;poppr&quot;</span>)</code></pre></div>
-<p>This will load <em>poppr</em> and all dependent packages, such as <em>adegenet</em> and <em>ade4</em>. You will recognize loading by the prompts written to your screen.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;poppr&quot;</span>, <span class="st">&quot;agricolae&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>), <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p>Congratulations. You should now be all set for using R. Loading data and conducting your first analysis will be the topic of the next chapter. But before we go there lets provide a few useful resources.</p>
 </div>
 <div id="a-quick-introduction-to-r-using-rstudio" class="section level2">
@@ -191,12 +191,12 @@ $(document).ready(function () {
 <blockquote>
 <p>Note that the symbol ‘#’ is used to add comments to your code and you just type <code>getwd()</code> after the “&gt;”.</p>
 </blockquote>
-<p>Our primer is heavily based on the <em>poppr</em> and <em>adegenet</em> packages. To get help on any of their functions type a question mark before the empty function call as in:</p>
+<p>To get help on any R functions, type a question mark before the empty function call as in:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?mlg <span class="co"># open the R documentation of the function mlg()</span></code></pre></div>
 <p>To quit R you can either use the <kbd>RStudio &gt; Quit</kbd> pull-down menu command or execute <kbd>⌘ + Q</kbd> (OS X) or <kbd>ctrl + Q</kbd> (PC).</p>
 </div>
-<div id="using-magrittr" class="section level2">
-<h2>Using <em>magrittr</em></h2>
+<div id="using-magrittrs" class="section level2">
+<h2>Using <em>magrittr</em>’s %&gt;%</h2>
 <p>Various chapters throughout this primer will have the symbol <code>%&gt;%</code> in the code. This is called a “pipe” operator and it allows code to be more readable by stringing together commands from right to left. Here’s a <a href="http://rforcats.net/#pipes">short description of these “pipes” with cats</a>. When reading code, it can be thought of as equivalent to saying “and then”. For example, if you have three consecutive steps to a process, you would write this in English as:</p>
 <blockquote>
 <p>Take your data <strong>and then</strong> do step one, <strong>and then</strong> do step two, <strong>and then</strong> do step three.</p>
@@ -217,9 +217,6 @@ foo_foo %&gt;%
 <span class="st">  </span><span class="kw">hop_through</span>(forest) %&gt;%
 <span class="st">  </span><span class="kw">scoop_up</span>(field_mouse) %&gt;%
 <span class="st">  </span><span class="kw">bop_on</span>(head)</code></pre></div>
-<blockquote>
-<p>To observe the results type <code>allelic_diversity</code> into the console after each statement.</p>
-</blockquote>
 <p>The <code>%&gt;%</code> operator is thus good if you have to do a lot of small steps in your analysis. It allows your code to be more readable and reproducible.</p>
 </div>
 </div>
@@ -241,17 +238,10 @@ foo_foo %&gt;%
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">browseVignettes</span>()                     <span class="co"># see vignettes from all packages</span>
 <span class="kw">browseVignettes</span>(<span class="dt">package =</span> <span class="st">'poppr'</span>)    <span class="co"># see vignettes from a specific package.</span></code></pre></div>
 <p>and to look at a specific vignette you can type:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vignette</span>(<span class="st">'poppr_manual'</span>)</code></pre></div>
-<p>Next, consider browsing Appendix 3 on “Introduction to R” if you are not yet familiar with R and RStudio. Otherwise, you are now ready to think about formatting and loading population genetic data into R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vignette</span>(<span class="st">'mlg'</span>)</code></pre></div>
 </div>
 <div id="references" class="section level2">
 <h2>References</h2>
-<p>
-<a id="bib-kamvar2015novel"></a><a href="#cite-kamvar2015novel">[1]</a><cite> Z. N. Kamvar, J. C. Brooks and N. J. Grünwald. “Novel R tools for analysis of genome-wide population genetic data with emphasis on clonality”. In: <em>Name: Frontiers in Genetics</em> 6 (2015), p. 208. DOI: <a href="http://dx.doi.org/10.3389/fgene.2015.00208">10.3389/fgene.2015.00208</a>. URL: <a href="http://dx.doi.org/10.3389/fgene.2015.00208">http://dx.doi.org/10.3389/fgene.2015.00208</a>.</cite>
-</p>
-<p>
-<a id="bib-kamvar2014poppr"></a><a href="#cite-kamvar2014poppr">[2]</a><cite> Z. N. Kamvar, J. F. Tabima and N. J. Grünwald. “<span class="math inline">\(Poppr\)</span>: an R package for genetic analysis of populations with clonal, partially clonal, and/or sexual reproduction”. In: <em>PeerJ</em> 2 (2014), p. e281. DOI: <a href="http://dx.doi.org/10.7717/peerj.281">10.7717/peerj.281</a>. URL: <a href="http://dx.doi.org/10.7717/peerj.281">http://dx.doi.org/10.7717/peerj.281</a>.</cite>
-</p>
 <!---->
 </div>
 
