@@ -194,10 +194,13 @@ To make a PDF or Word document, simply click on the dropdown menu immediately to
 
 Download and uncompress the [AUDPC example directory](https://github.com/grunwaldlab/audpc_example/) at https://github.com/grunwaldlab/audpc_example/archive/master.zip.
 In that directory there are a pair of files called `original_audpc_report.docx` and `original_audpc_code.R`; this is a simple record of an experiment done in a conventional, not-very-reporducible way.
-The file `audpc_report_to_replicate.pdf` in the output of the same analysis done using Rmarkdown, but the source Rmarkdown is not shown.
-Your goal is to create the Rmarkdown document that produces something similar to `audpc_report_to_replicate.html`.
+The file `audpc_report_to_replicate.html` in the output of the same analysis done using Rmarkdown, but the source RMarkdown document is not shown.
+Your goal is to create the RMarkdown document that produces something similar to `audpc_report_to_replicate.html`.
 
-`r step('Recreate the "Background" section of "audpc_report_to_replicate.html". You can copy and paste the text, but you will have to remake the formatting.')`
+`r step('Recreate the "Background" section of "audpc_report_to_replicate.html" as "README.md"')`
+
+You can copy and paste the text, but you will need to recreate the formatting
+using the principles you learned above.
 
 In the next section, we will recreate the rest of the analysis.
 
