@@ -52,7 +52,9 @@ or best practices to follow:
  - Observations in rows (note: 1 sample ≠ 1 observation)
  - Variables in columns (e.g. Treatment, Replicate, Response)
  
-
+In the following examples, we will use data from A Stripe Rust case study
+provided by APS. [You can find the link to the case study
+here.](http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/StripeRust.aspx)
 
 ## The good
 
