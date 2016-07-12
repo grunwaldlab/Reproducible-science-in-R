@@ -27,6 +27,8 @@ to the top and bottom of an image.
 .knit_border {
   display: block;
   border: solid black;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px -5px gray;
   margin-top: 10px;
   margin-bottom: 20px;
 }

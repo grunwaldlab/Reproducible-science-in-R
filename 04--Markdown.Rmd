@@ -1,8 +1,5 @@
 ---
-output:
-  html_document:
-    css: tutorial.css
-  word_document: default
+title: Markdown
 ---
 
 ```{r init, echo=FALSE}
@@ -25,10 +22,7 @@ gloss <- make_glossary_function()
 ```{r, results='asis'}
 # Add javascript to cause the iframes to be scrolled down all the way when the page loads. 
 pre_scroll_iframe()
-
 ```
-
-## Markdown
 
 `r gloss("Markdown", "a simple, human-readable plain text format that is typically rendered as HTML or PDF")` is a simple, human-readable `r gloss("plain text format", "Any systematic way of writing that only uses unformatted characters, numbers, and punctuation marks. For example, Notepad is a common editor for plain text, whereas Microsoft Word is not.")` that can be converted to other file formats, such as `r gloss("HTML", "The markup language read by web browsers like internet explorer and firefox")` and PDF by numerous programs.
 The format is just a set of conventions for writing plain text files.
@@ -46,7 +40,7 @@ Curious about what those output documents look like?
 You're reading one now; this tutorial was written in Markdown and converted to this HTML file you are viewing.
 So, if you are ready to stop spending your time positioning pictures, messing with margins, and fiddling with fonts, just to find out that your collaborator's/customer's/student's computer thinks the pictures should be elsewhere and the fonts you chose don't exist, then its time to learn Markdown!
 
-### Getting started
+## Getting started
 
 Unlike R code, which can be executed line-by-line in an `r gloss("R console", "A text prompt in which R commands can be run one at a time interactivly and their results displayed")`, Markdown is processed as a whole file.
 Therefore, the first thing we will do is create an empty file to practice on.
@@ -54,22 +48,22 @@ Any simple text editor such as Notepad or TextEdit can be used to write Markdown
 
 `r step('In RStudio, click on the new file dropdown menu at the top left and select "R Markdown".')`
 
-![](images/new_rmarkdown_file_screenshot.png)
+![](images/new_rmarkdown_file_screenshot.png){.knit_border .knit_image}
 
 `r step('A new menu window will appear; just click "OK" to use the default settings.')`
 
-![](images/confirm_new_rmarkdown_file_screenshot.png)
+![](images/confirm_new_rmarkdown_file_screenshot.png){.med_window .knit_border .knit_image}
 
 `r step('There will be some template text in the new file. Delete everything so we have a clean file to work from. You should now have a blank file like the one pictured below. Save the file as "markdown-tutorial.Rmd".')`
 
-![](images/blank_rmarkdown_file_screenshot.png)
+![](images/blank_rmarkdown_file_screenshot.png){.big_window .knit_border .knit_image}
 
 
 The conventional file extension for Markdown is ".md", but most programs that interpret Markdown will accept any extension. 
 Note that we are using ".Rmd" instead; This is for **R**Markdown, a file format that adds the ability to incorporate R code with standard Markdown.
 We are using ".Rmd" since we will be covering RMarkdown in the next section, but nothing in this section is specific to RMarkdown, so don't worry about it for now.
 
-### Basic text formatting
+## Basic text formatting
 
 Markdown is meant to be easily read by humans as well as computers.
 Therefore, it has a minimal set of simple syntax rules that are designed to not interfere with the readability of the source file. 
@@ -97,7 +91,7 @@ This file is self-contained and can be viewed using any web browser.
 At the top of the pop-up window displaying the document there is a button labeled "Open in Browser" that will open the new file in your default web browser.
 
 
-### Code and quotes
+## Code and quotes
 
 Text also can be formatted to look like `r gloss("monospace", "A font in which every character has the same width, often used to display computer code")` code by surrounding text with <code>\`</code> or by indenting lines with 4 or more spaces.
 Starting lines with one or more `>` turns lines of text into block quotes; the number of `>` characters corresponds to the level of nesting.
@@ -118,7 +112,7 @@ Text can be displayed in a `monospace` font inline.
             ")
 ```
 
-### Lists
+## Lists
 
 Both numbered and unnumbered lists are supported.
 Consecutive lines starting with `-` are interpreted as a bulleted list.
@@ -149,7 +143,7 @@ rmd_example("
             ")
 ```
 
-### Horizontal rules
+## Horizontal rules
 
 A horizontal line can be made by three or more `-` on the same line alone. 
 
@@ -169,7 +163,7 @@ rmd_example("
 
 
 
-### Links and images
+## Links and images
 
 Adding links and images uses a similar syntax.
 Links can be added using the form `[link name](link location)`, where "link name" is what is displayed and "link location" is a URL or file path.
@@ -188,13 +182,13 @@ I used [Google](https://www.google.com/) to find this image:
 ```
 
 
-### Other output formats
+## Other output formats
 
 So far, we have been converting Markdown to HTML.
 To make a PDF or Word document, simply click on the dropdown menu immediately to the right of the "knit HTML" button and select the format you want to try.
 
 
-### Additional resources
+## Additional resources
 
 That's pretty much all there is to it!
 Below are a few links that might be useful if you want to explore the more esoteric corners of the Markdown universe.
@@ -209,7 +203,7 @@ Below are a few links that might be useful if you want to explore the more esote
 - [Wikipedia](https://en.wikipedia.org/wiki/Markdown): The Wikipedia page on Markdown.
 
 
-### Glossary
+## Glossary
 
 ```{r glossary, results = 'asis'}
 gloss(display = TRUE)

@@ -1,9 +1,5 @@
 ---
 bibliography: bibtexlib.bib
-output:
-  html_document:
-    css: tutorial.css
-  word_document: default
 ---
 
 ```{r init, echo=FALSE}
@@ -41,13 +37,14 @@ link if you need any more information.
 
 **No** [@zeeberg2004mistaken]. 
 ![An example of gene names accidentally being converted to dates in Microsoft
-Excel](images/excel_date_error.jpg)
+Excel](images/excel_date_error.jpg){.big_window .knit_image .knit_border}
 
 For data entry, Excel is a fantastic program because it's intuitive to enter data into cells, but Excel also reinforces a lot of bad habits that can make your data inaccessable to analyses down the line.
 
 ## How should I format my data?
 
-
+It all depends on what your data is, but ultimately there are a few guidelines
+or best practices to follow:
 
  - Observations in rows (note: 1 sample ≠ 1 observation)
  - Variables in columns (e.g. Treatment, Replicate, Response)

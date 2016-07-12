@@ -1,0 +1,6 @@
+html_document:
+  toc: true
+  toc_depth: 2
+  theme: readable
+  highlight: tango
+  css: tutorial.css

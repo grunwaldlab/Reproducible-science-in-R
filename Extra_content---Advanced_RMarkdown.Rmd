@@ -1,7 +1,5 @@
 ---
-output:
-  html_document:
-    css: tutorial.css
+title: Advanced **R**Markdown
 ---
 
 ```{r init, echo=FALSE}
@@ -23,17 +21,13 @@ opts_chunk$set(warning = FALSE,
 pre_scroll_iframe()
 ```
 
-
-## Advanced **R**Markdown
-
-
-### Animated figures
+## Animated figures
 
 `r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
 
 ```{r animate_figure_example, results='asis', echo = FALSE, eval = FALSE}
 rmd_example(height = 500, "
-#### Animated figures
+## Animated figures
 
 \`\`\`{r,  fig.show='animate', fig.width=5, fig.height=4}
 library(ggplot2)
@@ -50,7 +44,7 @@ for (count in 1:4) {
 ```
 
 
-### Caching
+## Caching
 
 A potential downside of combining code used to analyse data and notes/interpretation is that every time you rerun the RMarkdown document to make a small change (e.g. add or update notes), all of the code is run again even if no changes to the code are made.
 For analyses that take a long time, this can make using RMarkdown impractical.
@@ -63,7 +57,7 @@ Below is an example of code to draw a [Barnsley Fern](https://en.wikipedia.org/w
 
 ```{r caching_example, results='asis', echo = FALSE}
 rmd_example(height = NULL, "
-### Caching
+## Caching
 
 \`\`\`{r, cache=TRUE}
 iter <- 10000
