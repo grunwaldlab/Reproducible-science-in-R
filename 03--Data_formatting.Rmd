@@ -114,6 +114,12 @@ vs blanks).
 
 ![](images/ugly_data.png){.knit_border .knit_image}
 
+# Try it!
+
+Look at these two data sets [create data that's different from above] and
+compare and categorize them as good, bad, or ugly. What can be done to make them
+good data?
+
 # Glossary
 
 ```{r glossary, results = 'asis', echo = FALSE}
