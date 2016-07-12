@@ -1,8 +1,8 @@
 ```{r,message=FALSE,echo=FALSE}
-  library("knitcitations")
+  # library("knitcitations")
   library("knitr")
-  cite_options(max.names = 3, style = "html", hyperlink = "to.doc")
-  bib <- read.bibtex("bibtexlib.bib")
+  # cite_options(max.names = 3, style = "html", hyperlink = "to.doc")
+  # bib <- read.bibtex("bibtexlib.bib")
   opts_chunk$set(tidy = FALSE, message = FALSE, warning = FALSE, cache = TRUE) 
   # use this to set knitr options: 
   # http://yihui.name/knitr/options #chunk_options 
@@ -29,34 +29,23 @@ Installing the required packages
 The following packages are utilized in this primer:
 
 1. [poppr](http://cran.r-project.org/web/packages/poppr/index.html)
+1. [agricolae](http://cran.r-project.org/web/packages/poppr/index.html)
+1. [dplyr](http://cran.r-project.org/web/packages/dplyr/index.html)
+1. [tidyr](http://cran.r-project.org/web/packages/tidyr/index.html)
+1. [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html)
 
 Use the following script to install these packages:
 
 ```{r, eval = FALSE}
-install.packages(c("poppr", "mmod", "magrittr", "treemap"), repos = "http://cran.rstudio.com", dependencies = TRUE)
+install.packages(c("poppr", "agricolae", "dplyr", "tidyr", "ggplot2"), repos = "http://cran.rstudio.com", dependencies = TRUE)
 ```
-
-We wrote and actively maintain *poppr* `r citep(bib["kamvar2014poppr", "kamvar2015novel"])` and it
-is heavily relied upon in this primer. *Poppr* is an R package. You can think of
-a package as a library of functions written and curated by someone in the R user
-community, which you can be loaded into R for use.
-
-Once you've installed *poppr*, you can invoke (i.e., load) it by typing or
-cutting and pasting:
-
-```{r, message=TRUE, warning=TRUE, cache=FALSE}
-library("poppr")
-```
-
-This will load *poppr* and all dependent packages, such as *adegenet* and
-*ade4*. You will recognize loading by the prompts written to your screen.
 
 Congratulations. You should now be all set for using R. Loading data and
 conducting your first analysis will be the topic of the next chapter. But before
 we go there lets provide a few useful resources.
 
 A quick introduction to R using RStudio
-----
+------------------
 
 Next, let's review some of the basic features and functions of R. To start R,
 open the RStudio application from your programs folder or start menu. This will
@@ -75,9 +64,8 @@ getwd() # this command will print the current working directory
 > Note that the symbol '#' is used to add comments to your code and you just
 > type `getwd()` after the ">".
 
-Our primer is heavily based on the *poppr* and *adegenet* packages. To get help
-on any of their functions type a question mark before the empty function call as
-in:
+To get help on any R functions, type a question mark before the empty function
+call as in:
 
 ```{r, eval=FALSE}
 ?mlg # open the R documentation of the function mlg()
@@ -86,8 +74,8 @@ in:
 To quit R you can either use the <kbd>RStudio > Quit</kbd> pull-down menu
 command or execute <kbd>⌘ + Q</kbd> (OS X) or <kbd>ctrl + Q</kbd> (PC).
 
-Using *magrittr*
-----
+Using *magrittr*'s %>%
+----------------------
 
 Various chapters throughout this primer will have the symbol `%>%` in the code.
 This is called a "pipe" operator and it allows code to be more readable by
@@ -129,14 +117,12 @@ foo_foo %>%
   bop_on(head)
 ```
 
-> To observe the results type `allelic_diversity` into the console after each statement.
-
 The `%>%` operator is thus good if you have to do a lot of small steps in your
 analysis. It allows your code to be more readable and reproducible.
 
 
 Packages and getting help
-----
+-----------------------
 
 One way that R shines above other languages for analysis is the fact that
 R packages in CRAN are all documented. Help files are written in HTML and give
@@ -167,12 +153,8 @@ browseVignettes(package = 'poppr')    # see vignettes from a specific package.
 and to look at a specific vignette you can type:
 
 ```{r, eval=FALSE}
-vignette('poppr_manual')
+vignette('mlg')
 ```
-
-Next, consider browsing  Appendix 3 on "Introduction to R" if you are not yet
-familiar with R and RStudio. Otherwise, you are now ready to think about
-formatting and loading population genetic data into R.
 
 References
 ----------

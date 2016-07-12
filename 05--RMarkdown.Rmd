@@ -461,7 +461,13 @@ In that spirit, here are some great places to look things up:
 - [The RMarkdown website](http://rmarkdown.rstudio.com/): This is the official website for RMarkdown. It contains examples of most of the features of RMarkdown.
 - [The Knitr website](http://yihui.name/knitr/): Information on the primary tool used by RMarkdown to render documents. This is official source of information on chunk options. 
 - [An RMarkdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf): This summarizes the main tools of RMarkdown in just two pages. 
+## You try it!
 
+We have placed an example of a reproducible analysis of the population genetic
+structure of *Phytophthora infestans* at
+https://github.com/grunwaldlab/pinfestans_example and wrote it up in a docx
+document with the R script used to produce the figures and tables. Download this
+repository and attempt to recreate the word document using RMarkdown.
 
 ## Glossary
 
