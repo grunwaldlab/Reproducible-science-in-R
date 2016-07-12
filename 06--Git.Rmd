@@ -306,9 +306,58 @@ Fork both of these repositories to your own account! If you have written your
 README.md from the Markdown exercise, upload it to the AUDPC repository and
 commit that change.
 
-## Step 3: Push and pull
+## Step 3: Clone your fork
 
-> This step requires that you have successfully installed git, signed up for a GitHub account, and have properly configuredthem to work with each other. 
+> This step requires that you have successfully installed git, signed up for a
+GitHub account, and have installed a git client such as [Git
+Kraken](https://www.gitkraken.com/),
+[Sourcetree](https://www.atlassian.com/software/sourcetree), or [GitHub 
+Desktop](https://desktop.github.com/)
+
+A clone is an exact copy of a git repository. This will contain all of the files
+within the repository as well as the entire history.
+
+In this step, you download the repository to your computer. You do this by
+clicking on the green button to the right of your screen:
+
+![](images/pinfestans_clone.png){.big_window .knit_border .knit_image}
+
+You can copy the URL and use your git client to download the repository to your
+computer.
+
+## Step 4: Pushing and Pulling
+
+> This step requires that you have correctly set up either
+[SSH](http://happygitwithr.com/ssh-keys.html) or
+[HTTPS](http://happygitwithr.com/credential-caching.html) configuration for your
+repository. Follow the links above for more inforamtion.
+
+To move your changes to and from GitHub, you need to either **push** the changes
+you've made on your computer to GitHub or **pull** the changes from GitHub to 
+your computer. Unlike Dropbox or Google Drive, this is not an automatic process.
+While this may not sound desirable, it allows you to only send stuff to GitHub
+that actually works and makes sense, preventing you from accidentally sending
+borked up analyses to the cloud. 
+
+### Try it!
+
+In your newly cloned repository, change something in your README.md file (or add
+one if it's not there!), and then add and commit it. Now your local copy is one
+commit ahead of the remote. To update the remote, you should **push** your
+changes to the remote. You can either use your git client or Rstudio to do this
+using the pull and push buttons in your "Git" pane:
+
+![](images/pinfestans_push.png){.knit_border .knit_image}
+
+Go to your GitHub repository and see that the changes have successfully been 
+made.
+
+## Conclusions
+
+We've given you a short introduction to using GitHub. Not only does using this 
+technology allow your research to become more reproducible, but by sharing your
+analyses, it also allows other researchers to learn how analyses are being done
+in R, furthering reproducible research.
 
 # Resources
 
