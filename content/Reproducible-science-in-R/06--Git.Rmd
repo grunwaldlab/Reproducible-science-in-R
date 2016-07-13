@@ -109,18 +109,18 @@ take a while. Ensure that you have a good and fast internet connection.
 Although git is usually used on the command line and takes some practice to use effectivly,
 RStudio has a simple menu that makes it easy to do the most common tasks.
 This part will walk you through, in pictures and words, how to create your first
-git repository using R and Rstudio.
+git repository using R and RStudio.
 
-> It is assumed that you have correctly set up git and Rstudio to talk to each
+> It is assumed that you have correctly set up git and RStudio to talk to each
 other. The links at the end of this page are wonderful resources for getting started.
 
-## Step one: telling git that you want a repository
+## Step one: telling RStudio to make a git repository
 
 In this step, we are going to create a new R project in a new folder on your
 computer and initialize it as a git repository (on the command line, this would
 be `r gloss("git init", init_def)`).
 
-### git init
+### git init: Making a folder into a repository
 
 First thing's first, you should select **File > New Project...** from the
 menubar. When you have done that, this window will appear:
@@ -141,13 +141,13 @@ Now you see this window:
 ![](images/rstudio-create.png){.small_window .knit_border .knit_image}
 
 > If you are unable to check the box labeled Create git repository, make sure
-that your Rstudio is set up with git.
+that your RStudio is set up with git.
 
 In the Directory Name box, type "audpc\_analysis". This will put the folder
 "audpc\_analysis" inside of your Documents folder. The most important part is to
 make sure that the **Create git repository** box is checked.
 
-Hit the button labeled **Create Project**, the Rstudio window will refresh and
+Hit the button labeled **Create Project**, the RStudio window will refresh and
 you should see this:
 
 ![](images/rstudio-gitrepo.png){.big_window .knit_border .knit_image}
@@ -160,8 +160,8 @@ the git pane. In it you see that you have two files:
 
 The file `.gitignore` tells git what it doesn't need to keep track of. By
 default, these are things like your .Rhistory and .Rdata files. The file
-audpc_analysis.Rproj is the file that tells Rstudio that you are in an R project
-and that it should start Rstudio in that folder when you have that project open.
+audpc_analysis.Rproj is the file that tells RStudio that you are in an R project
+and that it should start RStudio in that folder when you have that project open.
 
 Notice, however that there are two yellow blocks with question marks inside of
 them under a column labled "Status". This is letting you know that there are
@@ -169,7 +169,7 @@ files there that git sees, but isn't keeping track of. To let git know that we
 want to keep track of these files, we need to add them first with 
 `r gloss("git add", add_def)`.
 
-### git add
+### git add: Telling git to keep track of files
 
 Click the check boxes under the "Staged" column and the yellow boxes will change
 to one green box that says "A" inside:
@@ -182,7 +182,7 @@ them, it wants to know that you are serious about adding these files, so it
 wants you to **commit** to adding these files with 
 `r gloss("git commit", commit_def)`.
 
-### git commit
+### git commit: Saving this point in time
 
 You can commit to adding these files by clicking on the **Commit** button in
 that pane. When you do, this window will pop up:
@@ -207,7 +207,7 @@ point. If you want to write more, add a blank line after your message and then
 write as much as you want (see below).
 
 Now you have your git repository set up with the basic things needed to work
-with git and Rstudio. The next step is to set up your analysis.
+with git and RStudio. The next step is to set up your analysis.
 
 ## Step 2: adding a new Rmd file and making changes
 
@@ -344,7 +344,7 @@ borked up analyses to the cloud.
 In your newly cloned repository, change something in your README.md file (or add
 one if it's not there!), and then add and commit it. Now your local copy is one
 commit ahead of the remote. To update the remote, you should **push** your
-changes to the remote. You can either use your git client or Rstudio to do this
+changes to the remote. You can either use your git client or RStudio to do this
 using the pull and push buttons in your "Git" pane:
 
 ![](images/pinfestans_push.png){.knit_border .knit_image}
@@ -381,7 +381,7 @@ Here are a few that we've found to be helpful:
 
 - [Try Git (from GitHub)](https://try.github.io/)
 - [Happy Git and GitHub for the useR](http://happygitwithr.com/)
-- [UBC's STAT 545 page on Git, GitHub, and Rstudio](http://stat545.com/git00_index.html) (This has been field tested with students with varying degrees of computer literacy)
+- [UBC's STAT 545 page on Git, GitHub, and RStudio](http://stat545.com/git00_index.html) (This has been field tested with students with varying degrees of computer literacy)
 - [Hadely Wickham's take on git](http://r-pkgs.had.co.nz/git.html)
 
 # Glossary

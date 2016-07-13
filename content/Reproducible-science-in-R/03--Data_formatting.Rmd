@@ -39,7 +39,7 @@ link if you need any more information.
 ![An example of gene names accidentally being converted to dates in Microsoft
 Excel](images/excel_date_error.jpg){.big_window .knit_image .knit_border}
 
-For data entry, Excel is a fantastic program because it's intuitive to enter data into cells, but Excel also reinforces a lot of bad habits that can make your data inaccessable to analyses down the line.
+For data entry, Excel is a fantastic program because it's intuitive to enter data into cells, but Excel also reinforces a lot of bad habits that can make your data inaccessible to analyses down the line.
 
 ## How should I format my data?
 
@@ -65,23 +65,22 @@ and other computer programs.
 
 #### Long data
 
-Long data is so named because there are a vast number of rows where a single
-datum occupies each row, creating columns that are much longer than they are
-wide.
+Long data is so named because there are typically a vast number of rows, each 
+with a single datum and its associated treatments, creating tables that tend
+to have more rows than columns.
 
 ![](images/long_data.png){.knit_border .knit_image}
 
 #### Wide data
 
-Wide data is the opposite, where rows are only populated by observations and
-variables are all in separate columns. It's called wide data because the number
-of columns almost always exceeds the number of rows.
+Wide data is the opposite: each row has data for all treatments and each treatment is a column. 
+It's called wide data because the number of columns tends to exceed the number of rows.
 
 ![](images/wide_data.png){.knit_border .knit_image}
 
 #### An appropriate mixture of long and wide data
 
-Of course, recording observations in either long or wide data exclusively is not necessarily intuitive for the person entering the data, so a combination of these can be beneficial. The example below encodes two columns for data: one for fungicide treated and the other for untreated. The date and cultivar are specified as they are in the long data in the first two fields. 
+Of course, recording observations in either long or wide data exclusively is not necessarily intuitive for the person entering the data, so a combination of these can be beneficial. Also, tools exist to convert between long and wide tables so data can be entered however it is most convenient. The example below encodes two columns for data: one for fungicide treated and the other for untreated. The date and cultivar are specified as they are in the long data in the first two fields. 
 
 ![](images/two_column_data.png){.knit_border .knit_image}
 

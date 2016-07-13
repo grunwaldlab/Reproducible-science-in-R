@@ -8,46 +8,72 @@
   # http://yihui.name/knitr/options #chunk_options 
 ```
 ---
-title: "2: Getting ready to use R"
+title: "2: Required Components"
 ---
 
-R provides a unique environment for conducting reproducible science. Let's first install R, install an integrated
-development environment, open R, and load R packages.
+This guide is a brief introduction to some of the principles of reproducible
+science in R. Before we get started, we should install the necessary components
+for this tutorial.
 
-Installing R
+Installing R and RStudio
 -----
+
+The first thing you will need in R and RStudio:
 
 1. Download and install the [R](http://www.r-project.org) statistical computing
    and graphing environment. This works cross-platform on Windows, OS X and
    Linux operating systems.
 
-2. Download and install the free, open source edition of the [RStudio Desktop](http://www.rstudio.com/ide/) integrated development environment (IDE) that we recommend.
+2. Download and install the free, open source edition of the [RStudio
+   Desktop](https://www.rstudio.com/products/rstudio/download/) integrated 
+   development environment (IDE) that we recommend.
 
 Installing the required packages
 ----
 
 The following packages are utilized in this primer:
 
-1. [poppr](http://cran.r-project.org/web/packages/poppr/index.html)
-1. [agricolae](http://cran.r-project.org/web/packages/poppr/index.html)
-1. [dplyr](http://cran.r-project.org/web/packages/dplyr/index.html)
-1. [tidyr](http://cran.r-project.org/web/packages/tidyr/index.html)
-1. [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html)
+1. [rmarkdown](http://cran.r-project.org/web/packages/knitr/index.html) (creating reports)
+1. [agricolae](http://cran.r-project.org/web/packages/poppr/index.html) (agricultural disease data analysis)
+1. [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html) (graphs)
+1. [poppr](http://cran.r-project.org/web/packages/poppr/index.html) (genetic data analysis)
+1. [dplyr](http://cran.r-project.org/web/packages/dplyr/index.html) (data manipulation)
+1. [tidyr](http://cran.r-project.org/web/packages/tidyr/index.html) (data manipulation)
 
-Use the following script to install these packages:
+Open RStudio and copy and paste the following code into the console to install
+the packages:
 
 ```{r, eval = FALSE}
-install.packages(c("poppr", "agricolae", "dplyr", "tidyr", "ggplot2"), repos = "http://cran.rstudio.com", dependencies = TRUE)
+my_packages <- c("rmarkdown","poppr", "agricolae", "dplyr", "tidyr", "ggplot2")
+install.packages(my_packages, repos = "http://cran.rstudio.com", dependencies = TRUE)
 ```
 
-Congratulations. You should now be all set for using R. Loading data and
-conducting your first analysis will be the topic of the next chapter. But before
-we go there lets provide a few useful resources.
+Congratulations. You should now be all set for using R. To ensure that
+everything is set up correctly, you can go through steps 1 and 2 in the
+[markdown chapter](Markdown.html).
+
+Optional software
+-----------------
+
+### PDFs with $LaTeX$
+
+If you want to create PDF documents, you will need a $\LaTeX$ installation. For OSX users, this is a large download and you will want to ensure you have a good connection:
+
+ - [LaTeX for OSX](https://tug.org/mactex/)
+ - [LaTeX for Windows](http://miktex.org/)
+
+### Git
+
+Git is a version control program that we will cover, but since installation
+requirements can vary between operating systems, we are not requiring it for the
+workshop. However, if you would like to install it, [Here's a website that
+covers installation for the major operating
+systems](http://happygitwithr.com/install-git.html). 
 
 A quick introduction to R using RStudio
 ------------------
 
-Next, let's review some of the basic features and functions of R. To start R,
+Let's review some of the basic features and functions of R. To start R,
 open the RStudio application from your programs folder or start menu. This will
 initialize your R session. To exit R, simply close the RStudio application.
 
@@ -158,7 +184,3 @@ vignette('mlg')
 
 References
 ----------
-```{r, results = 'asis', echo=FALSE}
-  bibliography()
-```
-<!--->
