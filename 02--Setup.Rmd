@@ -8,7 +8,7 @@
   # http://yihui.name/knitr/options #chunk_options 
 ```
 ---
-title: "2: Getting ready to use R"
+title: "2: Required Components"
 ---
 
 R provides a unique environment for conducting reproducible science. Let's first install R, install an integrated
