@@ -114,13 +114,13 @@ git repository using R and Rstudio.
 > It is assumed that you have correctly set up git and Rstudio to talk to each
 other. The links at the end of this page are wonderful resources for getting started.
 
-## Step one: telling git that you want a repository
+## Step one: telling RStudio to make a git repository
 
 In this step, we are going to create a new R project in a new folder on your
 computer and initialize it as a git repository (on the command line, this would
 be `r gloss("git init", init_def)`).
 
-### git init
+### git init: Making a folder into a repository
 
 First thing's first, you should select **File > New Project...** from the
 menubar. When you have done that, this window will appear:
@@ -169,7 +169,7 @@ files there that git sees, but isn't keeping track of. To let git know that we
 want to keep track of these files, we need to add them first with 
 `r gloss("git add", add_def)`.
 
-### git add
+### git add: Telling git to keep track of files
 
 Click the check boxes under the "Staged" column and the yellow boxes will change
 to one green box that says "A" inside:
@@ -182,7 +182,7 @@ them, it wants to know that you are serious about adding these files, so it
 wants you to **commit** to adding these files with 
 `r gloss("git commit", commit_def)`.
 
-### git commit
+### git commit: Saving this point in time
 
 You can commit to adding these files by clicking on the **Commit** button in
 that pane. When you do, this window will pop up:
