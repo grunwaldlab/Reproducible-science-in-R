@@ -55,9 +55,11 @@ everything is set up correctly, you can go through steps 1 and 2 in the
 Optional software
 -----------------
 
-### PDFs with $LaTeX$
+### PDFs with LaTeX
 
-If you want to create PDF documents, you will need a $\LaTeX$ installation. For OSX users, this is a large download and you will want to ensure you have a good connection:
+If you want to create PDF documents, you will need a
+[$\LaTeX$](https://latex-project.org/) installation. For OSX users, this is a
+large download and you will want to ensure you have a good connection:
 
  - [LaTeX for OSX](https://tug.org/mactex/)
  - [LaTeX for Windows](http://miktex.org/)
@@ -100,53 +102,6 @@ call as in:
 To quit R you can either use the <kbd>RStudio > Quit</kbd> pull-down menu
 command or execute <kbd>⌘ + Q</kbd> (OS X) or <kbd>ctrl + Q</kbd> (PC).
 
-Using *magrittr*'s %>%
-----------------------
-
-Various chapters throughout this primer will have the symbol `%>%` in the code.
-This is called a "pipe" operator and it allows code to be more readable by
-stringing together commands from right to left. Here's a [short description of
-these "pipes" with cats](http://rforcats.net/#pipes). When reading code, it can
-be thought of as equivalent to saying "and then". For example, if you have three
-consecutive steps to a process, you would write this in English as:
-
-> Take your data **and then** do step one, **and then** do step two, **and
-> then** do step three.
-
-In R code with *magrittr*, assuming that each step is a function, it might be
-written as:
-
-```{r, eval = FALSE}
-result <- data %>% step_one() %>% step_two() %>% step_three()
-```
-
-Below, are two examples of how code can be improved with *magrittr*. [More
-details about magrittr can be found in this
-link.](http://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html)
-
-#### Consider a fake Example: 
-Adapted from 
-[Hadley Wickham](https://twitter.com/_inundata/status/557980236130689024). 
-Based on the children's song, 
-[Little bunny foo foo](http://en.wikipedia.org/wiki/Little_Bunny_Foo_Foo).
-
-```{r, eval = FALSE}
-foo_foo <- little_bunny()
-
-bop_on(scoop_up(hop_through(foo_foo, forest), field_mouse), head)
-
-# VS
-
-foo_foo %>%
-  hop_through(forest) %>%
-  scoop_up(field_mouse) %>%
-  bop_on(head)
-```
-
-The `%>%` operator is thus good if you have to do a lot of small steps in your
-analysis. It allows your code to be more readable and reproducible.
-
-
 Packages and getting help
 -----------------------
 
@@ -163,8 +118,8 @@ To see all of the help topics in a package, you can simply type:
 
 ```{r, eval = FALSE}
 help(package = "poppr") # Get help for a package.
-help(amova)             # Get help for the amova function.
-?amova                  # same as above.
+help("audpc")           # Get help for the audpc function.
+?audpc                  # same as above.
 ??multilocus            # Search for functions that have the keyword multilocus.
 ```
 Some packages include vignettes that can have different formats such as being
