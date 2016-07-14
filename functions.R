@@ -23,7 +23,7 @@ make_markdown_example_function <- function(content, horizontal = FALSE) {
   counter <- 0
   previous_content <- ""
   
-  function(content, cumulative  = FALSE, height = NULL, prefix = FALSE, show_knit_button = FALSE) {
+  function(content, cumulative  = FALSE, height = NULL, prefix = FALSE, show_knit_button = FALSE, render = TRUE) {
     # Set default figure height 
     if (is.null(height)) {
       height <- (length(gregexpr("\\n", content)[[1]]) + 1) * 20
@@ -54,11 +54,13 @@ make_markdown_example_function <- function(content, horizontal = FALSE) {
     cat(content, file = source_path)
     
     # Render source file to html
-    output_path <- tempfile(pattern = "rmarkdown_example", fileext = ".html", tmpdir = current_folder)
     current_knit_opts <- opts_chunk$get() # Save external knit parameters to restore later
-    opts_chunk$restore() # Set knitr to use default chunk options
-    rmarkdown::render(input = source_path, output_file = output_path, quiet = TRUE, output_format = "html_fragment")
-   
+    if (render) {
+      output_path <- tempfile(pattern = "rmarkdown_example", fileext = ".html", tmpdir = current_folder)
+      opts_chunk$restore() # Set knitr to use default chunk options
+      rmarkdown::render(input = source_path, output_file = output_path, quiet = TRUE, output_format = "html_fragment")
+      
+    }
     
     # Generate html to display source
     source_html <- paste0("<pre class = 'rmd_example_code'>", currrent_content, "</pre>")
@@ -68,25 +70,27 @@ make_markdown_example_function <- function(content, horizontal = FALSE) {
     image_html <- paste0("<img src='", img_path, "' class='knit_image'>")
     
     # Rendered HTML
-    result_html <- readChar(output_path, file.info(output_path)$size)
+    if (render) {
+      result_html <- readChar(output_path, file.info(output_path)$size)
+    }
     
     on.exit({
       do.call(opts_chunk$set, current_knit_opts) # Restore external knit parameters
       file.remove(source_path)
-      file.remove(output_path)
+      if (render) { file.remove(output_path) }
     })
     
     # Display result
     if (horizontal) {
       cat(paste0('<div class = "rmd_example_container">',
                  '<div class = "rmd_example_inner rmd_example_source">', source_html, '</div>',
-                 '<div class = "rmd_example_inner rmd_example_result">', result_html, '</div>',
+                 ifelse(render, paste0('<div class = "rmd_example_inner rmd_example_result">', result_html, '</div>'), ""),
                  '</div><div style="clear: left;"></div>'))
     } else {
       cat(paste0('<div class = "rmd_example_container">',
                  '<div class = "rmd_example_source">', source_html, '</div>',
                  ifelse(show_knit_button, image_html, ""),
-                 '<div class = "rmd_example_result">', result_html, '</div>',
+                 ifelse(render, paste0('<div class = "rmd_example_result">', result_html, '</div>'), ""),
                  '</div><div style="clear: left;"></div>'))
       
     }
