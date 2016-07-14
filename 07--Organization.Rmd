@@ -1,0 +1,57 @@
+---
+title: Organization
+---
+
+```{r init, echo=FALSE}
+library(knitr)
+source("functions.R")
+```
+
+Although advnaced tools like git and RMarkdown greatly enhance reporducibility, they are only useful if files and folders are organized in such a way that another person (or you 3 years later) can make sense of them.
+This can be suprisingly difficult and there is no universal solution that will work best for all people or projects.
+However, there are some tips that will help you arive at a solution that fits your work style and the needs of your project.
+
+## File/Folder naming
+
+Good file/folder naming is perhaps the easiest way to imporve the understandablilty of the digital aspects of your project.
+Ideally, a file's name and the names of the folders it is in should be enough information to make a good guess at its contents.
+Note that this information need not all be in the file's name, which would lead to unreadably long file names; it should be distributed throughout the names of the folders it is in as well as the file's name.
+Below are a couple tips on file naming:
+
+* Never use arbitry names (e.g. "Document1.Rmd", "asdafsa.Rmd"). If the file is unimportnat or temporary, name it something like "temp.Rmd", "scratch.Rmd", or "random_gibberish.Rmd" so that you dont need to open it to know that it is unimportant.
+* Only use letters, numbers, underscores, and dashes in file names. 
+    + Use underscores instead of spaces; file names with spaces are irritating to manipulate on the command line and are not well handled by unix-based operating systems.  
+    + One or more dashes make good delimiters if a file's name has multiple distinct components (e.g. "chapter_1--what_i_did_today.Rmd").
+* Avoid a mixture of upper and lower case letters. Unix-based operating systems are case-sensitive, so "file.Rmd" and "File.Rmd" would be considered differnent files yet they might be easily confused by people. If you use uppercase, use it for the whole file name (e.g. "README.txt").
+* If a file/folder pertains to a specific date, perfix the date in the YYYY_MM_DD format (e.g. "2016_03_23--wheat_audpc.Rmd"). Using YYYY_MM_DD instead of something like YYYY_DD_MM means that files are sorted by date correclty by default. Also, YYYY_MM_DD is the [ISO standard format for dates](http://www.iso.org/iso/home/standards/iso8601.htm).
+* If multiple files/folders have a logical order, prefix them with numbers, padding with leading zeros when needed (e.g. "002--dna_extraction.Rmd"). The leading zeros make them ordered correctly by default.
+* Use logical extensions for text files.
+    + If a text file has a table of comma-separated values, use ".csv" instead of ".txt"; if it is tab-seperated, used ".tsv". 
+    + If a text file contains markdown, use ".md".
+
+## Folder structure 
+
+How to best construct a logical hierarchy of folders is less well defined than nameing conventions since it will vary widly with project type and personal preference. 
+Spend some time thinking about a system that will work for you and stick to it, at least within a single project.
+
+* Dont heistate to use subfolders to group similar files. A deep hierarchy with simple file names is better than a shallow hiearchy with long names.
+* Avoid large numbers of unrealted files/folders in a single folder. It should be easy to scan over file names to get a sense of what is in a folder. 
+* Add a "README.md" file to folders explaining thier purpose and contents, especially if there are many files or file with unintuitive names. 
+* Avoid using defualt, operating-system-specic directories like "My Documents" since these often get cluttered by program-generated files and have properties that are not supported by other operating systems. Instead, make a single directory that contains all of your files, not including programs and operating system components. This makes it easy to backup your files and transfer them to other computers. 
+
+
+## Working habits
+
+Good organiation takes time and work to create and maintain, but developing good habits can make task less daunting. 
+
+* Maintain a consistent organization style on all of the computers you work on.
+* Have a temporary folder for files that you might not keep or have not decided where to put yet. However, this must be kept clean to be useful.
+* Use shorcuts/links to access commonly used files/folders, especially if your project calls for a deep folder hierachy.
+* Make rutoine backups stored in three different ways (e.g. An external hardrive stored at home, an online backup service, and code and text on GitHub).
+
+
+
+## Additional resources
+
+* [howtogeek article on file/folder organization](http://www.howtogeek.com/howto/15677/zen-and-the-art-of-file-and-folder-organization/)
+* [presentation on organizing computational research](http://kbroman.org/Tools4RR/assets/lectures/06_org_eda_withnotes.pdf) by Karl Broman.
