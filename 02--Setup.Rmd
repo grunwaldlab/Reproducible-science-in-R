@@ -55,9 +55,11 @@ everything is set up correctly, you can go through steps 1 and 2 in the
 Optional software
 -----------------
 
-### PDFs with $LaTeX$
+### PDFs with LaTeX
 
-If you want to create PDF documents, you will need a $\LaTeX$ installation. For OSX users, this is a large download and you will want to ensure you have a good connection:
+If you want to create PDF documents, you will need a
+[$\LaTeX$](https://latex-project.org/) installation. For OSX users, this is a
+large download and you will want to ensure you have a good connection:
 
  - [LaTeX for OSX](https://tug.org/mactex/)
  - [LaTeX for Windows](http://miktex.org/)
