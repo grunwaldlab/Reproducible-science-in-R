@@ -8,7 +8,7 @@ output: html_document
   cite_options(max.names = 3, style = "html", hyperlink = "to.doc")
 ```
 ---
-title: "1: Introduction"
+title: "Introduction"
 ---
 
 Reproducible science or research provide the ability to replicate research results from a published study. This idea ultimately also includes the full computational environment comprising code and data to replicate the analysis `r citep("10.1126/science.1213847")`. 

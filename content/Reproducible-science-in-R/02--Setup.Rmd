@@ -8,7 +8,7 @@
   # http://yihui.name/knitr/options #chunk_options 
 ```
 ---
-title: "2: Required Components"
+title: "Required Components"
 ---
 
 This guide is a brief introduction to some of the principles of reproducible

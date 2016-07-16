@@ -23,10 +23,13 @@ pre_scroll_iframe()
 
 ## Animated figures
 
+If a chunk prints multiple graphs, the graphs can be converted into steps in an animation. 
+This only works if ffmpeg is installed.
+
 `r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
 
-```{r animate_figure_example, results='asis', echo = FALSE, eval = FALSE}
-rmd_example(height = 500, "
+```{r animate_figure_example, results='asis', echo = FALSE, eval = TRUE}
+rmd_example(height = 500, render = system('ffmpeg -version') == 0, "
 ## Animated figures
 
 \`\`\`{r,  fig.show='animate', fig.width=5, fig.height=4}
