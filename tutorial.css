@@ -77,3 +77,16 @@ in the center, so it's placed to the left. These are used with .knit_border and
   zoom: 1;
   -moz-transform: scale(1);
 }
+
+#exercise {
+  display: block;
+  font-weight: bold;
+  background: #F3FFE2;
+  margin: 40px -25px 0;
+  padding: 20px 25px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #1695A3;
+  border-radius: 20px;
+  /*box-shadow: 10px 10px 20px -5px gray;*/
+}
