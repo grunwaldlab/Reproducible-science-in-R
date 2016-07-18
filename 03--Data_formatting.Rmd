@@ -51,8 +51,12 @@ or best practices to follow:
  - Saved as a `r gloss("flat text file", ftf_def)` (e.g. `.csv`, `.tsv`, `.txt`)
  - Observations in rows (note: 1 sample ≠ 1 observation)
  - Variables in columns (e.g. Treatment, Replicate, Response)
+ - Consistent formatting of missing data (use either a blank cell or `NA`)
+ - NEVER merge cells
  
-In the following examples, we will use data from A Stripe Rust case study
+# Same Data, Different Formats
+
+In the following examples, we will use data from a stripe rust case study
 provided by APS. [You can find the link to the case study
 here.](http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/StripeRust.aspx)
 
@@ -113,11 +117,38 @@ vs blanks).
 
 ![](images/ugly_data.png){.knit_border .knit_image}
 
-# Try it!
+# Resources
 
-Look at these two data sets [create data that's different from above] and
-compare and categorize them as good, bad, or ugly. What can be done to make them
-good data?
+There are a few ways to manage data without the use of Excel or Google Sheets, and one way is to use an editor that specifically works on CSV files. A couple of good examples are:
+
+ - [Comma Chameleon](http://comma-chameleon.io/)
+ - [Table Tool](https://github.com/jakob/TableTool#readme) (OSX only)
+ 
+These will allow you to enter your data and that's about it. No bells, whistles, automatic reformatting, or guessing on the editors side, giving you complete control.
+
+# Try it! {#exercise}
+
+------
+
+### Question 1
+
+Take a look at the [data set in the Wide Data section
+above (csv format)](http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Documents/FungicideExample.csv).
+It's formatted as wide data, but is there anything that could be improved?
+
+### Question 2
+
+Examine the following data sets:
+
+ - [Fungicide Data](bad_data/Fungicide Spread Sheet 2012.xls) (xls format)
+ - [Temperature Data](bad_data/Fungicide Spread Sheet 2012.xls) (xls format)
+ 
+Answer the following questions:
+
+ - What categories would you put these data in?
+ - What formatting mistakes do you see?
+ - Reformat one of these sheets into a proper format.
+
 
 # Glossary
 
