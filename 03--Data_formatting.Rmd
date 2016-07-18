@@ -54,6 +54,22 @@ or best practices to follow:
  - Consistent formatting of missing data (use either a blank cell or `NA`)
  - NEVER merge cells
  
+The rest of this section will show some examples of good and bad data formatting related to plant pathology. For a more detailed insight on data formatting from someone who has A LOT of experience with different data formats, take a look at [Karl Broman's Data Organization Tutorial](http://kbroman.org/dataorg/). He covers the following topics:
+ 
+ - [Be consistent](http://kbroman.org/dataorg/pages/consistency.html).
+ - [Write dates as `YYYY-MM-DD`](http://kbroman.org/dataorg/pages/dates.html).
+ - [Fill in all of the cells](http://kbroman.org/dataorg/pages/no_empty_cells.html).
+ - [Put just one thing in a cell](http://kbroman.org/dataorg/pages/one_thing_per_cell.html).
+ - [Make it a rectangle](http://kbroman.org/dataorg/pages/rectangle.html).
+ - [Create a data dictionary](http://kbroman.org/dataorg/pages/dictionary.html).
+ - [No calculations in the raw data files](http://kbroman.org/dataorg/pages/no_calculations.html).
+ - [Don't use font color or highlighting as data](http://kbroman.org/dataorg/pages/no_highlighting.html).
+ - [Choose good names for things](http://kbroman.org/dataorg/pages/names.html).
+ - [Make backups](http://kbroman.org/dataorg/pages/backups.html).
+ - [Use data validation to avoid data entry mistakes](http://kbroman.org/dataorg/pages/validation.html).
+ - [Save the data in plain text files](http://kbroman.org/dataorg/pages/csv_files.html).
+ - [Other things to avoid](http://kbroman.org/dataorg/pages/avoid.html).
+ 
 # Same Data, Different Formats
 
 In the following examples, we will use data from a stripe rust case study
