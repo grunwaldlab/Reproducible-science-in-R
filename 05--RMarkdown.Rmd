@@ -459,7 +459,7 @@ https://github.com/grunwaldlab/pinfestans_example and wrote it up in a docx
 document with the R script used to produce the figures and tables. Download this
 repository and attempt to recreate the word document using RMarkdown.
 
-## Additional resources
+# Additional resources
 
 RMarkdown is much more complex than pure Markdown due to all the subtle ways code can be handled and the results displayed. 
 Most people will need to constantly reference documentation and "cheat sheets" to remind themselves of ways to do occasionally necessary tasks.
@@ -477,7 +477,7 @@ In that spirit, here are some great places to look things up:
 - [An RMarkdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf): This summarizes the main tools of RMarkdown in just two pages. 
 
 
-## Glossary
+# Glossary
 
 ```{r glossary, results = 'asis'}
 gloss(display = TRUE)

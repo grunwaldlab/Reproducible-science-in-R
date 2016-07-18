@@ -206,7 +206,7 @@ using the principles you learned above.
 
 In the next section, we will recreate the rest of the analysis.
 
-## Additional resources
+# Additional resources
 
 That's pretty much all there is to it!
 Below are a few links that might be useful if you want to explore the more esoteric corners of the Markdown universe.
@@ -221,7 +221,7 @@ Below are a few links that might be useful if you want to explore the more esote
 - [Wikipedia](https://en.wikipedia.org/wiki/Markdown): The Wikipedia page on Markdown.
 
 
-## Glossary
+# Glossary
 
 ```{r glossary, results = 'asis'}
 gloss(display = TRUE)

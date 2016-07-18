@@ -354,7 +354,7 @@ using the pull and push buttons in your "Git" pane:
 Go to your GitHub repository and see that the changes have successfully been 
 made.
 
-## Conclusions
+# Conclusions
 
 We've given you a short introduction to using GitHub. Not only does using this 
 technology allow your research to become more reproducible, but by sharing your
