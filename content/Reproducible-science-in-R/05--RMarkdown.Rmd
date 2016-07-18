@@ -439,7 +439,7 @@ file.remove(bib_path)
 ```
 
 
-## Exercises
+## Exercise {#exercise}
 
 `r step('Replicate the rest of the AUDPC analysis.')`
 

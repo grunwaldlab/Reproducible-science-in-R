@@ -188,7 +188,7 @@ So far, we have been converting Markdown to HTML.
 To make a PDF or Word document, simply click on the dropdown menu immediately to the right of the "knit HTML" button and select the format you want to try.
 
 
-## Exercise
+## Exercise {#exercise}
 
 `r step('Download and uncompress the AUDPC example directory')`
 

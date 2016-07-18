@@ -339,7 +339,7 @@ While this may not sound desirable, it allows you to only send stuff to GitHub
 that actually works and makes sense, preventing you from accidentally sending
 borked up analyses to the cloud. 
 
-### Try it!
+### Try it! {#exercise}
 
 In your newly cloned repository, change something in your README.md file (or add
 one if it's not there!), and then add and commit it. Now your local copy is one
