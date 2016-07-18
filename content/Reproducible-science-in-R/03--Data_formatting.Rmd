@@ -140,8 +140,8 @@ It's formatted as wide data, but is there anything that could be improved?
 
 Examine the following data sets:
 
- - [Fungicide Data](bad_data/Fungicide Spread Sheet 2012.xls) (xls format)
- - [Temperature Data](bad_data/Fungicide Spread Sheet 2012.xls) (xls format)
+ - [Fungicide Data](https://github.com/grunwaldlab/Reproducible-science-in-R/blob/master/bad_data/Fungicide%20Spread%20Sheet%202012.xls?raw=true) (xls format)
+ - [Temperature Data](https://github.com/grunwaldlab/Reproducible-science-in-R/blob/master/bad_data/Temperature%20Spreadsheet%202012.xlsx?raw=true) (xlsx format)
  
 Answer the following questions:
 
