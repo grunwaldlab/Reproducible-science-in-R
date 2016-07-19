@@ -33,24 +33,23 @@ Below are a couple tips on file naming:
 How to best construct a logical hierarchy of folders is less well defined than naming conventions since it will vary widely with project type and personal preference. 
 Spend some time thinking about a system that will work for you and stick to it, at least within a single project.
 
-- Don't hesitate to use sub-folders to group similar files. A deep hierarchy with simple file names is better than a shallow hierarchy with long names.
-- Avoid large numbers of unrelated files/folders in a single folder. It should be easy to scan over file names to get a sense of what is in a folder. 
-- Add a "README.md" file to folders explaining their purpose and contents, especially if there are many files or file with un-intuitive names. 
-- Avoid using default, operating-system-specific directories like "My Documents" since these often get cluttered by program-generated files and have properties that are not supported by other operating systems. Instead, make a single directory that contains all of your files, not including programs and operating system components. This makes it easy to backup your files and transfer them to other computers. 
+- **Use sub-folders** Don't hesitate to use sub-folders to group similar files. A deep hierarchy with simple file names is better than a shallow hierarchy with long names.
+- **Keep things minimal** Avoid large numbers of unrelated files/folders in a single folder. It should be easy to scan over file names to get a sense of what is in a folder. 
+- **Use README files** Add a "README.md" file to folders explaining their purpose and contents, especially if there are many files or file with un-intuitive names. 
+- **Use a project-specific folder** Avoid using default, operating-system-specific directories like "My Documents" since these often get cluttered by program-generated files and have properties that are not supported by other operating systems. Instead, make a single directory that contains all of your files, not including programs and operating system components. This makes it easy to backup your files and transfer them to other computers. 
 
 
 ## Working habits
 
 Good organization takes time and work to create and maintain, but developing good habits can make task less daunting. 
 
-- Maintain a consistent organization style on all of the computers you work on.
+- **Be consistent** Maintain a consistent organization style on all of the computers you work on.
 - Have a temporary folder for files that you might not keep or have not decided where to put yet. However, this must be kept clean to be useful.
 - Use shortcuts/links to access commonly used files/folders, especially if your project calls for a deep folder hierarchy.
-- Make routine backups stored in three different ways (e.g. An external hard drive stored at home, an online backup service, and code and text on GitHub).
-
-
+- **Back up early, Back up often** Make routine backups stored in three different ways (e.g. An external hard drive stored at home, an online backup service, and code and text on GitHub).
 
 ## Additional resources
 
 - [howtogeek article on file/folder organization](http://www.howtogeek.com/howto/15677/zen-and-the-art-of-file-and-folder-organization/)
 - [presentation on organizing computational research](http://kbroman.org/Tools4RR/assets/lectures/06_org_eda_withnotes.pdf) by Karl Broman.
+- [Steps Toward Reproducible Research](http://kbroman.org/steps2rr/) Website accompanying the above lecture.
