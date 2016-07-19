@@ -110,20 +110,18 @@ $(document).ready(function () {
 <h2>File/Folder naming</h2>
 <p>Good file/folder naming is perhaps the easiest way to improve the understandably of the digital aspects of your project. Ideally, a file’s name and the names of the folders it is in should be enough information to make a good guess at its contents. Note that this information need not all be in the file’s name, which would lead to unreadably long file names; it should be distributed throughout the names of the folders it is in as well as the file’s name. Below are a couple tips on file naming:</p>
 <ul>
-<li>Never use arbitrary names (e.g. “Document1.Rmd”, “asdafsa.Rmd”). If the file is unimportant or temporary, name it something like “temp.Rmd”, “scratch.Rmd”, or “random_gibberish.Rmd” so that you don’t need to open it to know that it is unimportant.</li>
-<li>Only use letters, numbers, underscores, and dashes in file names.
+<li><strong>Name files with a purpose.</strong> Never use arbitrary names (e.g. <code>Document1.Rmd</code>, <code>asdafsa.Rmd</code>). If the file is unimportant or temporary, name it something like <code>temp.Rmd</code>, <code>scratch.Rmd</code>, or <code>random_gibberish.Rmd</code> so that you don’t need to open it to know that it is unimportant.</li>
+<li><strong>Only use letters, numbers, underscores, and dashes in file names.</strong> Use underscores instead of spaces; file names with spaces are irritating to manipulate on the command line and are not well handled by UNIX-based operating systems.
 <ul>
-<li>Use underscores instead of spaces; file names with spaces are irritating to manipulate on the command line and are not well handled by UNIX-based operating systems.<br />
-</li>
-<li>One or more dashes make good delimiters if a file’s name has multiple distinct components (e.g. “chapter_1–what_i_did_today.Rmd”).</li>
+<li>One or more dashes make good delimiters if a file’s name has multiple distinct components (e.g. <code>chapter_1--what_i_did_today.Rmd</code>).</li>
 </ul></li>
-<li>Avoid a mixture of upper and lower case letters. Unix-based operating systems are case-sensitive, so “file.Rmd” and “File.Rmd” would be considered differnent files yet they might be easily confused by people. If you use uppercase, use it for the whole file name (e.g. “README.txt”).</li>
-<li>If a file/folder pertains to a specific date, prefix the date in the YYYY_MM_DD format (e.g. “2016_03_23–wheat_audpc.Rmd”). Using YYYY_MM_DD instead of something like YYYY_DD_MM means that files are sorted by date correclty by default. Also, YYYY_MM_DD is the <a href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO standard format for dates</a>.</li>
-<li>If multiple files/folders have a logical order, prefix them with numbers, padding with leading zeros when needed (e.g. “002–DNA_extraction.Rmd”). The leading zeros make them ordered correctly by default.</li>
-<li>Use logical extensions for text files.
+<li><strong>Avoid mixing upper and lower case letters.</strong> Most operating systems are case-sensitive, so <code>file.Rmd</code> and <code>File.Rmd</code> would be considered differnent files yet they might be easily confused by people. If you use uppercase, use it for the whole file name (e.g. <code>README.txt</code>).</li>
+<li><strong>Use YYYY-MM-DD for dates</strong> If a file/folder pertains to a specific date, prefix the date in the YYYY-MM-DD format (e.g. “2016-03-23–wheat_audpc.Rmd”). Using YYYY-MM-DD instead of something like YYYY-DD-MM means that files are sorted by date correclty by default. Also, YYYY-MM-DD is the <a href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO standard format for dates</a>.</li>
+<li><strong>Order your analyses</strong> If multiple files/folders have a logical order, prefix them with numbers, padding with leading zeros when needed (e.g. <code>002--DNA_extraction.Rmd</code>). The leading zeros make them ordered correctly by default.</li>
+<li><strong>Use the correct extension</strong> All files you create are, in essence, text files, but they don’t all have to be labeled <code>.txt</code>.
 <ul>
-<li>If a text file has a table of comma-separated values, use “.csv” instead of “.txt”; if it is tab-separated, used “.tsv”.</li>
-<li>If a text file contains markdown, use “.md”.</li>
+<li>If a text file has a table of comma-separated values, use <code>.csv</code> instead of <code>.txt</code>; if it is tab-separated, used <code>.tsv</code>.</li>
+<li>If a text file contains markdown, use <code>.md</code>.</li>
 </ul></li>
 </ul>
 </div>
@@ -131,20 +129,20 @@ $(document).ready(function () {
 <h2>Folder structure</h2>
 <p>How to best construct a logical hierarchy of folders is less well defined than naming conventions since it will vary widely with project type and personal preference. Spend some time thinking about a system that will work for you and stick to it, at least within a single project.</p>
 <ul>
-<li>Don’t hesitate to use sub-folders to group similar files. A deep hierarchy with simple file names is better than a shallow hierarchy with long names.</li>
-<li>Avoid large numbers of unrelated files/folders in a single folder. It should be easy to scan over file names to get a sense of what is in a folder.</li>
-<li>Add a “README.md” file to folders explaining their purpose and contents, especially if there are many files or file with un-intuitive names.</li>
-<li>Avoid using default, operating-system-specific directories like “My Documents” since these often get cluttered by program-generated files and have properties that are not supported by other operating systems. Instead, make a single directory that contains all of your files, not including programs and operating system components. This makes it easy to backup your files and transfer them to other computers.</li>
+<li><strong>Use sub-folders</strong> Don’t hesitate to use sub-folders to group similar files. A deep hierarchy with simple file names is better than a shallow hierarchy with long names.</li>
+<li><strong>Keep things minimal</strong> Avoid large numbers of unrelated files/folders in a single folder. It should be easy to scan over file names to get a sense of what is in a folder.</li>
+<li><strong>Use README files</strong> Add a “README.md” file to folders explaining their purpose and contents, especially if there are many files or file with un-intuitive names.</li>
+<li><strong>Use a project-specific folder</strong> Avoid using default, operating-system-specific directories like “My Documents” since these often get cluttered by program-generated files and have properties that are not supported by other operating systems. Instead, make a single directory that contains all of your files, not including programs and operating system components. This makes it easy to backup your files and transfer them to other computers.</li>
 </ul>
 </div>
 <div id="working-habits" class="section level2">
 <h2>Working habits</h2>
 <p>Good organization takes time and work to create and maintain, but developing good habits can make task less daunting.</p>
 <ul>
-<li>Maintain a consistent organization style on all of the computers you work on.</li>
+<li><strong>Be consistent</strong> Maintain a consistent organization style on all of the computers you work on.</li>
 <li>Have a temporary folder for files that you might not keep or have not decided where to put yet. However, this must be kept clean to be useful.</li>
 <li>Use shortcuts/links to access commonly used files/folders, especially if your project calls for a deep folder hierarchy.</li>
-<li>Make routine backups stored in three different ways (e.g. An external hard drive stored at home, an online backup service, and code and text on GitHub).</li>
+<li><strong>Back up early, Back up often</strong> Make routine backups stored in three different ways (e.g. An external hard drive stored at home, an online backup service, and code and text on GitHub).</li>
 </ul>
 </div>
 <div id="additional-resources" class="section level2">
@@ -152,6 +150,7 @@ $(document).ready(function () {
 <ul>
 <li><a href="http://www.howtogeek.com/howto/15677/zen-and-the-art-of-file-and-folder-organization/">howtogeek article on file/folder organization</a></li>
 <li><a href="http://kbroman.org/Tools4RR/assets/lectures/06_org_eda_withnotes.pdf">presentation on organizing computational research</a> by Karl Broman.</li>
+<li><a href="http://kbroman.org/steps2rr/">Steps Toward Reproducible Research</a> Website accompanying the above lecture.</li>
 </ul>
 </div>
 
