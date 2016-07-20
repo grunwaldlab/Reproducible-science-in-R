@@ -27,9 +27,9 @@ a mantra to remember when gathering data. The same goes for entering and storing
 data in a spreadsheet. Often, the first point of error for any analysis is at 
 the data entry stage. This section will show you the best practices of data 
 storage and why this is important for your analyses, whether you are analyzing 
-disease progress, fungicide resistance, or even bioinformatic data. Much of this
-is based off of the Data Carpentry module [Using Spreadsheet Programs for
-Scientific Data](http://www.datacarpentry.org/2015-03-09-ISI-CODATA/lessons/excel/ecology-examples/00-intro.html)
+disease progress, fungicide resistance, or complex bioinformatic data. Much of this
+is based off of the Data Carpentry module "[Using Spreadsheet Programs for
+Scientific Data](http://www.datacarpentry.org/2015-03-09-ISI-CODATA/lessons/excel/ecology-examples/00-intro.html)"
 designed by Christie Bahlai and Aleksandra Pawlik. Please refer to the previous
 link if you need any more information.
 
@@ -56,25 +56,24 @@ or best practices to follow:
  
 The rest of this section will show some examples of good and bad data formatting related to plant pathology. For a more detailed insight on data formatting from someone who has A LOT of experience with different data formats, take a look at [Karl Broman's Data Organization Tutorial](http://kbroman.org/dataorg/). He covers the following topics:
  
- - [Be consistent](http://kbroman.org/dataorg/pages/consistency.html).
- - [Write dates as `YYYY-MM-DD`](http://kbroman.org/dataorg/pages/dates.html).
- - [Fill in all of the cells](http://kbroman.org/dataorg/pages/no_empty_cells.html).
- - [Put just one thing in a cell](http://kbroman.org/dataorg/pages/one_thing_per_cell.html).
- - [Make it a rectangle](http://kbroman.org/dataorg/pages/rectangle.html).
- - [Create a data dictionary](http://kbroman.org/dataorg/pages/dictionary.html).
- - [No calculations in the raw data files](http://kbroman.org/dataorg/pages/no_calculations.html).
- - [Don't use font color or highlighting as data](http://kbroman.org/dataorg/pages/no_highlighting.html).
- - [Choose good names for things](http://kbroman.org/dataorg/pages/names.html).
- - [Make backups](http://kbroman.org/dataorg/pages/backups.html).
- - [Use data validation to avoid data entry mistakes](http://kbroman.org/dataorg/pages/validation.html).
- - [Save the data in plain text files](http://kbroman.org/dataorg/pages/csv_files.html).
- - [Other things to avoid](http://kbroman.org/dataorg/pages/avoid.html).
+ - [Be consistent](http://kbroman.org/dataorg/pages/consistency.html)
+ - [Write dates as `YYYY-MM-DD`](http://kbroman.org/dataorg/pages/dates.html)
+ - [Fill in all of the cells](http://kbroman.org/dataorg/pages/no_empty_cells.html)
+ - [Put just one thing in a cell](http://kbroman.org/dataorg/pages/one_thing_per_cell.html)
+ - [Make it a rectangle](http://kbroman.org/dataorg/pages/rectangle.html)
+ - [Create a data dictionary](http://kbroman.org/dataorg/pages/dictionary.html)
+ - [No calculations in the raw data files](http://kbroman.org/dataorg/pages/no_calculations.html)
+ - [Don't use font color or highlighting as data](http://kbroman.org/dataorg/pages/no_highlighting.html)
+ - [Choose good names for things](http://kbroman.org/dataorg/pages/names.html)
+ - [Make backups](http://kbroman.org/dataorg/pages/backups.html)
+ - [Use data validation to avoid data entry mistakes](http://kbroman.org/dataorg/pages/validation.html)
+ - [Save the data in plain text files](http://kbroman.org/dataorg/pages/csv_files.html)
+ - [Other things to avoid](http://kbroman.org/dataorg/pages/avoid.html)
  
 # Same Data, Different Formats
 
 In the following examples, we will use data from a stripe rust case study
-provided by APS. [You can find the link to the case study
-here.](http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/StripeRust.aspx)
+provided by APS. [Here is the link to the case study.](http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/StripeRust.aspx)
 
 ## The good
 
