@@ -11,10 +11,12 @@
 title: "Required Components"
 ---
 
-This website is an introduction to some of the principles of reproducible
-science in R, not R itself or associated software and extensions (i.e. "packages").
-Before we get started on the bulk of the content however, we will go over how to install
-the software needed for this tutorial and briefly introduce working with R.
+This website is an introduction to some of the principles of reproducible 
+science in R. While we are using R and other tools for reproducible research, 
+our focus here is not to teach you the tools, but how you can use them to make 
+your research more reproducible. Before we get started on the bulk of the
+content, we will go over how to install the software needed for this tutorial
+and briefly introduce working with R.
 
 Installing R and RStudio
 -----
