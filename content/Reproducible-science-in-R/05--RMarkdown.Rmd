@@ -38,7 +38,7 @@ At the end of the section there are resources that you can reference when you ne
 
 ## Mixing R and Markdown
 
-There are two ways to add R code to Markdown: namely as inline or as code chunks.
+There are two ways to add R code to Markdown: as inline or as code chunks.
 The syntax for adding inline code is the same as specifying a monospace font (surrounding text with <code>\`</code>), except that an `r` is added after the first <code>\`</code>.
 Inline code syntax is used for short, simple pieces of code that display their results mid-sentence.
 
@@ -46,7 +46,7 @@ Multiple lines of code can be added by putting the lines of code between <code>\
 This is refereed to as a `r gloss("chunk", "One or more consecuative lines of code in a RMarkdown file")`.
 Unlike the inline method, chunks of code defined this way have many options controlling how they are processed when a document is rendered; we will cover some of these options soon.
 
-Following, we will work with RMarkdown to learn the basic syntax and work through a set of demonstrations:
+Lets work through a set of demonstrations to learn the basic syntax of RMarkdown:
 
 `r step('Create a new markdown document and delete all the default template content. Paste in the code below, save the file as "rmarkdown-tutorial.Rmd", and press "Knit HTML".')`
 
@@ -204,13 +204,14 @@ One of the major advantages of mixing R with markdown is access to R's well know
 Graphs can be inserted into RMarkdown documents the same way text results are.
 There are two commonly used ways to make graphs in R: the `r gloss("R base graphics", "original graphing capabilities that are part of the core R language")` and the newer `r gloss("ggplot2", "An R package used for graphing as an alternative to the base graphics")` package. 
 Both are very flexible and each have their adherents. 
-The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics as well as the ability to create complex graphics. 
+The R base graphics are known for their flexibility whereas ggplot2 is known for consistent syntax and aesthetics.
+Both can be used to create complex and attractive graphics. 
 We will demonstrate both graphing systems, but will not go into details here.
 
 ### Typical usage
 
 By default, any plots made are displayed after the line of code that created them.
-The example below uses the R base graphics to plot the distribution of 10 number drawn from a normal distribution.
+The example below uses the R base graphics to plot the distribution of 10 numbers drawn from a normal distribution.
 
 `r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
 
@@ -232,7 +233,7 @@ hist(x)
 
 ### Hiding figures
 
-Figured can be excluded from the output document by setting the chunk option `fig.show` to `'hide'`
+Figures can be excluded from the output document by setting the chunk option `fig.show` to `'hide'`
 
 `r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
 
@@ -352,7 +353,7 @@ number_sections: true
 
 On of the best uses of the YAML header is to specify the format you want the output document to be when it is rendered.
 There are multiple output types, but the most used besides HTML is PDF. 
-The code below shows how to set the output type to pdf.
+The code below shows how to set the output type to PDF.
 
 `r step('Replace the YAML header _at the start_ of your Markdown document with the one below and press "Knit HTML".')`
 
@@ -439,6 +440,25 @@ file.remove(bib_path)
 ```
 
 
+
+# Additional resources
+
+RMarkdown is much more complex than pure Markdown due to all the subtle ways code can be handled and the results displayed. 
+Most people will need to constantly reference documentation and "cheat sheets" to remind themselves of ways to do occasionally necessary tasks.
+It is best to commit to memory only the most commonly used tools and know where to look up the rest.
+
+Note that the rendering of RMarkdown is implemented using an R package called `r gloss("knitr", "An R package used to render RMarkdown, as well as other mixes of programming and markup languages")` so you might see references to things like "knitr options".
+This is also the reason the button you press to render RMarkdown into an output document is labeled "Knit HTML".
+
+
+Albert Einstein once said "Never memorize something that you can look up."
+In that spirit, here are some great places to look things up:
+
+- [The RMarkdown website](http://rmarkdown.rstudio.com/): This is the official website for RMarkdown. It contains examples of most of the features of RMarkdown.
+- [The Knitr website](http://yihui.name/knitr/): Information on the primary tool used by RMarkdown to render documents. This is official source of information on chunk options. 
+- [An RMarkdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf): This summarizes the main tools of RMarkdown in just two pages. 
+
+
 # Try it! {#exercise}
 
 ---------------
@@ -458,23 +478,6 @@ analysis of the population genetic structure of *Phytophthora infestans* at
 https://github.com/grunwaldlab/pinfestans_example and wrote it up in a docx 
 document with the R script used to produce the figures and tables. Download this
 repository and attempt to recreate the word document using RMarkdown.
-
-# Additional resources
-
-RMarkdown is much more complex than pure Markdown due to all the subtle ways code can be handled and the results displayed. 
-Most people will need to constantly reference documentation and "cheat sheets" to remind themselves of ways to do occasionally necessary tasks.
-It is best to commit to memory only the most commonly used tools and know where to look up the rest.
-
-Note that the rendering of RMarkdown is implemented using an R package called `r gloss("knitr", "An R package used to render RMarkdown, as well as other mixes of programming and markup languages")` so you might see references to things like "knitr options".
-This is also the reason the button you press to render RMarkdown into an output document is labeled "Knit HTML".
-
-
-Albert Einstein once said "Never memorize something that you can look up."
-In that spirit, here are some great places to look things up:
-
-- [The RMarkdown website](http://rmarkdown.rstudio.com/): This is the official website for RMarkdown. It contains examples of most of the features of RMarkdown.
-- [The Knitr website](http://yihui.name/knitr/): Information on the primary tool used by RMarkdown to render documents. This is official source of information on chunk options. 
-- [An RMarkdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf): This summarizes the main tools of RMarkdown in just two pages. 
 
 
 # Glossary
