@@ -80,9 +80,9 @@ in the center, so it's placed to the left. These are used with .knit_border and
 
 #exercise {
   display: block;
-  width: 98%;
+  width: 100%;
   font-weight: bold;
-  background: #F3FFE2;
+  background: #e6ffff;
   margin-left: auto;
   margin-right: auto;
   padding: 20px 25px;
@@ -91,4 +91,15 @@ in the center, so it's placed to the left. These are used with .knit_border and
   border-color: #1695A3;
   border-radius: 20px;
   /*box-shadow: 10px 10px 20px -5px gray;*/
+}
+
+div.r-help-page {
+background-color: #f9f9f9;
+border-bottom: #ddd 1px solid;
+margin-bottom: 10px;
+padding: 10px;
+}
+
+div.r-help-page:hover {
+background-color: #f4f4f4;
 }

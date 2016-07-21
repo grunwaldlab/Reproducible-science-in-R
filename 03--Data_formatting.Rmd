@@ -27,9 +27,9 @@ a mantra to remember when gathering data. The same goes for entering and storing
 data in a spreadsheet. Often, the first point of error for any analysis is at 
 the data entry stage. This section will show you the best practices of data 
 storage and why this is important for your analyses, whether you are analyzing 
-disease progress, fungicide resistance, or even bioinformatic data. Much of this
-is based off of the Data Carpentry module [Using Spreadsheet Programs for
-Scientific Data](http://www.datacarpentry.org/2015-03-09-ISI-CODATA/lessons/excel/ecology-examples/00-intro.html)
+disease progress, fungicide resistance, or complex bioinformatic data. Much of this
+is based off of the Data Carpentry module "[Using Spreadsheet Programs for
+Scientific Data](http://www.datacarpentry.org/2015-03-09-ISI-CODATA/lessons/excel/ecology-examples/00-intro.html)"
 designed by Christie Bahlai and Aleksandra Pawlik. Please refer to the previous
 link if you need any more information.
 
@@ -56,29 +56,28 @@ or best practices to follow:
  
 The rest of this section will show some examples of good and bad data formatting related to plant pathology. For a more detailed insight on data formatting from someone who has A LOT of experience with different data formats, take a look at [Karl Broman's Data Organization Tutorial](http://kbroman.org/dataorg/). He covers the following topics:
  
- - [Be consistent](http://kbroman.org/dataorg/pages/consistency.html).
- - [Write dates as `YYYY-MM-DD`](http://kbroman.org/dataorg/pages/dates.html).
- - [Fill in all of the cells](http://kbroman.org/dataorg/pages/no_empty_cells.html).
- - [Put just one thing in a cell](http://kbroman.org/dataorg/pages/one_thing_per_cell.html).
- - [Make it a rectangle](http://kbroman.org/dataorg/pages/rectangle.html).
- - [Create a data dictionary](http://kbroman.org/dataorg/pages/dictionary.html).
- - [No calculations in the raw data files](http://kbroman.org/dataorg/pages/no_calculations.html).
- - [Don't use font color or highlighting as data](http://kbroman.org/dataorg/pages/no_highlighting.html).
- - [Choose good names for things](http://kbroman.org/dataorg/pages/names.html).
- - [Make backups](http://kbroman.org/dataorg/pages/backups.html).
- - [Use data validation to avoid data entry mistakes](http://kbroman.org/dataorg/pages/validation.html).
- - [Save the data in plain text files](http://kbroman.org/dataorg/pages/csv_files.html).
- - [Other things to avoid](http://kbroman.org/dataorg/pages/avoid.html).
+ - [Be consistent](http://kbroman.org/dataorg/pages/consistency.html)
+ - [Write dates as `YYYY-MM-DD`](http://kbroman.org/dataorg/pages/dates.html)
+ - [Fill in all of the cells](http://kbroman.org/dataorg/pages/no_empty_cells.html)
+ - [Put just one thing in a cell](http://kbroman.org/dataorg/pages/one_thing_per_cell.html)
+ - [Make it a rectangle](http://kbroman.org/dataorg/pages/rectangle.html)
+ - [Create a data dictionary](http://kbroman.org/dataorg/pages/dictionary.html)
+ - [No calculations in the raw data files](http://kbroman.org/dataorg/pages/no_calculations.html)
+ - [Don't use font color or highlighting as data](http://kbroman.org/dataorg/pages/no_highlighting.html)
+ - [Choose good names for things](http://kbroman.org/dataorg/pages/names.html)
+ - [Make backups](http://kbroman.org/dataorg/pages/backups.html)
+ - [Use data validation to avoid data entry mistakes](http://kbroman.org/dataorg/pages/validation.html)
+ - [Save the data in plain text files](http://kbroman.org/dataorg/pages/csv_files.html)
+ - [Other things to avoid](http://kbroman.org/dataorg/pages/avoid.html)
  
 # Same Data, Different Formats
 
 In the following examples, we will use data from a stripe rust case study
-provided by APS. [You can find the link to the case study
-here.](http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/StripeRust.aspx)
+provided by APS. [Here is the link to the case study.](http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/StripeRust.aspx)
 
-## The good
+## The good: Following the rules outlined above
 
-Good data formatting follows the rules outlined above. There are a few flavors 
+There are a few flavors 
 of well-formatted data presented here, but they all have the above rules in
 common and, thus, can all easily be converted to and from each other within R
 and other computer programs.
@@ -104,9 +103,9 @@ Of course, recording observations in either long or wide data exclusively is not
 
 ![](images/two_column_data.png){.knit_border .knit_image}
 
-## The bad
+## The bad: Storing data in excel and using multiple sheets
 
-Storing data in excel only, multiple sheets. Saving data in Excel is a recipe
+Saving data in Excel is a recipe
 for disaster, [**especially if you are storing
 dates**](http://ecologybits.com/index.php/2016/07/06/beware-this-scary-thing-excel-can-do-to-your-data/).
 
@@ -119,7 +118,7 @@ possible with the *readxl* package).
 
 ![](images/two_sheet_data.png){.knit_border .knit_image}
 
-## The ugly
+## The ugly: multiple tables, color-coding, etc...
 
 Ugly data is, well, ugly. At least with bad data, it can be read into R. With
 ugly data, there is little to no hope of getting it into R without reformatting
