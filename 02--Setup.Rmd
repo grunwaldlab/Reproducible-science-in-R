@@ -1,11 +1,12 @@
-```{r,message=FALSE,echo=FALSE}
-  # library("knitcitations")
-  library("knitr")
-  # cite_options(max.names = 3, style = "html", hyperlink = "to.doc")
-  # bib <- read.bibtex("bibtexlib.bib")
-  opts_chunk$set(tidy = FALSE, message = FALSE, warning = FALSE, cache = TRUE) 
-  # use this to set knitr options: 
-  # http://yihui.name/knitr/options #chunk_options 
+```{r, setup, include = FALSE, message=FALSE, echo=FALSE}
+# library("knitcitations")
+library("knitr")
+# cite_options(max.names = 3, style = "html", hyperlink = "to.doc")
+# bib <- read.bibtex("bibtexlib.bib")
+opts_chunk$set(tidy = FALSE, message = FALSE, warning = FALSE, cache = TRUE) 
+# use this to set knitr options: 
+# http://yihui.name/knitr/options #chunk_options 
+library(printr)
 ```
 ---
 title: "Required Components"
@@ -87,45 +88,53 @@ initialize your R session. To exit R, simply close the RStudio application.
 
 > Note that R is a case-sensitive language!
 
-Let's get comfortable with R by submitting the following command on the console (where R prompts you with a `>` in the lower left RStudio window pane) that
-will retrieve the current working directory on your machine:
+Let's get comfortable with R by submitting the following command on the console
+(where R prompts you with a `>` in the lower left RStudio window pane) that will
+tell you something about your version of R and the packages you have, which is
+useful for reporting reproducible research.
 
-```{r, eval=FALSE}
-getwd() # this command will print the current working directory
+```{r, eval = TRUE}
+sessionInfo() # This command will tell you information about your current R session
 ```
 
 > Note that any text after a '#' symbol is a comment and does not affect the code execution;
 > you can just type `getwd()` after the ">".
 
-To get help on any R functions, type a question mark before the empty function
-call as in:
-
-```{r, eval=FALSE}
-library(poppr) # Package with the `mlg` function used below
-?mlg # open the R documentation of the function mlg()
-```
-
-
 Packages and getting help
 -----------------------
 
-One way that R shines above other languages is that
-R packages in CRAN are all documented and easy to install. Help files are written in HTML and give
-the user a brief overview of:
+One way that R shines above other languages is that R packages in CRAN are all
+documented and easy to install. Help files are written in HTML and give the user
+a brief overview of:
 
  - the purpose of a function
  - the parameters it takes
  - the output it yields
  - examples demonstrating its usage
 
-To see all of the help topics in a package, you can simply type:
+To get help on any R function, type a question mark before the empty function. 
+Here's an example of how to get help about the `gather()` function from the
+*tidyr* package:
+
+```{r}
+library('tidyr') # The package with the gather() function.
+?gather          # open the R documentation of the function gather()
+```
+
+If you want to run the examples, you can either copy and paste the commands to
+your R console, or you can run them all with:
 
 ```{r, eval = FALSE}
-library(poppr)
-help(package = "poppr") # Get help for a package.
-help("audpc")           # Get help for the audpc function.
-?audpc                  # same as above.
-??multilocus            # Search for functions that have the keyword multilocus.
+example("gather", package = "tidyr")
+```
+
+Other ways of getting help:
+
+```{r, eval = FALSE}
+help(package = "tidyr")  # Get help for a package.
+help("gather")           # Get help for the gather function
+?gather                  # same as above
+??multilocus             # Search for help that has the keyword 'multilocus' in all packages
 ```
 
 Some packages include vignettes that can have different formats such as being
@@ -142,3 +151,8 @@ and to look at a specific vignette you can type:
 ```{r, eval=FALSE}
 vignette('mlg')
 ```
+
+```{r, echo = FALSE}
+detach("package:printr", unload = TRUE)
+```
+
