@@ -92,3 +92,14 @@ in the center, so it's placed to the left. These are used with .knit_border and
   border-radius: 20px;
   /*box-shadow: 10px 10px 20px -5px gray;*/
 }
+
+div.r-help-page {
+background-color: #f9f9f9;
+border-bottom: #ddd 1px solid;
+margin-bottom: 10px;
+padding: 10px;
+}
+
+div.r-help-page:hover {
+background-color: #f4f4f4;
+}
