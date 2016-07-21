@@ -27,7 +27,7 @@ pre_scroll_iframe()
 `r gloss("Markdown", "a simple, human-readable plain text format that is typically rendered as HTML or PDF")` is a simple, human-readable `r gloss("plain text format", "Any systematic way of writing that only uses unformatted characters, numbers, and punctuation marks. For example, Notepad is a common editor for plain text, whereas Microsoft Word is not.")` that can be converted to other file formats, such as `r gloss("HTML", "The markup language read by web browsers like internet explorer and firefox")` and PDF by numerous programs.
 The format is just a set of conventions for writing plain text files.
 Its simplicity is actually its greatest advantage; Markdown can be learned in a day and its intuitive syntax is easily read by those who have never seen it before.
-There are no special file formats that only specific versions of certain proprietary programs can open (e.g., Microsoft Word) and output files are typically equally universal.
+There are no special file formats that only specific versions of certain proprietary programs can open (e.g., Microsoft Word) and output files are typically just as universal.
 This encourages writers to focus on content and ideas rather than the minutae of formatting items like fonts, pagragraphs, indentation, line spacing, or image placement.
 All such aesthetic considerations are handled by the computer when Markdown is rendered into an output file, ensuring consistency and the ability to reformat content anytime.
 Markdown is so versatile that it could be written on a flip-phone, texted to an smart phone, copied and pasted into an email, uploaded to a linux server, downloaded to a Mac or Windows OS, and still be converted into a HTML file that all those devices could open without installing any software. 
@@ -188,6 +188,22 @@ So far, we have been converting Markdown to HTML.
 To make a PDF or Word document, simply click on the dropdown menu immediately to the right of the "knit HTML" button and select the format you want to try.
 
 
+# Additional resources
+
+That's pretty much all there is to it!
+Below are a few links that might be useful if you want to explore the more esoteric corners of the Markdown universe.
+
+- [Daring Fireball](https://daringfireball.net/projects/markdown/): The website of the original author of the Markdown language.
+  It is the closes thing to an official syntax definition.
+- [GitHub Markdown](https://guides.github.com/features/mastering-markdown/): A guide to using the GitHub "flavor" of Markdown.
+- [Markdown Tutorial](http://markdowntutorial.com/): An interactive tutorial to help learn markdown.
+- [Babelmark 2](http://johnmacfarlane.net/babelmark2/):
+  A tool that displays the HTML produced by many different Markdown renderers for any snippet of Markdown code.
+  Programs might differ in the details of how Markdown is translated into HTML.
+- [Wikipedia](https://en.wikipedia.org/wiki/Markdown): The Wikipedia page on Markdown.
+
+
+
 # Try it! {#exercise}
 
 ---------------
@@ -206,23 +222,10 @@ using the principles you learned above.
 
 In the next section, we will recreate the rest of the analysis.
 
-# Additional resources
-
-That's pretty much all there is to it!
-Below are a few links that might be useful if you want to explore the more esoteric corners of the Markdown universe.
-
-- [Daring Fireball](https://daringfireball.net/projects/markdown/): The website of the original author of the Markdown language.
-  It is the closes thing to an official syntax definition.
-- [GitHub Markdown](https://guides.github.com/features/mastering-markdown/): A guide to using the GitHub "flavor" of Markdown.
-- [Markdown Tutorial](http://markdowntutorial.com/): An interactive tutorial to help learn markdown.
-- [Babelmark 2](http://johnmacfarlane.net/babelmark2/):
-  A tool that displays the HTML produced by many different Markdown renderers for any snippet of Markdown code.
-  Programs might differ in the details of how Markdown is translated into HTML.
-- [Wikipedia](https://en.wikipedia.org/wiki/Markdown): The Wikipedia page on Markdown.
-
 
 # Glossary
 
 ```{r glossary, results = 'asis'}
 gloss(display = TRUE)
 ```
+

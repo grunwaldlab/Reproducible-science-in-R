@@ -26,7 +26,7 @@ technical terms, it is a personal archivist/time machine that keeps track of all
 the changes you make in a (writing or data analysis) project. Normally, when you
 save progress on an analysis, the old version of that analysis is lost. With
 git, as you make steps toward completion of the analysis, you continue to
-save your progress, but you also tell git to remember itermediate states
+save your progress, but you also tell git to remember intermediate states
 by 'committing' to all the changes that have happened.
 
 ## Why should I use git?
@@ -106,7 +106,7 @@ take a while. Ensure that you have a good and fast internet connection.
 
 ## Your first git repository
 
-Although git is usually used on the command line and takes some practice to use effectivly,
+Although git is usually used on the command line and takes some practice to use effectively,
 RStudio has a simple menu that makes it easy to do the most common tasks.
 This part will walk you through, in pictures and words, how to create your first
 git repository using R and RStudio.
@@ -123,7 +123,7 @@ be `r gloss("git init", init_def)`).
 ### git init: Making a folder into a repository
 
 First thing's first, you should select **File > New Project...** from the
-menubar. When you have done that, this window will appear:
+menu bar. When you have done that, this window will appear:
 
 ![](images/rstudio-new.png){.small_window .knit_border .knit_image}
 
@@ -164,7 +164,7 @@ audpc_analysis.Rproj is the file that tells RStudio that you are in an R project
 and that it should start RStudio in that folder when you have that project open.
 
 Notice, however that there are two yellow blocks with question marks inside of
-them under a column labled "Status". This is letting you know that there are
+them under a column labeled "Status". This is letting you know that there are
 files there that git sees, but isn't keeping track of. To let git know that we
 want to keep track of these files, we need to add them first with 
 `r gloss("git add", add_def)`.
@@ -374,7 +374,7 @@ user interfaces that are available for it:
 
 ## Tutorials
 
-There are often a plethora of tutorials at your fingertips with a simple google 
+There are often a plethora of tutorials at your fingertips with a simple Google 
 search of "learn git". As this particular tutorial is only designed to introduce
 you to git, we recommend browsing through these and seeing which ones work well
 for you.
