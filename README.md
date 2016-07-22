@@ -45,3 +45,7 @@ quiltr::make_gh_website()
 ```
 
 It seems to work, but ¯\\_(ツ)_/¯
+
+# Survey
+
+http://goo.gl/forms/OCFxqPbXhsWMBQYT2
