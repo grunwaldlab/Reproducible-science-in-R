@@ -169,8 +169,8 @@ $(document).ready(function () {
 <li><a href="http://cran.r-project.org/web/packages/tidyr/index.html">tidyr</a> (data manipulation)</li>
 </ol>
 <p>To install these packages, open RStudio and copy and paste the following code into the console:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_packages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rmarkdown&quot;</span>,<span class="st">&quot;poppr&quot;</span>, <span class="st">&quot;agricolae&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>)
-<span class="kw">install.packages</span>(my_packages, <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>my_packages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rmarkdown&quot;</span>,<span class="st">&quot;poppr&quot;</span>, <span class="st">&quot;agricolae&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>)
+&gt;<span class="st"> </span><span class="kw">install.packages</span>(my_packages, <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p>Congratulations! You should now be all set for using R. To ensure that everything is set up correctly, you can go through steps 1 and 2 in the <a href="Markdown.html">markdown chapter</a>.</p>
 </div>
 <div id="optional-software" class="section level2">
@@ -197,51 +197,50 @@ $(document).ready(function () {
 <p>Note that R is a case-sensitive language!</p>
 </blockquote>
 <p>Let’s get comfortable with R by submitting the following command on the console (where R prompts you with a <code>&gt;</code> in the lower left RStudio window pane) that will tell you something about your version of R and the packages you have, which is useful for reporting reproducible research.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>() <span class="co"># This command will tell you information about your current R session</span></code></pre></div>
-<pre><code>## R version 3.3.1 (2016-06-21)
-## Platform: x86_64-apple-darwin13.4.0 (64-bit)
-## Running under: OS X 10.11.5 (El Capitan)
-## 
-## locale:
-## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
-## 
-## attached base packages:
-## [1] tools     stats     graphics  grDevices utils     datasets  methods  
-## [8] base     
-## 
-## other attached packages:
-##  [1] printr_0.0.6        tibble_1.1          ggtree_1.2.17      
-##  [4] dplyr_0.5.0         tidyr_0.5.1         future_1.0.1       
-##  [7] poppr_2.2.0         adegenet_2.0.1      ade4_1.7-4         
-## [10] knitcitations_1.0.7 xtable_1.8-2        ggplot2_2.1.0      
-## [13] knitr_1.13          quiltr_0.6.293     
-## 
-## loaded via a namespace (and not attached):
-##  [1] nlme_3.1-128        bitops_1.0-6        lubridate_1.5.6    
-##  [4] gmodels_2.16.2      httr_1.2.1          R6_2.1.2           
-##  [7] vegan_2.4-0         DBI_0.4-1           BiocGenerics_0.16.1
-## [10] mgcv_1.8-12         colorspace_1.2-6    permute_0.9-0      
-## [13] sp_1.2-3            phangorn_2.0.4      formatR_1.4        
-## [16] labeling_0.3        scales_0.4.0        nnls_1.4           
-## [19] quadprog_1.5-5      stringr_1.0.0       digest_0.6.9       
-## [22] rmarkdown_1.0       XVector_0.10.0      htmltools_0.3.5    
-## [25] bibtex_0.4.0        pegas_0.9           highr_0.6          
-## [28] rstudioapi_0.6      shiny_0.13.2.9004   jsonlite_1.0       
-## [31] gtools_3.5.0        spdep_0.6-5         RCurl_1.95-4.8     
-## [34] magrittr_1.5        Matrix_1.2-6        Rcpp_0.12.6        
-## [37] munsell_0.4.3       S4Vectors_0.8.11    ape_3.5            
-## [40] RefManageR_0.10.13  stringi_1.1.1       yaml_2.1.13        
-## [43] MASS_7.3-45         RJSONIO_1.3-0       zlibbioc_1.16.0    
-## [46] plyr_1.8.4          grid_3.3.1          parallel_3.3.1     
-## [49] gdata_2.17.0        listenv_0.6.0       deldir_0.1-12      
-## [52] lattice_0.20-33     Biostrings_2.38.4   splines_3.3.1      
-## [55] igraph_1.0.1        boot_1.3-18         seqinr_3.3-0       
-## [58] reshape2_1.4.1      codetools_0.2-14    stats4_3.3.1       
-## [61] fastmatch_1.0-4     LearnBayes_2.15     XML_3.98-1.4       
-## [64] evaluate_0.9        httpuv_1.3.3        gtable_0.2.0       
-## [67] assertthat_0.1      mime_0.5            coda_0.18-1        
-## [70] rsconnect_0.4.3     memoise_1.0.0       IRanges_2.4.8      
-## [73] cluster_2.0.4       globals_0.6.1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">sessionInfo</span>() <span class="co"># This command will tell you information about your current R session</span></code></pre></div>
+<pre><code>R version 3.3.1 (2016-06-21)
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+Running under: OS X 10.11.5 (El Capitan)
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] tibble_1.1          ggtree_1.2.17       dplyr_0.5.0        
+ [4] tidyr_0.5.1         future_1.0.1        poppr_2.2.0        
+ [7] adegenet_2.0.1      ade4_1.7-4          knitcitations_1.0.7
+[10] xtable_1.8-2        quiltr_0.6.293      ggplot2_2.1.0      
+[13] knitr_1.13          printr_0.0.6       
+
+loaded via a namespace (and not attached):
+ [1] httr_1.2.1          jsonlite_1.0        splines_3.3.1      
+ [4] gtools_3.5.0        shiny_0.13.2.9004   assertthat_0.1     
+ [7] highr_0.6           stats4_3.3.1        sp_1.2-3           
+[10] yaml_2.1.13         pegas_0.9           LearnBayes_2.15    
+[13] globals_0.6.1       lattice_0.20-33     quadprog_1.5-5     
+[16] phangorn_2.0.4      digest_0.6.9        XVector_0.10.0     
+[19] RefManageR_0.10.13  colorspace_1.2-6    htmltools_0.3.5    
+[22] httpuv_1.3.3        Matrix_1.2-6        plyr_1.8.4         
+[25] XML_3.98-1.4        bibtex_0.4.0        listenv_0.6.0      
+[28] gmodels_2.16.2      zlibbioc_1.16.0     scales_0.4.0       
+[31] gdata_2.17.0        mgcv_1.8-12         IRanges_2.4.8      
+[34] BiocGenerics_0.16.1 RJSONIO_1.3-0       magrittr_1.5       
+[37] mime_0.5            deldir_0.1-12       memoise_1.0.0      
+[40] evaluate_0.9        nlme_3.1-128        MASS_7.3-45        
+[43] vegan_2.4-0         rsconnect_0.4.3     tools_3.3.1        
+[46] formatR_1.4         stringr_1.0.0       S4Vectors_0.8.11   
+[49] munsell_0.4.3       cluster_2.0.4       Biostrings_2.38.4  
+[52] grid_3.3.1          RCurl_1.95-4.8      igraph_1.0.1       
+[55] bitops_1.0-6        rmarkdown_1.0       boot_1.3-18        
+[58] gtable_0.2.0        codetools_0.2-14    DBI_0.4-1          
+[61] reshape2_1.4.1      R6_2.1.2            nnls_1.4           
+[64] lubridate_1.5.6     seqinr_3.3-0        fastmatch_1.0-4    
+[67] spdep_0.6-5         permute_0.9-0       ape_3.5            
+[70] stringi_1.1.1       parallel_3.3.1      Rcpp_0.12.6        
+[73] coda_0.18-1        </code></pre>
 <blockquote>
 <p>Note that any text after a ‘#’ symbol is a comment and does not affect the code execution; you can just type <code>getwd()</code> after the “&gt;”.</p>
 </blockquote>
@@ -256,8 +255,8 @@ $(document).ready(function () {
 <li>examples demonstrating its usage</li>
 </ul>
 <p>To get help on any R function, type a question mark before the empty function. Here’s an example of how to get help about the <code>gather()</code> function from the <em>tidyr</em> package:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">'tidyr'</span>) <span class="co"># The package with the gather() function.</span>
-?gather          <span class="co"># open the R documentation of the function gather()</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(<span class="st">'tidyr'</span>) <span class="co"># The package with the gather() function.</span>
+&gt;<span class="st"> </span>?gather          <span class="co"># open the R documentation of the function gather()</span></code></pre></div>
 <div class="r-help-page">
 <table width="100%" summary="page for gather">
 <tr>
@@ -390,17 +389,17 @@ mini_iris %&gt;% gather(key = flower_att, value = measurement, -Species)
 </pre>
 </div>
 <p>If you want to run the examples, you can either copy and paste the commands to your R console, or you can run them all with:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">example</span>(<span class="st">&quot;gather&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;tidyr&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">example</span>(<span class="st">&quot;gather&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;tidyr&quot;</span>)</code></pre></div>
 <p>Other ways of getting help:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(<span class="dt">package =</span> <span class="st">&quot;tidyr&quot;</span>)  <span class="co"># Get help for a package.</span>
-<span class="kw">help</span>(<span class="st">&quot;gather&quot;</span>)           <span class="co"># Get help for the gather function</span>
-?gather                  <span class="co"># same as above</span>
-??multilocus             <span class="co"># Search for help that has the keyword 'multilocus' in all packages</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">help</span>(<span class="dt">package =</span> <span class="st">&quot;tidyr&quot;</span>)  <span class="co"># Get help for a package.</span>
+&gt;<span class="st"> </span><span class="kw">help</span>(<span class="st">&quot;gather&quot;</span>)           <span class="co"># Get help for the gather function</span>
+&gt;<span class="st"> </span>?gather                  <span class="co"># same as above</span>
+&gt;<span class="st"> </span>??multilocus             <span class="co"># Search for help that has the keyword 'multilocus' in all packages</span></code></pre></div>
 <p>Some packages include vignettes that can have different formats such as being introductions, tutorials, or reference cards in PDF format. You can look at a list of vignettes in all packages by typing:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">browseVignettes</span>()                     <span class="co"># see vignettes from all packages</span>
-<span class="kw">browseVignettes</span>(<span class="dt">package =</span> <span class="st">'poppr'</span>)    <span class="co"># see vignettes from a specific package.</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">browseVignettes</span>()                     <span class="co"># see vignettes from all packages</span>
+&gt;<span class="st"> </span><span class="kw">browseVignettes</span>(<span class="dt">package =</span> <span class="st">'poppr'</span>)    <span class="co"># see vignettes from a specific package.</span></code></pre></div>
 <p>and to look at a specific vignette you can type:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vignette</span>(<span class="st">'mlg'</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">vignette</span>(<span class="st">'mlg'</span>)</code></pre></div>
 </div>
 
 
