@@ -1,0 +1,22 @@
+/* Niks custom css for slidify */
+
+.title-slide {
+  background-color: #FFFFFF;
+  /* background-color: #CBE7A5; #EDE0CF; ; #CA9F9D*/
+  /* background-image:url(http://goo.gl/EpXln); */
+}
+
+.title-slide hgroup > h1{
+ font-family: 'Oswald', 'Helvetica', sanserif;
+}
+
+.title-slide hgroup > h1,
+.title-slide hgroup > h2 {
+  color: #4c4c4c ;  /* #535E43; #EF5150*/
+}
+
+slide:not(.segue)  h2{
+ font-family: "Open Sans Condensed";
+ font-weight: 700;
+ color: #0864cc; /* darkslategray; */
+}
