@@ -28,10 +28,10 @@ pre_scroll_iframe()
 The format is just a set of conventions for writing plain text files.
 Its simplicity is actually its greatest advantage; Markdown can be learned in a day and its intuitive syntax is easily read by those who have never seen it before.
 There are no special file formats that only specific versions of certain proprietary programs can open (e.g., Microsoft Word) and output files are typically just as universal.
-This encourages writers to focus on content and ideas rather than the minutae of formatting items like fonts, pagragraphs, indentation, line spacing, or image placement.
+This encourages writers to focus on content and ideas rather than the minutiae of formatting items like fonts, paragraphs, indentation, line spacing, or image placement.
 All such aesthetic considerations are handled by the computer when Markdown is rendered into an output file, ensuring consistency and the ability to reformat content anytime.
-Markdown is so versatile that it could be written on a flip-phone, texted to an smart phone, copied and pasted into an email, uploaded to a linux server, downloaded to a Mac or Windows OS, and still be converted into a HTML file that all those devices could open without installing any software. 
-The hallmark of Markdown is the simple syntax, realiable portability and repeated translatability into various universal formats (e.g., html, pdf, etc.). 
+Markdown is so versatile that it could be written on a flip-phone, texted to an smart phone, copied and pasted into an email, uploaded to a Linux server, downloaded to a Mac or Windows OS, and still be converted into a HTML file that all those devices could open without installing any software. 
+The hallmark of Markdown is the simple syntax, reliable portability and repeated translatability into various universal formats (e.g., html, pdf, etc.). 
 
 This portion of the tutorial will cover the aspects of Markdown that are shared by all programs able to interpret it.
 Some programs that convert Markdown to output documents support additional features that others do not, but the basics of Markdown are the same for all.
@@ -211,7 +211,7 @@ Below are a few links that might be useful if you want to explore the more esote
 `r step('Download and uncompress the AUDPC example directory')`
 
 Download and uncompress the [AUDPC example directory](https://github.com/grunwaldlab/audpc_example/) at https://github.com/grunwaldlab/audpc_example/archive/master.zip.
-In that directory there are a pair of files called `original_audpc_report.docx` and `original_audpc_code.R`; this is a simple record of an experiment done in a conventional, not-very-reporducible way.
+In that directory there are a pair of files called `original_audpc_report.docx` and `original_audpc_code.R`; this is a simple record of an experiment done in a conventional, not-very-reproducible way.
 The file `audpc_report_to_replicate.html` in the output of the same analysis done using Rmarkdown, but the source RMarkdown document is not shown.
 Your goal is to create the RMarkdown document that produces something similar to `audpc_report_to_replicate.html`.
 
