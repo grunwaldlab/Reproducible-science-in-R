@@ -5,3 +5,4 @@
 *_cache/**
 *_files/**
 *.cache/**
+site_libs/**
