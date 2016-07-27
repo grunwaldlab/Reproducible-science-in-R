@@ -1,3 +1,9 @@
 .Rproj.user
 .Rhistory
 .RData
+<<<<<<< HEAD
+=======
+*_cache/**
+*_files/**
+*.cache/**
+>>>>>>> test-gh-pages

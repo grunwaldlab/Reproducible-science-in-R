@@ -1,0 +1,105 @@
+.example_frame {
+  width: 125%;
+  height: 125%;
+  -ms-zoom: .8;
+  -moz-transform-origin: 0 0;
+  -moz-transform: scale(.8);
+  -o-transform: scale(.8);
+  -o-transform-origin: 0 0;
+  -webkit-transform: scale(.8);
+  -webkit-transform-origin: 0 0;
+}
+
+
+/* 
+Your basic centered image
+*/
+.knit_image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+This will place a small black border around an image and also add some padding
+to the top and bottom of an image. 
+*/
+.knit_border {
+  display: block;
+  border: solid black;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px -5px gray;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+
+/*
+Defining widths for displaying window sizes. The small window looks a bit silly
+in the center, so it's placed to the left. These are used with .knit_border and
+.knit_image
+*/
+.big_window {
+  width: 90%;
+}
+.med_window {
+  width: 75%;
+}
+.small_window {
+  width: 50%;
+  margin-left: 0;
+}
+
+
+
+.rmd_example_outer {
+  width: 100%;
+}
+
+.rmd_example_inner {
+  width: 50%;
+  float: left;
+  height: 100%
+}
+
+.rmd_example_code {
+  height: 100%
+}
+
+
+.rmd_example_result {
+  background-color: lightyellow;
+  border-style: dotted;
+  border-width: 3px;
+  border-color: #007fff;
+  padding: 10px 20px;
+  margin: 0px 0px 20px 0px;
+  zoom: 1;
+  -moz-transform: scale(1);
+}
+
+#exercise {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  background: #e6ffff;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 25px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #1695A3;
+  border-radius: 20px;
+  /*box-shadow: 10px 10px 20px -5px gray;*/
+}
+
+div.r-help-page {
+background-color: #f9f9f9;
+border-bottom: #ddd 1px solid;
+margin-bottom: 10px;
+padding: 10px;
+}
+
+div.r-help-page:hover {
+background-color: #f4f4f4;
+}

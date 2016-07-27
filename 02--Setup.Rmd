@@ -1,0 +1,158 @@
+```{r, setup, include = FALSE, message=FALSE, echo=FALSE}
+# library("knitcitations")
+library("knitr")
+# cite_options(max.names = 3, style = "html", hyperlink = "to.doc")
+# bib <- read.bibtex("bibtexlib.bib")
+opts_chunk$set(tidy = FALSE, message = FALSE, warning = FALSE, cache = TRUE) 
+# use this to set knitr options: 
+# http://yihui.name/knitr/options #chunk_options 
+library(printr)
+```
+---
+title: "Required Components"
+---
+
+This website is an introduction to some of the principles of reproducible 
+science in R. While we are using R and other tools for reproducible research, 
+our focus here is not to teach you the tools, but how you can use them to make 
+your research more reproducible. Before we get started on the bulk of the
+content, we will go over how to install the software needed for this tutorial
+and briefly introduce working with R.
+
+Installing R and RStudio
+-----
+
+First, install R and RStudio:
+
+1. Download and install the [R](http://www.r-project.org) statistical computing
+   and graphing environment. This works cross-platform on Windows, OS X and
+   Linux operating systems.
+
+2. Download and install the free, open source edition of the [RStudio
+   Desktop](https://www.rstudio.com/products/rstudio/download/) integrated 
+   development environment (IDE), which we recommend. This is basically a point-and-click
+   interface for R that includes a text editor, file browser, and some other conveniences.
+
+Installing the required packages
+----
+
+The following packages are used in this primer:
+
+1. [rmarkdown](http://cran.r-project.org/web/packages/knitr/index.html) (creating reports)
+1. [agricolae](http://cran.r-project.org/web/packages/poppr/index.html) (agricultural disease data analysis)
+1. [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html) (graphs)
+1. [poppr](http://cran.r-project.org/web/packages/poppr/index.html) (genetic data analysis)
+1. [dplyr](http://cran.r-project.org/web/packages/dplyr/index.html) (data manipulation)
+1. [tidyr](http://cran.r-project.org/web/packages/tidyr/index.html) (data manipulation)
+
+To install these packages, open RStudio and copy and paste the following code into the console:
+
+```{r, eval = FALSE}
+my_packages <- c("rmarkdown","poppr", "agricolae", "dplyr", "tidyr", "ggplot2")
+install.packages(my_packages, repos = "http://cran.rstudio.com", dependencies = TRUE)
+```
+
+Congratulations! You should now be all set for using R. To ensure that
+everything is set up correctly, you can go through steps 1 and 2 in the
+[markdown chapter](Markdown.html).
+
+Optional software
+-----------------
+
+### PDFs with LaTeX
+
+If you want to create PDF documents, you will need a
+[$\LaTeX$](https://latex-project.org/) installation. 
+For OSX and Ubuntu users, this can be a large download and you will want to ensure you have a good connection:
+
+ - [LaTeX for OSX](https://tug.org/mactex/)
+ - [LaTeX for Windows](http://miktex.org/)
+ - [LaTeX for Ubuntu](https://help.ubuntu.com/community/LaTeX)
+
+To those that know of and fear LaTeX: don't worry, you don't need to write any LaTeX code to produce PDFs from Markdown.
+
+### Git
+
+Git is a version control program that we will cover, but since installation
+requirements can vary between operating systems, we are not requiring it for the
+workshop. However, if you would like to install it, [Here's a website that
+covers installation for the major operating
+systems](http://happygitwithr.com/install-git.html). 
+
+A quick introduction to R using RStudio
+------------------
+
+Let's review some of the basic features and functions of R. To start R,
+open the RStudio application from your programs folder or start menu. This will
+initialize your R session. To exit R, simply close the RStudio application.
+
+> Note that R is a case-sensitive language!
+
+Let's get comfortable with R by submitting the following command on the console
+(where R prompts you with a `>` in the lower left RStudio window pane) that will
+tell you something about your version of R and the packages you have, which is
+useful for reporting reproducible research.
+
+```{r, eval = TRUE}
+sessionInfo() # This command will tell you information about your current R session
+```
+
+> Note that any text after a '#' symbol is a comment and does not affect the code execution;
+> you can just type `getwd()` after the ">".
+
+Packages and getting help
+-----------------------
+
+One way that R shines above other languages is that R packages in CRAN are all
+documented and easy to install. Help files are written in HTML and give the user
+a brief overview of:
+
+ - the purpose of a function
+ - the parameters it takes
+ - the output it yields
+ - examples demonstrating its usage
+
+To get help on any R function, type a question mark before the empty function. 
+Here's an example of how to get help about the `gather()` function from the
+*tidyr* package:
+
+```{r}
+library('tidyr') # The package with the gather() function.
+?gather          # open the R documentation of the function gather()
+```
+
+If you want to run the examples, you can either copy and paste the commands to
+your R console, or you can run them all with:
+
+```{r, eval = FALSE}
+example("gather", package = "tidyr")
+```
+
+Other ways of getting help:
+
+```{r, eval = FALSE}
+help(package = "tidyr")  # Get help for a package.
+help("gather")           # Get help for the gather function
+?gather                  # same as above
+??multilocus             # Search for help that has the keyword 'multilocus' in all packages
+```
+
+Some packages include vignettes that can have different formats such as being
+introductions, tutorials, or reference cards in PDF format. You can look at a
+list of vignettes in all packages by typing:
+
+```{r, eval=FALSE}
+browseVignettes()                     # see vignettes from all packages
+browseVignettes(package = 'poppr')    # see vignettes from a specific package.
+```
+
+and to look at a specific vignette you can type:
+
+```{r, eval=FALSE}
+vignette('mlg')
+```
+
+```{r, echo = FALSE}
+detach("package:printr", unload = TRUE)
+```
+

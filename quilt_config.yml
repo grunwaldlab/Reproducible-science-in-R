@@ -1,0 +1,8 @@
+type: "Rmd"
+theme: flatly
+name_sep: "---"
+use_file_names: TRUE
+menu_name_parser: !expr function(x) gsub('^[0-9]*--', '', x)
+placement:
+- index.Rmd:
+  - ""

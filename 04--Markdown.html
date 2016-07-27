@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Markdown</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<link rel="stylesheet"
+      href="site_libs/highlight/default.css"
+      type="text/css" />
+<script src="site_libs/highlight/highlight.js"></script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="tutorial.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.9em;
+  padding-left: 5px;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+  padding-left: 10px;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Reproducible Science in R</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="02--Setup.html">Setup</a>
+</li>
+<li>
+  <a href="03--Data_formatting.html">Data formatting</a>
+</li>
+<li>
+  <a href="04--Markdown.html">Markdown</a>
+</li>
+<li>
+  <a href="05--RMarkdown.html">RMarkdown</a>
+</li>
+<li>
+  <a href="06--Git.html">Git and GitHub</a>
+</li>
+<li>
+  <a href="07--Organization.html">Organization</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Extra Content
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Extra_content---The_Basics_of_R.html">The Basics of R</a>
+    </li>
+    <li>
+      <a href="Extra_content---Advanced_RMarkdown.html">Advanced RMarkdown</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Markdown</h1>
+
+</div>
+
+
+<script type="text/javascript">
+$(window).load(function ()
+{
+    var $contents = $(".example_frame").contents();
+    $contents.scrollTop(10000);
+});
+</script>
+<p><strong><ins>Markdown</ins></strong> is a simple, human-readable <strong><ins>plain text format</ins></strong> that can be converted to other file formats, such as <strong><ins>HTML</ins></strong> and PDF by numerous programs. The format is just a set of conventions for writing plain text files. Its simplicity is actually its greatest advantage; Markdown can be learned in a day and its intuitive syntax is easily read by those who have never seen it before. There are no special file formats that only specific versions of certain proprietary programs can open (e.g., Microsoft Word) and output files are typically just as universal. This encourages writers to focus on content and ideas rather than the minutiae of formatting items like fonts, paragraphs, indentation, line spacing, or image placement. All such aesthetic considerations are handled by the computer when Markdown is rendered into an output file, ensuring consistency and the ability to reformat content anytime. Markdown is so versatile that it could be written on a flip-phone, texted to an smart phone, copied and pasted into an email, uploaded to a Linux server, downloaded to a Mac or Windows OS, and still be converted into a HTML file that all those devices could open without installing any software. The hallmark of Markdown is the simple syntax, reliable portability and repeated translatability into various universal formats (e.g., html, pdf, etc.).</p>
+<p>This portion of the tutorial will cover the aspects of Markdown that are shared by all programs able to interpret it. Some programs that convert Markdown to output documents support additional features that others do not, but the basics of Markdown are the same for all. You will learn how to write Markdown and convert it into HTML, PDF, and Word files using <a href="https://www.rstudio.com/">RStudio</a>. Curious about what those output documents look like? You’re reading one now; this tutorial was written in Markdown and converted to this HTML file you are viewing. So, if you are ready to stop spending your time positioning pictures, messing with margins, and fiddling with fonts, just to find out that your collaborator’s/customer’s/student’s computer thinks the pictures should be elsewhere and the fonts you chose don’t exist, then its time to learn Markdown!</p>
+<div id="getting-started" class="section level1">
+<h1>Getting started</h1>
+<p>Unlike R code, which can be executed line-by-line in an <strong><ins>R console</ins></strong>, Markdown is processed as a whole file. Therefore, the first thing we will do is create an empty file to practice on. Any simple text editor such as Notepad or TextEdit can be used to write Markdown, but we will be using RStudio, since it has features that will be useful in other tutorials.</p>
+<p><strong><mark><input type='checkbox'> Step 1)</mark> In RStudio, click on the new file dropdown menu at the top left and select “R Markdown”.</strong></p>
+<div class="figure">
+<img src="images/new_rmarkdown_file_screenshot.png" class="knit_border knit_image" />
+
+</div>
+<p><strong><mark><input type='checkbox'> Step 2)</mark> A new menu window will appear; just click “OK” to use the default settings.</strong></p>
+<div class="figure">
+<img src="images/confirm_new_rmarkdown_file_screenshot.png" class="med_window knit_border knit_image" />
+
+</div>
+<p><strong><mark><input type='checkbox'> Step 3)</mark> There will be some template text in the new file. Delete everything so we have a clean file to work from. You should now have a blank file like the one pictured below. Save the file as “markdown-tutorial.Rmd”.</strong></p>
+<div class="figure">
+<img src="images/blank_rmarkdown_file_screenshot.png" class="big_window knit_border knit_image" />
+
+</div>
+<p>The conventional file extension for Markdown is “.md”, but most programs that interpret Markdown will accept any extension. Note that we are using “.Rmd” instead; This is for <strong>R</strong>Markdown, a file format that adds the ability to incorporate R code with standard Markdown. We are using “.Rmd” since we will be covering RMarkdown in the next section, but nothing in this section is specific to RMarkdown, so don’t worry about it for now.</p>
+<div id="basic-text-formatting" class="section level2">
+<h2>Basic text formatting</h2>
+<p>Markdown is meant to be easily read by humans as well as computers. Therefore, it has a minimal set of simple syntax rules that are designed to not interfere with the readability of the source file.</p>
+<p>Headings are specified by starting a line with one to four <code>#</code> characters. The more <code>#</code> characters, the smaller the header (e.g. <code># Title</code> makes bigger text than <code>## Subtitle</code>). Surrounding text with <code>*</code> makes that section italic and surrounding text with <code>**</code> makes it bold.</p>
+<p><strong><mark><input type='checkbox'> Step 4)</mark> Copy the text from the first box below and paste it into your new file (or create your own content with a similar format). Press the “Knit HTML” button at the top of the document. A window should pop up displaying the rendered HTML document with conent similar to that of the second box.</strong></p>
+<div class="rmd_example_container">
+<div class="rmd_example_source">
+<pre class = 'rmd_example_code'>
+## Markdown
+
+Text with no special formatting is displayed in the default font.
+
+### Basic text formatting
+
+Text can also be **bold** or *italic*.
+            </pre>
+</div>
+<img src='images/pressing_knit_down_arrow.png' class='knit_image'>
+<div class="rmd_example_result">
+<div id="markdown" class="section level2">
+<h2>
+Markdown
+</h2>
+<p>
+Text with no special formatting is displayed in the default font.
+</p>
+<div id="basic-text-formatting" class="section level3">
+<h3>
+Basic text formatting
+</h3>
+<p>
+Text can also be <strong>bold</strong> or <em>italic</em>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div style="clear: left;">
+
+</div>
+<p>The window that pops up displays the newly created HTML file. This file is self-contained and can be viewed using any web browser. At the top of the pop-up window displaying the document there is a button labeled “Open in Browser” that will open the new file in your default web browser.</p>
+</div>
+<div id="code-and-quotes" class="section level2">
+<h2>Code and quotes</h2>
+<p>Text also can be formatted to look like <strong><ins>monospace</ins></strong> code by surrounding text with <code>`</code> or by indenting lines with 4 or more spaces. Starting lines with one or more <code>&gt;</code> turns lines of text into block quotes; the number of <code>&gt;</code> characters corresponds to the level of nesting.</p>
+<p><strong><mark><input type='checkbox'> Step 5)</mark> Copy the text from the box below and paste it on to the end of your Markdown document and press “Knit HTML”.</strong></p>
+<div class="rmd_example_container">
+<div class="rmd_example_source">
+<pre class = 'rmd_example_code'>
+Text can be displayed in a `monospace` font inline.
+
+    Whole blocks of text can
+    can also be monospace.
+
+> Block quotes are also possible.
+>
+>> They can even be nested!
+>
+            </pre>
+</div>
+<div class="rmd_example_result">
+<p>
+Text can be displayed in a <code>monospace</code> font inline.
+</p>
+<pre><code>Whole blocks of text can
+can also be monospace.</code></pre>
+<blockquote>
+<p>
+Block quotes are also possible.
+</p>
+<blockquote>
+<p>
+They can even be nested!
+</p>
+</blockquote>
+</blockquote>
+</div>
+</div>
+<div style="clear: left;">
+
+</div>
+</div>
+<div id="lists" class="section level2">
+<h2>Lists</h2>
+<p>Both numbered and unnumbered lists are supported. Consecutive lines starting with <code>-</code> are interpreted as a bulleted list. Starting lines with any number followed by a period indicates a numbered list. The numbers used don’t actually determine the numbers displayed. This might seem odd, but it allows numbered lists to be rearranged without redoing the numbering manually. Lists can be nested by indenting the nested list 4 spaces.</p>
+<p><strong><mark><input type='checkbox'> Step 6)</mark> Copy the text from the box below and paste it on to the end of your Markdown document and press “Knit HTML”.</strong></p>
+<div class="rmd_example_container">
+<div class="rmd_example_source">
+<pre class = 'rmd_example_code'>
+### Lists
+
+#### Unordered
+
+- eggs
+- milk
+- flour
+
+#### Ordered/Nested
+
+1. mix
+1. bake
+    - 400 F
+    - 30 minutes
+1. eat
+            </pre>
+</div>
+<div class="rmd_example_result">
+<div id="lists" class="section level3">
+<h3>
+Lists
+</h3>
+<div id="unordered" class="section level4">
+<h4>
+Unordered
+</h4>
+<ul>
+<li>
+eggs
+</li>
+<li>
+milk
+</li>
+<li>
+flour
+</li>
+</ul>
+</div>
+<div id="orderednested" class="section level4">
+<h4>
+Ordered/Nested
+</h4>
+<ol style="list-style-type: decimal">
+<li>
+mix
+</li>
+<li>
+bake
+<ul>
+<li>
+400 F
+</li>
+<li>
+30 minutes
+</li>
+</ul>
+</li>
+<li>
+eat
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div style="clear: left;">
+
+</div>
+</div>
+<div id="horizontal-rules" class="section level2">
+<h2>Horizontal rules</h2>
+<p>A horizontal line can be made by three or more <code>-</code> on the same line alone.</p>
+<p><strong><mark><input type='checkbox'> Step 7)</mark> Copy the text from the box below and paste it on to the end of your Markdown document and press “Knit HTML”.</strong></p>
+<div class = "rmd_example_container">
+<div class="rmd_example_source">
+<pre class = 'rmd_example_code'>
+### Horizontal rules
+
+---
+
+- - -- - -
+
+---     ---
+                        </pre>
+</div>
+<div class = "rmd_example_result">
+<div id="horizontal-rules" class="section level3">
+<h3>
+Horizontal rules
+</h3>
+<hr />
+<hr />
+<hr />
+</div>
+</div>
+</div>
+<div style="clear: left;">
+
+</div>
+</div>
+<div id="links-and-images" class="section level2">
+<h2>Links and images</h2>
+<p>Adding links and images uses a similar syntax. Links can be added using the form <code>[link name](link location)</code>, where “link name” is what is displayed and “link location” is a URL or file path. To insert an image, use the same syntax, but add a <code>!</code> in front: <code>![mouse hover text](image path)</code>.</p>
+<p><strong><mark><input type='checkbox'> Step 8)</mark> Copy the text from the box below and paste it on to the end of your Markdown document and press “Knit HTML”.</strong></p>
+<div class="rmd_example_container">
+<div class="rmd_example_source">
+<pre class = 'rmd_example_code'>
+### Links and images
+
+I used [Google](https://www.google.com/) to find this image:
+
+![An image](https://www.rstudio.com/wp-content/uploads/2014/03/blue-125.png)
+                                    </pre>
+</div>
+<div class="rmd_example_result">
+<div id="links-and-images" class="section level3">
+<h3>
+Links and images
+</h3>
+<p>
+I used <a href="https://www.google.com/">Google</a> to find this image:
+</p>
+<div class="figure">
+<img src="data:image/png;base64,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" alt="An image" />
+<p class="caption">
+An image
+</p>
+</div>
+</div>
+</div>
+</div>
+<div style="clear: left;">
+
+</div>
+</div>
+<div id="other-output-formats" class="section level2">
+<h2>Other output formats</h2>
+<p>So far, we have been converting Markdown to HTML. To make a PDF or Word document, simply click on the dropdown menu immediately to the right of the “knit HTML” button and select the format you want to try.</p>
+</div>
+</div>
+<div id="additional-resources" class="section level1">
+<h1>Additional resources</h1>
+<p>That’s pretty much all there is to it! Below are a few links that might be useful if you want to explore the more esoteric corners of the Markdown universe.</p>
+<ul>
+<li><a href="https://daringfireball.net/projects/markdown/">Daring Fireball</a>: The website of the original author of the Markdown language. It is the closes thing to an official syntax definition.</li>
+<li><a href="https://guides.github.com/features/mastering-markdown/">GitHub Markdown</a>: A guide to using the GitHub “flavor” of Markdown.</li>
+<li><a href="http://markdowntutorial.com/">Markdown Tutorial</a>: An interactive tutorial to help learn markdown.</li>
+<li><a href="http://johnmacfarlane.net/babelmark2/">Babelmark 2</a>: A tool that displays the HTML produced by many different Markdown renderers for any snippet of Markdown code. Programs might differ in the details of how Markdown is translated into HTML.</li>
+<li><a href="https://en.wikipedia.org/wiki/Markdown">Wikipedia</a>: The Wikipedia page on Markdown.</li>
+</ul>
+</div>
+<div id="exercise" class="section level1">
+<h1>Try it!</h1>
+<hr />
+<p><strong><mark><input type='checkbox'> Step 9)</mark> Download and uncompress the AUDPC example directory</strong></p>
+<p>Download and uncompress the <a href="https://github.com/grunwaldlab/audpc_example/">AUDPC example directory</a> at <a href="https://github.com/grunwaldlab/audpc_example/archive/master.zip" class="uri">https://github.com/grunwaldlab/audpc_example/archive/master.zip</a>. In that directory there are a pair of files called <code>original_audpc_report.docx</code> and <code>original_audpc_code.R</code>; this is a simple record of an experiment done in a conventional, not-very-reproducible way. The file <code>audpc_report_to_replicate.html</code> in the output of the same analysis done using Rmarkdown, but the source RMarkdown document is not shown. For the next section (“RMarkdown”), your goal will be to create the Rmarkdown document that produces something similar to <code>audpc_report_to_replicate.html</code>, but for now, just try to recreate the “Background” section.</p>
+<p><strong><mark><input type='checkbox'> Step 10)</mark> Recreate the “Background” section of “audpc_report_to_replicate.html” as “README.md”</strong></p>
+<p>You can copy and paste the text, but you will need to recreate the formatting using the principles you learned above.</p>
+<p>In the next section, we will recreate the rest of the analysis.</p>
+</div>
+<div id="glossary" class="section level1">
+<h1>Glossary</h1>
+<p><strong><ins>HTML</ins></strong>: The markup language read by web browsers like internet explorer and firefox</p>
+<p><strong><ins>Markdown</ins></strong>: a simple, human-readable plain text format that is typically rendered as HTML or PDF</p>
+<p><strong><ins>monospace</ins></strong>: A font in which every character has the same width, often used to display computer code</p>
+<p><strong><ins>plain text format</ins></strong>: Any systematic way of writing that only uses unformatted characters, numbers, and punctuation marks. For example, Notepad is a common editor for plain text, whereas Microsoft Word is not.</p>
+<p><strong><ins>R console</ins></strong>: A text prompt in which R commands can be run one at a time interactivly and their results displayed</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
