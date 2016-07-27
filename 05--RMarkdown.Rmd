@@ -52,7 +52,7 @@ Lets work through a set of demonstrations to learn the basic syntax of RMarkdown
 
 ```{r intro, results='asis', echo = FALSE}
 rmd_example(show_knit_button= TRUE, "
-## **R**Markdown
+### **R**Markdown
 
 Date: `r Sys.time()` 
 
@@ -76,16 +76,16 @@ Setting the chunk option `eval` to `FALSE` causes the code not to be executed.
 
 ```{r code_eval, results='asis', echo = FALSE}
 rmd_example("
-## Code evaluation
+### Code evaluation
 
-### Normal evaluation:
+#### Normal evaluation:
 
 \`\`\`{r}
 var( c(1, 3, 2.4, 6, 7.2) ) # how to calculate variance in R
 \`\`\`
 
 
-### Unevaluated code: 
+#### Unevaluated code: 
 
 \`\`\`{r, eval=FALSE}
 var( c(1, 3, 2.4, 6, 7.2) )
@@ -109,9 +109,9 @@ Setting `echo = FALSE` will cause the code to not be shown in the output, but wi
 
 ```{r echo_example, results='asis', echo = FALSE}
 rmd_example("
-## Text Results
+### Text Results
 
-### Invisible code:
+#### Invisible code:
 
 \`\`\`{r, echo=FALSE}
 var( c(1, 3, 2.4, 6, 7.2) )
@@ -130,7 +130,7 @@ This does not affect things like warnings, errors, and graphs.
 
 ```{r results_example, results='asis', echo = FALSE}
 rmd_example("
-### Invisible results:
+#### Invisible results:
 
 \`\`\`{r, results = 'hide'}
 x <- 'This code was executed'
@@ -153,7 +153,7 @@ As R is an interactive language, some functions will occasionally display text t
 
 ```{r other_text_output, results='asis', echo = FALSE}
 rmd_example("
-### Messages, warnings, and errors:
+#### Messages, warnings, and errors:
 
 The `poppr.amova()` function from *poppr*, will normally display
 progress messages of how it treats the data before the analysis. The following 
@@ -210,9 +210,9 @@ The same format is made automatically with the `kable` function from the `knitr`
 
 ```{r tables_example, results='asis', echo = FALSE}
 rmd_example(height = 400, "
-## Tables
+### Tables
 
-### Manual tables
+#### Manual tables
 
 |  x| squared| cubed|
 |--:|-------:|-----:|
@@ -220,7 +220,7 @@ rmd_example(height = 400, "
 |  2|       4|     8|
 |  3|       9|    27|
 
-### Kable tables
+#### Kable tables
 
 \`\`\`{r}
 library(knitr)
@@ -239,7 +239,7 @@ However, this package is focused mostly on making tables for PDF output rather t
 
 ```{r xtables_example, results='asis', echo = FALSE}
 rmd_example(height = 200, "
-### Xtable tables
+#### Xtable tables
 
 \`\`\`{r, results='asis'}
 library(xtable)
@@ -272,9 +272,9 @@ The example below uses the R base graphics to plot the distribution of 10 number
 
 ```{r figure_example, results='asis', echo = FALSE}
 rmd_example(height = 500, "
-## Adding figures
+### Adding figures
 
-### Typical usage
+#### Typical usage
 
 
 \`\`\`{r}
@@ -294,7 +294,7 @@ Figures can be excluded from the output document by setting the chunk option `fi
 
 ```{r hide_figure_example, results='asis', echo = FALSE}
 rmd_example("
-### Hiding figures
+#### Hiding figures
 
 \`\`\`{r, fig.show='hide'}
 x = rnorm(10)
@@ -314,7 +314,7 @@ The example below uses `ggplot2` to make a graph similar to the previous ones.
 
 ```{r scale_figure_example, results='asis', echo = FALSE}
 rmd_example(height = 500, "
-### Figure sizes
+#### Figure sizes
 
 \`\`\`{r, fig.width=2, fig.height=4}
 library(ggplot2)
@@ -427,11 +427,11 @@ bibliography: example_bibliography.bibtex
 ---
 
 
-## Adding a bibliography
+### Adding a bibliography
 
 RMarkdown [@baumer2014r] is referenced in the @racine2012rstudio paper.  
 
-## References
+### References
             ")
 ```
 

@@ -76,11 +76,11 @@ Surrounding text with `*` makes that section italic and surrounding text with `*
 
 ```{r, results='asis'}
 rmd_example(show_knit_button = TRUE, "
-## Markdown
+### Markdown
 
 Text with no special formatting is displayed in the default font.
 
-### Basic text formatting
+#### Basic text formatting
 
 Text can also be **bold** or *italic*.
             ")

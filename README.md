@@ -6,17 +6,17 @@ Welcome! This primer provides a concise introduction to conducting reproducible 
 
 # Chapters
 
-1. Introduction (Nik)                   20min   8:30
-1. Data formatting and read/write (Zh)  15min   8:50
-1. Markdown (Zach)                      30min   9:20
-
-Break                                   20min   9:40
-
-1. Intro to R   (Zh)                    10min   10:00
-1. R markdown (Zach)                    50min   10:10
-1. Git and github (Zhian)               20min   11:00
-1. Organizing Reproducible Research     10min   11:20
-1. Wrapup    Survey                        5min    11:30
+| Session                             | Length| Clock|
+|-------------------------------------|-------|------|
+|Introduction (Nik)                   | 20min |  8:30|
+|Data formatting and read/write (Zh)  | 15min |  8:50|
+|Markdown (Zach)                      | 30min |  9:20|
+|Break                                | 20min |  9:40|
+|Intro to R   (Zh)                    | 10min |  10:00|
+|R markdown (Zach)                    | 50min |  10:10|
+|Git and github (Zhian)               | 20min |  11:00|
+|Organizing Reproducible Research     | 10min |  11:20|
+|Wrapup    Survey                     | 5min  |  11:30|
 
 
 # Website
@@ -25,24 +25,26 @@ You can find rendered vignettes on [our website](http://grunwaldlab.github.io/Re
 
 ## Building the webite
 
-install the *quiltr* package and *knitcitations*:
+install the *git2r*, *knitcitations*, and *rmarkdown* packages:
 
 ```r
-devtools::install_github("grunwaldlab/quiltr", "cboettig/knitcitations")
-library("quiltr")
+devtools::install_github("rstudio/rmarkdown", "cboettig/knitcitations")
+install.packages("git2r")
 ```
 
-To build the website locally and open it in a viewer window:
+To build the website locally:
 
 ```r
-quiltr::quilt()
+rmarkdown::render_site()
 ```
 
-To build the website and subsequently push it to github (this assumes that you have git and github already configured with ssh keys):
+To build the website on the `gh-pages` branch
 
 ```r
-quiltr::make_gh_website()
+source("make_gh_page.R", echo = TRUE)
 ```
+
+You can then push your changes from the master and the gh-pages branch.
 
 It seems to work, but ¯\\_(ツ)_/¯
 
