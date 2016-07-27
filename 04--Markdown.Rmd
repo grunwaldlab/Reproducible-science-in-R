@@ -40,7 +40,7 @@ Curious about what those output documents look like?
 You're reading one now; this tutorial was written in Markdown and converted to this HTML file you are viewing.
 So, if you are ready to stop spending your time positioning pictures, messing with margins, and fiddling with fonts, just to find out that your collaborator's/customer's/student's computer thinks the pictures should be elsewhere and the fonts you chose don't exist, then its time to learn Markdown!
 
-## Getting started
+# Getting started
 
 Unlike R code, which can be executed line-by-line in an `r gloss("R console", "A text prompt in which R commands can be run one at a time interactivly and their results displayed")`, Markdown is processed as a whole file.
 Therefore, the first thing we will do is create an empty file to practice on.
