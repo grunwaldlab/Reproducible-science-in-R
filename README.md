@@ -6,17 +6,17 @@ Welcome! This primer provides a concise introduction to conducting reproducible 
 
 # Chapters
 
-| Session                             | Length| Clock|
-|-------------------------------------|-------|------|
-|Introduction (Nik)                   | 20min |  8:30|
-|Data formatting and read/write (Zh)  | 15min |  8:50|
-|Markdown (Zach)                      | 30min |  9:20|
-|Break                                | 20min |  9:40|
-|Intro to R   (Zh)                    | 10min |  10:00|
-|R markdown (Zach)                    | 50min |  10:10|
-|Git and github (Zhian)               | 20min |  11:00|
-|Organizing Reproducible Research     | 10min |  11:20|
-|Wrapup    Survey                     | 5min  |  11:30|
+| Session                                    | Length| Clock|
+|--------------------------------------------|-------|------|
+|Introduction (Nik)                          | 20min |  8:30|
+|Data formatting and read/write (Zhian)      | 15min |  8:50|
+|Markdown (Zach)                             | 30min |  9:20|
+|Break                                       | 20min |  9:40|
+|Intro to R   (Zhian)                        | 10min |  10:00|
+|R markdown (Zach)                           | 50min |  10:10|
+|Git and github (Zhian)                      | 20min |  11:00|
+|Organizing Reproducible Research  (Zach)    | 10min |  11:20|
+|Wrapup    Survey                            | 5min  |  11:30|
 
 
 # Website
