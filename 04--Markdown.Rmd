@@ -213,7 +213,7 @@ Below are a few links that might be useful if you want to explore the more esote
 Download and uncompress the [AUDPC example directory](https://github.com/grunwaldlab/audpc_example/) at https://github.com/grunwaldlab/audpc_example/archive/master.zip.
 In that directory there are a pair of files called `original_audpc_report.docx` and `original_audpc_code.R`; this is a simple record of an experiment done in a conventional, not-very-reproducible way.
 The file `audpc_report_to_replicate.html` in the output of the same analysis done using Rmarkdown, but the source RMarkdown document is not shown.
-Your goal is to create the RMarkdown document that produces something similar to `audpc_report_to_replicate.html`.
+For the next section ("RMarkdown"), your goal will be to create the Rmarkdown document that produces something similar to `audpc_report_to_replicate.html`, but for now, just try to recreate the "Background" section.
 
 `r step('Recreate the "Background" section of "audpc_report_to_replicate.html" as "README.md"')`
 

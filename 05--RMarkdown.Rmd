@@ -470,6 +470,7 @@ Using the repository you downloaded earlier (https://github.com/grunwaldlab/audp
 In a new RMarkdown document called `audpc_report.Rmd`, try to recreate
 `audpc_report_to_replicate.html` using the information in
 `original_audpc_report.docx` and `original_audpc_code.R`.
+You can start by reusing the markdown from the `README.md` file you created in the exercise for the previous section ("Markdown").
 
 `r step('Replicate genetic analysis')`
 
