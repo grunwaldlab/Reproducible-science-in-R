@@ -1,0 +1,32 @@
+name: "Reproducible-science-in-R"
+output_dir: "."
+navbar:
+  title: "Reproducible Science in R"
+  href: index.html
+  left:
+    - text: "Setup"
+      href: 02--Setup.html
+    - text: "Data formatting"
+      href: 03--Data_formatting.html
+    - text: "Markdown"
+      href: 04--Markdown.html
+    - text: "RMarkdown"
+      href: 05--RMarkdown.html
+    - text: "Git and GitHub"
+      href: 06--Git.html
+    - text: "Organization"
+      href: 07--Organization.html
+    - text: "Extra Content"
+      menu:
+        - text: "The Basics of R"
+          href: Extra_content---The_Basics_of_R.html
+        - text: "Advanced RMarkdown"
+          href: Extra_content---Advanced_RMarkdown.html
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+    toc_depth: 2
+    theme: flatly
+    css: tutorial.css

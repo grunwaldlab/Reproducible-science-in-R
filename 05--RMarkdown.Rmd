@@ -36,7 +36,7 @@ In this section of the tutorial, we will be summarizing the most commonly used f
 Therefore, as you go through the exercises, it is probably best to focus on remembering *what* RMarkdown can do rather than *how* to do it.**
 At the end of the section there are resources that you can reference when you need to look up how to do a specific task.
 
-## Mixing R and Markdown
+# Mixing R and Markdown
 
 There are two ways to add R code to Markdown: as inline or as code chunks.
 The syntax for adding inline code is the same as specifying a monospace font (surrounding text with <code>\`</code>), except that an `r` is added after the first <code>\`</code>.
