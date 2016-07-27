@@ -5,7 +5,7 @@ navbar:
   href: index.html
   left:
     - text: "Setup"
-      href: 02--Setup.html
+      href: Setup.html
     - text: "Data formatting"
       href: 03--Data_formatting.html
     - text: "Markdown"
