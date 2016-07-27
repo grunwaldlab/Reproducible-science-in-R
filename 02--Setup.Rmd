@@ -38,8 +38,8 @@ Installing the required packages
 
 The following packages are used in this primer:
 
-1. [rmarkdown](http://cran.r-project.org/web/packages/knitr/index.html) (creating reports)
-1. [agricolae](http://cran.r-project.org/web/packages/poppr/index.html) (agricultural disease data analysis)
+1. [rmarkdown](http://cran.r-project.org/web/packages/rmarkdown/index.html) (creating reports)
+1. [agricolae](http://cran.r-project.org/web/packages/agricolae/index.html) (agricultural disease data analysis)
 1. [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html) (graphs)
 1. [poppr](http://cran.r-project.org/web/packages/poppr/index.html) (genetic data analysis)
 1. [dplyr](http://cran.r-project.org/web/packages/dplyr/index.html) (data manipulation)

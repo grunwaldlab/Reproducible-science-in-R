@@ -6,6 +6,7 @@ library('rmarkdown')
 repo <- git2r::repository()
 current_branch <- git2r::head(repo)@name
 git2r::checkout(repo, "gh-pages")
+git2r::merge(repo, current_branch)
 rmarkdown::render_site()
 git2r::add(repo, "*")
 git2r::commit(repo, "update website", session = TRUE)
