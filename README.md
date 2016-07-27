@@ -29,7 +29,7 @@ install the *git2r*, *knitcitations*, and *rmarkdown* packages:
 
 ```r
 devtools::install_github("rstudio/rmarkdown", "cboettig/knitcitations")
-install.pacakges("git2r")
+install.packages("git2r")
 ```
 
 To build the website locally:
