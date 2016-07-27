@@ -25,7 +25,8 @@ navbar:
 output:
   html_document:
     toc: true
-    toc_float: true
+    toc_float:
+      collapsed: false
     toc_depth: 2
     theme: flatly
     css: tutorial.css
