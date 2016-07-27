@@ -337,32 +337,76 @@ div.tocify {
 </div>
 <div id="chapters" class="section level1">
 <h1>Chapters</h1>
-<ol style="list-style-type: decimal">
-<li>Introduction (Nik) 20min 8:30</li>
-<li>Data formatting and read/write (Zh) 15min 8:50</li>
-<li>Markdown (Zach) 30min 9:20</li>
-</ol>
-<p>Break 20min 9:40</p>
-<ol style="list-style-type: decimal">
-<li>Intro to R (Zh) 10min 10:00</li>
-<li>R markdown (Zach) 50min 10:10</li>
-<li>Git and github (Zhian) 20min 11:00</li>
-<li>Organizing Reproducible Research 10min 11:20</li>
-<li>Wrapup Survey 5min 11:30</li>
-</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Session</th>
+<th align="left">Length</th>
+<th align="left">Clock</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Introduction (Nik)</td>
+<td align="left">20min</td>
+<td align="left">8:30</td>
+</tr>
+<tr class="even">
+<td align="left">Data formatting and read/write (Zh)</td>
+<td align="left">15min</td>
+<td align="left">8:50</td>
+</tr>
+<tr class="odd">
+<td align="left">Markdown (Zach)</td>
+<td align="left">30min</td>
+<td align="left">9:20</td>
+</tr>
+<tr class="even">
+<td align="left">Break</td>
+<td align="left">20min</td>
+<td align="left">9:40</td>
+</tr>
+<tr class="odd">
+<td align="left">Intro to R (Zh)</td>
+<td align="left">10min</td>
+<td align="left">10:00</td>
+</tr>
+<tr class="even">
+<td align="left">R markdown (Zach)</td>
+<td align="left">50min</td>
+<td align="left">10:10</td>
+</tr>
+<tr class="odd">
+<td align="left">Git and github (Zhian)</td>
+<td align="left">20min</td>
+<td align="left">11:00</td>
+</tr>
+<tr class="even">
+<td align="left">Organizing Reproducible Research</td>
+<td align="left">10min</td>
+<td align="left">11:20</td>
+</tr>
+<tr class="odd">
+<td align="left">Wrapup Survey</td>
+<td align="left">5min</td>
+<td align="left">11:30</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="website" class="section level1">
 <h1>Website</h1>
 <p>You can find rendered vignettes on <a href="http://grunwaldlab.github.io/Reproducible-science-in-R/">our website</a>.</p>
 <div id="building-the-webite" class="section level2">
 <h2>Building the webite</h2>
-<p>install the <em>quiltr</em> package and <em>knitcitations</em>:</p>
-<pre class="r"><code>devtools::install_github(&quot;grunwaldlab/quiltr&quot;, &quot;cboettig/knitcitations&quot;)
-library(&quot;quiltr&quot;)</code></pre>
-<p>To build the website locally and open it in a viewer window:</p>
-<pre class="r"><code>quiltr::quilt()</code></pre>
-<p>To build the website and subsequently push it to github (this assumes that you have git and github already configured with ssh keys):</p>
-<pre class="r"><code>quiltr::make_gh_website()</code></pre>
+<p>install the <em>git2r</em>, <em>knitcitations</em>, and <em>rmarkdown</em> packages:</p>
+<pre class="r"><code>devtools::install_github(&quot;rstudio/rmarkdown&quot;, &quot;cboettig/knitcitations&quot;)
+install.packages(&quot;git2r&quot;)</code></pre>
+<p>To build the website locally:</p>
+<pre class="r"><code>rmarkdown::render_site()</code></pre>
+<p>To build the website on the <code>gh-pages</code> branch</p>
+<pre class="r"><code>source(&quot;make_gh_page.R&quot;, echo = TRUE)</code></pre>
+<p>You can then push your changes from the master and the gh-pages branch.</p>
 <p>It seems to work, but ¯\<em>(ツ)</em>/¯</p>
 </div>
 </div>
