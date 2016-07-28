@@ -119,19 +119,20 @@ Vectors
 
 R can store more than single values. It has `r gloss("vectors", vector_def)`.
 These are sequences of data that are all of the same type (i.e. integers,
-decimals, text (characters), and logical values (TRUE/FALSE)). To construct a vector, you can use the `c()` function (more about functions later):
+decimals, text (characters), and logical values (TRUE/FALSE)). To construct a 
+vector, you can use the `c()` function (more about functions later):
 
 ```{r vector_me_this}
-some_numbers <- c(pi, 47.5362, 3.50, 1.1111)
+some_numbers <- c(10.0, pi, 47.5362, 3.50, 1.1111)
 some_numbers  
-some_integers <- c(1, 1, 2, 3)
+some_integers <- c(NA, 1, 1, 2, 3) # NA is code for "missing" in R
 some_integers 
-more_integers <- 1:4 # same as c(1, 2, 3, 4), but a lot easier to type!
+more_integers <- 1:5 # same as c(1, 2, 3, 4), but a lot easier to type!
 more_integers
 some_characters <- c("work it", "harder", "make it", "better",  # You can wrap commands on
                      "do it", "faster", "makes us", "stronger") # multiple lines.
 some_characters 
-some_logic <- c(TRUE, FALSE, TRUE, TRUE)
+some_logic <- c(TRUE, FALSE, TRUE, TRUE, FALSE)
 some_logic
 ```
 
@@ -149,7 +150,11 @@ Math works with vectors the same way in R:
 some_integers ^ 2
 ```
 
-Again, if you tried to add two columns together in excel, you would type something like `=A1+B1` and then drag to apply to the column. R behaves the same way:
+> Note: "NA" is a missing value in R.
+
+Again, if you tried to add two columns together in excel, you would type 
+something like `=A1+B1` and then drag to apply to the column. R behaves the 
+same way:
 
 ```{r v_drag}
 some_integers + some_numbers
@@ -168,7 +173,9 @@ vector by supplying a specific integer or sequence of integers:
 some_numbers[2]
 some_characters[c(1, 3, 5, 7)]
 some_logic[1:3]
-some_characters[some_integers] # you can also use other vectors!
+fib <- some_integers[-1]       # remove the first element
+fib
+some_characters[fib] # you can also use other vectors!
 ```
 
 Notice in the last example, we took our integer vector with the Fibbonacci
@@ -185,7 +192,7 @@ some_numbers[some_logic]
 This is a very powerful method of subsetting a vector because we can use logical comparison such as `>`, `<`, and `==`. We can get the same result as above by asking R to only return numbers less than ten:
 
 ```{r less_than_ten}
-some_numbers # the second element is greater than 10.
+some_numbers # the first and second elements are not less than 10.
 some_numbers[some_numbers < 10]
 ```
 
@@ -227,6 +234,14 @@ each column using the "$":
 ComasOxapampa$comas # vector of AUDPC values for Comas
 ```
 
+You can even create new columns with the "$" symbol:
+
+```{r}
+ComasOxapampa$difference <- ComasOxapampa$comas - ComasOxapampa$oxapampa
+head(ComasOxapampa) # Look at the top of the data (6 rows by default)
+```
+
+
 Functions
 ===============
 
@@ -236,6 +251,23 @@ that can be run over and over. Functions can do anything from reading and
 writing files, graphics, and calculations. We've seen a couple of them in the
 previous section, `read.table()` and `str()`. Functions always take the form of `do_this(to_this_thing)`, so in the case of `read.table()`, it's "**read** the
 **table** in the file called **ex\_data/ComasOxapampa.csv**".
+
+There are other functions that help you assess your data. For example, with
+data frames and matrices, you can ask R to give you the number of rows and
+number of columns with `nrow()` and `ncol()`:
+
+```{r}
+nrow(ComasOxapampa)
+ncol(ComasOxapampa)
+```
+
+You can also nest functions together using one as input for the other. Here, we
+can find out how many varieties we have by first finding the unique cultivars
+and then reporting the length
+
+```{r}
+length(unique(ComasOxapampa$cultivar))
+```
 
 The most useful functions in R are the functions for calculating statistics. For
 example, you can test if there is a significan difference in disease between the
