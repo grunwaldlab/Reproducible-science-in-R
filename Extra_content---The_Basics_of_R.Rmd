@@ -16,7 +16,7 @@ assign_def <- "assigns the result of whatever's to the right of the operator to 
 ```
 
 Introduction
-------------
+===============
 
 This is a quick introduction to R. It's not meant to be a comprehensive
 tutorial, but rather as a small, sturdy foothold to get you started. We will
@@ -25,7 +25,7 @@ cover concepts such as `r gloss("vectors", vector_def)`,
 
 
 Fancy Calculator
-----------------
+===============
 
 R is a programming language, but above all, it's a statistical programming 
 language that's interactive. The basic usage of R is to use it like a
@@ -69,7 +69,7 @@ and hit <kbd>Enter</kbd>. You should see something like this:
 ```
 
 Variables
----------
+===============
 
 Unlike a calculator, you can save the results of your calculations into
 variables by using the `r gloss("assignment operator (<-)", assign_def)`. This
@@ -82,7 +82,7 @@ its   <- 49 - 2
 magic <- 94 / 2
 ```
 
-> The # symbol is a "comment". R will ignore anything that comes after a
+> The '#' symbol is a "comment". R will ignore anything that comes after a
 > comment, allowing you to write notes to yourself in your R script
 
 Now that we saved the results into a variable, how do we look at it? All we have
@@ -96,7 +96,7 @@ magic
 Variables can be used in calculations.
 
 ```{r multiple_magic}
-oh  <- its + 2
+oh <- its + 2
 oh
 wow <- magic * 2
 wow
@@ -115,24 +115,24 @@ But single variables are not all that you can do In R. Read more to find out
 about vectors!
 
 Vectors
--------
+===============
 
 R can store more than single values. It has `r gloss("vectors", vector_def)`.
 These are sequences of data that are all of the same type (i.e. integers,
 decimals, text (characters), and logical values (TRUE/FALSE)). To construct a vector, you can use the `c()` function (more about functions later):
 
 ```{r vector_me_this}
-some_numbers    <- c(pi, 47.5362, 3.50, 1.1111)
-some_numbers    
-some_integers   <- c(1, 1, 2, 3)
-some_integers   
-more_integers   <- 1:4 # same as c(1, 2, 3, 4), but a lot easier to type!
+some_numbers <- c(pi, 47.5362, 3.50, 1.1111)
+some_numbers  
+some_integers <- c(1, 1, 2, 3)
+some_integers 
+more_integers <- 1:4 # same as c(1, 2, 3, 4), but a lot easier to type!
 more_integers
 some_characters <- c("work it", "harder", "make it", "better",  # You can wrap commands on
                      "do it", "faster", "makes us", "stronger") # multiple lines.
 some_characters 
-some_logic      <- c(TRUE, FALSE, TRUE, TRUE)
-some_logic      
+some_logic <- c(TRUE, FALSE, TRUE, TRUE)
+some_logic
 ```
 
 
@@ -189,23 +189,68 @@ some_numbers # the second element is greater than 10.
 some_numbers[some_numbers < 10]
 ```
 
+Data Import
+===============
+
+Of course, no one expects you to enter all of your data in R by hand. When you
+have data, it's usually in [tabular format](03--Data_formatting.html). In this
+example, we'll use data from the *agricolae* package assessing potato varieties
+for resistance to late blight in locations in Peru (see 
+`help("ComasOxapampa", package = "agricolae")` for details)
+
+To read these data into R, you can use `read.table()`:
+
+```{r}
+ComasOxapampa <- read.table("ex_data/ComasOxapampa.csv", sep = ",", head = TRUE)
+```
+
+Here we are telling R to read a table from the file "ComasOxapampa.csv" that is 
+in the folder called "ex\_data" using the `r gloss("function", function_def)`
+`read.table()` (more on functions in the next section). What we get back is a
+`r gloss("data frame", "a representation of a table in R")`. A data frame is
+made up of one or more vectors that are all the same length in columns.
+
+
+We can look at the structure of a data frame using the `str()` function:
+
+```{r}
+str(ComasOxapampa)
+```
+
+This output is telling us that we have 168 rows with 4 columns named "cultivar",
+"replication", "comas", and "oxapampa". We can see that "cultivar" and
+"replication" are both factors (a way of representing categorical variables in
+R) and comas and oxapampa are both numeric values of the AUDPC. We can access
+each column using the "$":
+
+```{r}
+ComasOxapampa$comas # vector of AUDPC values for Comas
+```
+
 Functions
----------
+===============
 
 One other feature of R is the fact that it has 
 `r gloss("functions", function_def)`. These are self-contained pieces of code
 that can be run over and over. Functions can do anything from reading and
-writing files, graphics, and calculations. A simple function is the `sum()` function:
+writing files, graphics, and calculations. We've seen a couple of them in the
+previous section, `read.table()` and `str()`. Functions always take the form of `do_this(to_this_thing)`, so in the case of `read.table()`, it's "**read** the
+**table** in the file called **ex\_data/ComasOxapampa.csv**".
 
-```{r sum}
-sum(some_integers)
+The most useful functions in R are the functions for calculating statistics. For
+example, you can test if there is a significan difference in disease between the
+two regions with a t-test by using the function `t.test()`:
+
+```{r}
+region_t <- t.test(ComasOxapampa$comas, ComasOxapampa$oxapampa)
+region_t
 ```
 
-Functions always take the form of `do_this(to_this_thing)`, so in the case
-above, we are taking the sum of some integers.
+> Note: we are using a t-test for this for the sake of simplicity. This is not
+> the appropriate test for these data.
 
 Packages
---------
+===============
 
 R would not be so widely used without `r gloss("packages", package_def)`. These 
 are a set of functions, documentation, and data sets that can be distributed to 
@@ -217,16 +262,17 @@ The easiest way to install a package is through your R console with the function
 `install.packages()`:
 
 ```{r install_package, eval = FALSE}
-install.packages("poppr", repos = "https://cran.rstudio.org")
+install.packages("agricolae", repos = "https://cran.rstudio.org")
 ```
 ```{r install_package_shadow, echo = FALSE}
 message("
-Installing package into '/Users/zhian/R'
-(as 'lib' is unspecified)
-trying URL 'https://cran.rstudio.org/bin/macosx/mavericks/contrib/3.3/poppr_2.2.0.tgz'
-Content type 'application/x-gzip' length 2617496 bytes (2.5 MB)
+Installing package into ‘/Users/zhian/R’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.r-project.org/bin/macosx/mavericks/contrib/3.3/agricolae_1.2-4.tgz'
+Content type 'application/x-gzip' length 923645 bytes (901 KB)
 ==================================================
-downloaded 2.5 MB
+downloaded 901 KB
+
 ")
 cat("
 The downloaded binary packages are in
@@ -234,18 +280,23 @@ The downloaded binary packages are in
 ")
 ```
 
+> You should only have to install a package once and then you can use it as many
+> times as you need.
+
 This package is stored in your `r gloss("R library", library_def)`, which is a 
 folder on your computer where your downloaded packages live. When you want to 
 use the functions in a package, you load it with the `library()` function. This
 function tells R to look in your library for a package and load it.
 
 ```{r}
-library("poppr")
+library("agricolae")
 ```
 
+> Pro Tip! For better organization: load all of the packages you need at the 
+> beginning of your R script
 
 Getting help
------------------------
+===============
 
 One way that R shines above other languages is that R packages in CRAN are all
 documented and easy to install. Help files are written in HTML and give the user
@@ -257,43 +308,50 @@ a brief overview of:
  - examples demonstrating its usage
 
 To get help on any R function, type a question mark before the empty function. 
-Here's an example of how to get help about the `gather()` function from the
-*tidyr* package:
+Here's an example of how to get help about the `audpc()` function from the
+*agricolae* package:
 
 ```{r}
-library("tidyr") # The package with the gather() function.
-?gather          # open the R documentation of the function gather()
-```
-
-If you want to run the examples, you can either copy and paste the commands to
-your R console, or you can run them all with:
-
-```{r, eval = FALSE}
-example("gather", package = "tidyr")
+library("agricolae") # The package with the audpc() function.
+?audpc               # open the R documentation of the function audpc()
 ```
 
 Other ways of getting help:
 
 ```{r, eval = FALSE}
-help(package = "tidyr")  # Get help for a package.
-help("gather")           # Get help for the gather function
-?gather                  # same as above
-??multilocus             # Search for help that has the keyword 'multilocus' in all packages
+help(package = "agricolae") # Get help for a package.
+help("audpc")               # Get help for the audpc function
+?audpc                      # same as above
+??disease                   # Search for help with the keyword 'disease' in all packages
 ```
+
+
+Examples in help
+----------------
+
+If you want to run the examples, you can either copy and paste the commands to
+your R console, or you can run them all with:
+
+```{r}
+example("audpc", package = "agricolae")
+```
+
+Vignettes
+---------
 
 Some packages include vignettes that can have different formats such as being
 introductions, tutorials, or reference cards in PDF format. You can look at a
 list of vignettes in all packages by typing:
 
 ```{r, eval=FALSE}
-browseVignettes()                     # see vignettes from all packages
-browseVignettes(package = 'poppr')    # see vignettes from a specific package.
+browseVignettes()                  # see vignettes from all packages
+browseVignettes(package = "tidyr") # see vignettes from a specific package.
 ```
 
 and to look at a specific vignette you can type:
 
 ```{r, eval=FALSE}
-vignette('mlg')
+vignette('mlg') # Multilocus Genotype vignette from the poppr package
 ```
 
 ```{r, echo = FALSE}
