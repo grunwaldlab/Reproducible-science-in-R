@@ -4,7 +4,6 @@ title: "The basics of R"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NULL, prompt = TRUE)
-library('printr')
 source("functions.R")
 gloss <- make_glossary_function()
 vector_def <- "a sequence of data elements of the same type"
@@ -297,6 +296,7 @@ The easiest way to install a package is through your R console with the function
 install.packages("agricolae", repos = "https://cran.rstudio.org")
 ```
 ```{r install_package_shadow, echo = FALSE}
+library('printr')
 message("
 Installing package into ‘/Users/zhian/R’
 (as ‘lib’ is unspecified)
