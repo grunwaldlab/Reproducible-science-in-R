@@ -396,32 +396,35 @@ Type 'q()' to quit R.
 <div id="vectors" class="section level1">
 <h1>Vectors</h1>
 <p>R can store more than single values. It has <strong><ins>vectors</ins></strong>. These are sequences of data that are all of the same type (i.e. integers, decimals, text (characters), and logical values (TRUE/FALSE)). To construct a vector, you can use the <code>c()</code> function (more about functions later):</p>
-<pre class="r"><code>&gt; some_numbers &lt;- c(pi, 47.5362, 3.50, 1.1111)
+<pre class="r"><code>&gt; some_numbers &lt;- c(10.0, pi, 47.5362, 3.50, 1.1111)
 &gt; some_numbers  </code></pre>
-<pre><code>[1]  3.141593 47.536200  3.500000  1.111100</code></pre>
-<pre class="r"><code>&gt; some_integers &lt;- c(1, 1, 2, 3)
+<pre><code>[1] 10.000000  3.141593 47.536200  3.500000  1.111100</code></pre>
+<pre class="r"><code>&gt; some_integers &lt;- c(NA, 1, 1, 2, 3) # NA is code for &quot;missing&quot; in R
 &gt; some_integers </code></pre>
-<pre><code>[1] 1 1 2 3</code></pre>
-<pre class="r"><code>&gt; more_integers &lt;- 1:4 # same as c(1, 2, 3, 4), but a lot easier to type!
+<pre><code>[1] NA  1  1  2  3</code></pre>
+<pre class="r"><code>&gt; more_integers &lt;- 1:5 # same as c(1, 2, 3, 4), but a lot easier to type!
 &gt; more_integers</code></pre>
-<pre><code>[1] 1 2 3 4</code></pre>
+<pre><code>[1] 1 2 3 4 5</code></pre>
 <pre class="r"><code>&gt; some_characters &lt;- c(&quot;work it&quot;, &quot;harder&quot;, &quot;make it&quot;, &quot;better&quot;,  # You can wrap commands on
 +                      &quot;do it&quot;, &quot;faster&quot;, &quot;makes us&quot;, &quot;stronger&quot;) # multiple lines.
 &gt; some_characters </code></pre>
 <pre><code>[1] &quot;work it&quot;  &quot;harder&quot;   &quot;make it&quot;  &quot;better&quot;   &quot;do it&quot;    &quot;faster&quot;  
 [7] &quot;makes us&quot; &quot;stronger&quot;</code></pre>
-<pre class="r"><code>&gt; some_logic &lt;- c(TRUE, FALSE, TRUE, TRUE)
+<pre class="r"><code>&gt; some_logic &lt;- c(TRUE, FALSE, TRUE, TRUE, FALSE)
 &gt; some_logic</code></pre>
-<pre><code>[1]  TRUE FALSE  TRUE  TRUE</code></pre>
+<pre><code>[1]  TRUE FALSE  TRUE  TRUE FALSE</code></pre>
 <div id="vectorization" class="section level3">
 <h3>Vectorization</h3>
 <p>You can think about these as being similar to a column in an excel spreadhseet. For example, if you wanted to take column A and square each number, you would start by setting cell <strong>B1</strong> to <code>=A1^2</code> and then you would drag that down to apply to the entire column.</p>
 <p>Math works with vectors the same way in R:</p>
 <pre class="r"><code>&gt; some_integers ^ 2</code></pre>
-<pre><code>[1] 1 1 4 9</code></pre>
+<pre><code>[1] NA  1  1  4  9</code></pre>
+<blockquote>
+<p>Note: “NA” is a missing value in R.</p>
+</blockquote>
 <p>Again, if you tried to add two columns together in excel, you would type something like <code>=A1+B1</code> and then drag to apply to the column. R behaves the same way:</p>
 <pre class="r"><code>&gt; some_integers + some_numbers</code></pre>
-<pre><code>[1]  4.141593 48.536200  5.500000  4.111100</code></pre>
+<pre><code>[1]        NA  4.141593 48.536200  5.500000  4.111100</code></pre>
 </div>
 <div id="subsetting-vectors" class="section level3">
 <h3>Subsetting vectors</h3>
@@ -429,12 +432,15 @@ Type 'q()' to quit R.
 <h4>Using integers</h4>
 <p>Notice that each vector starts with <code>[1]</code> when you print it? This is telling you what position this number is in the vector. You can get a specific element of a vector by supplying a specific integer or sequence of integers:</p>
 <pre class="r"><code>&gt; some_numbers[2]</code></pre>
-<pre><code>[1] 47.5362</code></pre>
+<pre><code>[1] 3.141593</code></pre>
 <pre class="r"><code>&gt; some_characters[c(1, 3, 5, 7)]</code></pre>
 <pre><code>[1] &quot;work it&quot;  &quot;make it&quot;  &quot;do it&quot;    &quot;makes us&quot;</code></pre>
 <pre class="r"><code>&gt; some_logic[1:3]</code></pre>
 <pre><code>[1]  TRUE FALSE  TRUE</code></pre>
-<pre class="r"><code>&gt; some_characters[some_integers] # you can also use other vectors!</code></pre>
+<pre class="r"><code>&gt; fib &lt;- some_integers[-1]       # remove the first element
+&gt; fib</code></pre>
+<pre><code>[1] 1 1 2 3</code></pre>
+<pre class="r"><code>&gt; some_characters[fib] # you can also use other vectors!</code></pre>
 <pre><code>[1] &quot;work it&quot; &quot;work it&quot; &quot;harder&quot;  &quot;make it&quot;</code></pre>
 <p>Notice in the last example, we took our integer vector with the Fibbonacci sequence and used it to subset the character vector.</p>
 </div>
@@ -442,10 +448,10 @@ Type 'q()' to quit R.
 <h4>Using logical values</h4>
 <p>We can also use logical values to subset a vector:</p>
 <pre class="r"><code>&gt; some_numbers[some_logic]</code></pre>
-<pre><code>[1] 3.141593 3.500000 1.111100</code></pre>
+<pre><code>[1] 10.0000 47.5362  3.5000</code></pre>
 <p>This is a very powerful method of subsetting a vector because we can use logical comparison such as <code>&gt;</code>, <code>&lt;</code>, and <code>==</code>. We can get the same result as above by asking R to only return numbers less than ten:</p>
-<pre class="r"><code>&gt; some_numbers # the second element is greater than 10.</code></pre>
-<pre><code>[1]  3.141593 47.536200  3.500000  1.111100</code></pre>
+<pre class="r"><code>&gt; some_numbers # the first and second elements are not less than 10.</code></pre>
+<pre><code>[1] 10.000000  3.141593 47.536200  3.500000  1.111100</code></pre>
 <pre class="r"><code>&gt; some_numbers[some_numbers &lt; 10]</code></pre>
 <pre><code>[1] 3.141593 3.500000 1.111100</code></pre>
 </div>
@@ -482,10 +488,28 @@ Type 'q()' to quit R.
 [144] 0.000 0.512 0.011 0.328 0.640 0.505 0.724 0.541 0.428 0.430 0.019
 [155] 0.364 0.000 0.639 0.596 0.383 0.560 0.641 0.736 0.225 0.593 0.490
 [166] 0.424 0.000 0.720</code></pre>
+<p>You can even create new columns with the “$” symbol:</p>
+<pre class="r"><code>&gt; ComasOxapampa$difference &lt;- ComasOxapampa$comas - ComasOxapampa$oxapampa
+&gt; head(ComasOxapampa) # Look at the top of the data (6 rows by default)</code></pre>
+<pre><code>             cultivar replication comas oxapampa difference
+1       Amarilis-INIA           I 0.570    0.600     -0.030
+2            Andinita           I 0.319    0.661     -0.342
+3           Atahualpa           I 0.500    0.627     -0.127
+4              Baseko           I 0.423    0.511     -0.088
+5              BIRRIS           I 0.555    0.683     -0.128
+6 C91-906-(Primavera)           I 0.305    0.397     -0.092</code></pre>
 </div>
 <div id="functions" class="section level1">
 <h1>Functions</h1>
 <p>One other feature of R is the fact that it has <strong><ins>functions</ins></strong>. These are self-contained pieces of code that can be run over and over. Functions can do anything from reading and writing files, graphics, and calculations. We’ve seen a couple of them in the previous section, <code>read.table()</code> and <code>str()</code>. Functions always take the form of <code>do_this(to_this_thing)</code>, so in the case of <code>read.table()</code>, it’s “<strong>read</strong> the <strong>table</strong> in the file called <strong>ex_data/ComasOxapampa.csv</strong>”.</p>
+<p>There are other functions that help you assess your data. For example, with data frames and matrices, you can ask R to give you the number of rows and number of columns with <code>nrow()</code> and <code>ncol()</code>:</p>
+<pre class="r"><code>&gt; nrow(ComasOxapampa)</code></pre>
+<pre><code>[1] 168</code></pre>
+<pre class="r"><code>&gt; ncol(ComasOxapampa)</code></pre>
+<pre><code>[1] 5</code></pre>
+<p>You can also nest functions together using one as input for the other. Here, we can find out how many varieties we have by first finding the unique cultivars and then reporting the length</p>
+<pre class="r"><code>&gt; length(unique(ComasOxapampa$cultivar))</code></pre>
+<pre><code>[1] 56</code></pre>
 <p>The most useful functions in R are the functions for calculating statistics. For example, you can test if there is a significan difference in disease between the two regions with a t-test by using the function <code>t.test()</code>:</p>
 <pre class="r"><code>&gt; region_t &lt;- t.test(ComasOxapampa$comas, ComasOxapampa$oxapampa)
 &gt; region_t</code></pre>
