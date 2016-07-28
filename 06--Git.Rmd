@@ -300,7 +300,7 @@ and take you there:
 Notice that the username has changed and it says "forked from
 grunwaldlab/pinfestans_example".
 
-### Try it!
+### Try it! {#exercise}
 
 Fork both of these repositories to your own account! If you have written your
 README.md from the Markdown exercise, upload it to the AUDPC repository and
