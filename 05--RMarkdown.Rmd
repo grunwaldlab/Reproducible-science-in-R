@@ -345,10 +345,12 @@ For example, the YAML header below adds section numbers and a table of contents 
 
 
 <pre class='r'><code>---
+title: "Example Rmarkdown document"
+date: "2016-07-30"
 output:
-html_document:
-toc: true
-number_sections: true
+  html_document:
+    toc: true
+    number_sections: true
 ---</code></pre>
 
 On of the best uses of the YAML header is to specify the format you want the output document to be when it is rendered.
@@ -358,10 +360,12 @@ The code below shows how to set the output type to PDF.
 `r step('Replace the YAML header _at the start_ of your Markdown document with the one below and press "Knit HTML".')`
 
 <pre class='r'><code>---
+title: "Example Rmarkdown document"
+date: "2016-07-30"
 output:
-pdf_document:
-toc: true
-number_sections: true
+  pdf_document:
+    toc: true
+    number_sections: true
 ---</code></pre>
 
 
