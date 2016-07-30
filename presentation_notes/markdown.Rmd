@@ -1,4 +1,4 @@
-## What we are goin to do 
+## What we are going to do 
 
 * In this section of the workshop you will be learning how to use Mardown.
 * Markdown can be used to create PDF and HTML files, like the website for this workshop.
@@ -33,3 +33,10 @@
 ## Text types 
 
 * Although markdown is written in plain text and you cannot change fonts or text sizes in the Markdown itself, there are patterns you can used to indicate how text should appear once the Markdown is processed.
+
+
+## Exercise
+
+* Download the audpc directory and uncompress it in the workshop folder you made earlier. 
+* Open the project in RStudio by clicking on the .Rproj file or selecing "open project" from Rstudio.
+* Create a file called "README.md" and replicate the background section of the audpc report. 

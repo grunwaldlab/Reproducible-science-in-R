@@ -1,0 +1,54 @@
+## What we are going to do 
+
+* In this seciton, we are going to introduce RMarkdown and use it to reproduce two example documents. 
+* We will be recreating the RMarkdown used to create the audpc analysis [show] as we introduce the relevant subjects.
+* Afterwards, you will write RMarkdown to produce something like the phtophthora infestins word document.
+* RMarkdown is very flexible and complex so dont try to memorize everything now. Just remember what is possible and use cheat sheets and guides to look up how to use the features you need.
+
+## Introduction
+
+* Rmarkdown is an extension of standard markdown that allows R code to be displayed and run when a Markdown document is rendered.
+* Results of the code, such as text output and graphs are added to the output document.
+* This makes it very useful for combining notes and analyses in the same file and makes updating or rerunning analyses easy.
+
+## Code evaluation
+
+## Text results
+
+## First audpc part
+
+* Create a new file in the audpc r project called "audpc_report.Rmd" and delete any template code. 
+* Copy the Markdown you created from README.md into this new file
+* Create the RMarkdown code needed to recreate the "load packages" section.
+* Dont worry about the title or the date for now
+
+
+## Tables
+
+[go through example code]
+
+## Second audpc part
+
+* Make the RMarkdown code for the "Parse input file" and "Tidy up the data" sections
+
+
+## Figures
+
+[go through example code]
+
+## Third audpc part
+
+* Make the RMarkdown code for rest of the document
+
+## YAML
+
+[go through example code]
+
+## Forth audpc part
+
+* Using a YAML header, add the title and date to the document
+
+## P infestins example
+
+* Download the p infestins example directory adn uncompress it in the workshop folder
+* Take the code from the R file and the and the text from the word document and use RMarkdown to recreate the analysis.
