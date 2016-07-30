@@ -1,22 +1,22 @@
 ## What we are going to do 
 
-* In this section of the workshop you will be learning how to use Mardown.
+* In this section of the workshop you will be learning how to use Markdown.
 * Markdown can be used to create PDF and HTML files, like the website for this workshop.
-* At the end of this section you will be replicating introduction of this document, which was written in pure Mardown. [show AUDPC example]. You will try to make the rest of the document in the next section when we talk about Rmarkdown, which as extension of Markdown.
+* At the end of this section you will be replicating introduction of this document, which was written in pure Markdown. [show AUDPC example]. You will try to make the rest of the document in the next section when we talk about R markdown, which as extension of Markdown.
 
 ## RSudio
 
-* Markdown can be written with any text editor, but we will be using the text editor embedded in RStudio.
-* If you are not familar with RSudio, it is a basically an R session combined with a text editor and a file browser. (smart phone analogy).
-* You can do everything with just a text editor and R, but RStudio makes it much easier.
-* One useful feature of RStudio is R projects; R projects are basically folders with some extra information about the state of RSudio, allowing you to close RStudio and come back to your work later without redoing things. (e.g. "unsaved" changes are preserved)
-* They also encourage you to comparmentalized your projects, which leads to better organizations.
+* Markdown can be written with any text editor, but we will be using the text editor embedded in R Studio.
+* If you are not familiar with Studio, it is a basically an R session combined with a text editor and a file browser. (smart phone analogy).
+* You can do everything with just a text editor and R, but R Studio makes it much easier.
+* One useful feature of R Studio is R projects; R projects are basically folders with some extra information about the state of Studio, allowing you to close R Studio and come back to your work later without redoing things. (e.g. "unsaved" changes are preserved)
+* They also encourage you to compartmentalized your projects, which leads to better organizations.
 
 ## Optional examples prep
 
 * We will be going through a series of examples demonstrating the features of markdown.
-* If you want, you can follow along by copying the examples or typing something similar, but there will be an exerices at the end of this section for you to practice as well so you can wait for those if you prefer.
-* If you are going to follow along with the examples, open up RStudio and create a new R project by clicking on the dropdown menu at the top right and selecting "New Project". Select "New directory" and then "Empty project". Name the project something like "examples" and make it a subdirectory of the workshop directory you created earlier.
+* If you want, you can follow along by copying the examples or typing something similar, but there will be an exercises at the end of this section for you to practice as well so you can wait for those if you prefer.
+* If you are going to follow along with the examples, open up R Studio and create a new R project by clicking on the drop down menu at the top right and selecting "New Project". Select "New directory" and then "Empty project". Name the project something like "examples" and make it a sub directory of the workshop directory you created earlier.
 * Now create a new Rmd file as shown on the website.
 * Rmd is the file extension for RMardown, an extended verison of Mardown that we will cover in the next section; the typical file extenison for pure Mardown is ".md".
 
@@ -25,9 +25,9 @@
 * Markdown is a simple set of conventions for writing plain text that is readable by both people and computers.
 * Plain text refers to text files without any type of formatting such as fonts or text sizes. It is the type of file edited using notepad in Windows and textedit on OSX.
 * If you have not used plain text before for things like programming and configuration files this might be confusing at first, but once you get an intuition for how plain text files are used, Markdown should be easy to understand.
-* The simplicity of mardown is its greatest asset; it can be learned quikly and is intuitive enough that people unfamilar with it can still read it. You might have read Mardown in the past an not even realized that it was a specific type of text format.
-* Unlike file formats like DOCX, Markdown is not assocaied with any one program and is typically the input rather than the output of a program.
-* Many different programs, includinig R and RStudio, can read files containing Markdown and convert into more aethecially pleasing formats such as HTML, PDF, or DOCX.
+* The simplicity of mardown is its greatest asset; it can be learned quickly and is intuitive enough that people unfamiliar with it can still read it. You might have read Markdown in the past an not even realized that it was a specific type of text format.
+* Unlike file formats like DOCX, Markdown is not associated with any one program and is typically the input rather than the output of a program.
+* Many different programs, including R and R Studio, can read files containing Markdown and convert into more aesthetically pleasing formats such as HTML, PDF, or DOCX.
 
 
 ## Text types 
@@ -38,5 +38,10 @@
 ## Exercise
 
 * Download the audpc directory and uncompress it in the workshop folder you made earlier. 
-* Open the project in RStudio by clicking on the .Rproj file or selecing "open project" from Rstudio.
+* Open the project in R Studio by clicking on the .Rproj file or selecting "open project" from R studio.
 * Create a file called "README.md" and replicate the background section of the audpc report. 
+* You might want to use the "Markdown quick reference" in R Studio.
+
+## What we did
+
+...
