@@ -123,7 +123,7 @@ var( c(1, 3, 2.4, 6, 7.2) )
 ### Displaying results
 
 You can hide the typical text output of chunks by setting `results = 'hide'`.
-This does not affect things like warnings, errors, and graphs. 
+This only affects the printing of variables, not things like warnings, errors, and graphs. 
 
 `r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
 
@@ -145,7 +145,7 @@ print(x)
 
 ```
 
-### Hiding warnings and errors
+### Hiding warnings and messages
 
 As R is an interactive language, some functions will occasionally display text that conveys a message to you, but is not necessarily part of your data. These are known as `r gloss("messages", "text displayed to convey extra information to the user such as a function's progress.")`, `r gloss("warnings", "text displayed to convey non-normal behavior that the user might be concerned about.")`, and `r gloss("errors", "text displayed to the user to let them know what went wrong in their code.")`. By default, the options are set to show you all warnings and messages and to stop the execution of your document if an error comes up. You can control these by using the corresponding chunk options.
 
