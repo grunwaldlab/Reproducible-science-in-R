@@ -210,10 +210,12 @@ To read these data into R, you can use `read.table()`:
 ComasOxapampa <- read.table("ex_data/ComasOxapampa.csv", sep = ",", head = TRUE)
 ```
 
-Here we are telling R to read a table from the file "ComasOxapampa.csv" that is 
-in the folder called "ex\_data" using the `r gloss("function", function_def)`
-`read.table()` (more on functions in the next section). What we get back is a
-`r gloss("data frame", "a representation of a table in R")`. A data frame is
+Here we are telling R to read a table from the file
+"[ComasOxapampa.csv](https://github.com/grunwaldlab/Reproducible-science-in-R/blob/master/ex_data/ComasOxapampa.csv)"
+that is in the folder called "ex\_data" using the 
+`r gloss("function", function_def)` `read.table()` (more on functions in the
+next section). What we get back is a 
+`r gloss("data frame", "a representation of a table in R")`. A data frame is 
 made up of one or more vectors that are all the same length in columns.
 
 
