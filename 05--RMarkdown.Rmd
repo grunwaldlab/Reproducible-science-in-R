@@ -233,24 +233,7 @@ kable(data)
 ```
 
 A simple HTML table can also be made using a package called `r gloss("xtable", "An R package to print PDF/HTML tables from data encoded in R variables")`.
-However, this package is focused mostly on making tables for PDF output rather than HTML, so the tables it produces look rather primitive without additional styling. 
-
-`r step('Copy the text from the box below and paste it on to the end of your Markdown document and press "Knit HTML".')`
-
-```{r xtables_example, results='asis', echo = FALSE}
-rmd_example(height = 200, "
-#### Xtable tables
-
-\`\`\`{r, results='asis'}
-library(xtable)
-data = data.frame(x = 1:3)
-data$squared = data$x ^ 2
-data$cubed = data$x ^ 3
-print(xtable(data), type = 'html',
-      include.rownames = F)
-\`\`\`
-            ")
-```
+However, this package is focused mostly on making tables for PDF output and we will not cover it here.
 
 
 ## Figures
