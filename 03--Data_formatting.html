@@ -14,20 +14,19 @@
 <title></title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
-<link rel="stylesheet"
-      href="site_libs/highlight/default.css"
-      type="text/css" />
-<script src="site_libs/highlight/highlight.js"></script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -98,6 +97,7 @@ button.code-folding-btn:focus {
 }
 </style>
 
+
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
@@ -154,7 +154,6 @@ $(document).ready(function () {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
@@ -180,7 +179,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
@@ -335,7 +334,7 @@ div.tocify {
 <p>GIGO is an acronym that stands for “Garbage In, Garbage Out”, and this is often a mantra to remember when gathering data. The same goes for entering and storing data in a spreadsheet. Often, the first point of error for any analysis is at the data entry stage. This section will show you the best practices of data storage and why this is important for your analyses, whether you are analyzing disease progress, fungicide resistance, or complex bioinformatic data. Much of this is based off of the Data Carpentry module “<a href="http://www.datacarpentry.org/2015-03-09-ISI-CODATA/lessons/excel/ecology-examples/00-intro.html">Using Spreadsheet Programs for Scientific Data</a>” designed by Christie Bahlai and Aleksandra Pawlik. Please refer to the previous link if you need any more information.</p>
 <div id="isnt-excelopenofficegoogle-sheets-good-enough" class="section level2">
 <h2>Isn’t Excel/OpenOffice/Google Sheets good enough?</h2>
-<p><strong>No</strong> <span class="citation">(Zeeberg et al. 2004)</span>. <img src="images/excel_date_error.jpg" alt="An example of gene names accidentally being converted to dates in Microsoft Excel" class="big_window knit_image knit_border" /></p>
+<p><strong>No</strong> <span class="citation">(Zeeberg et al. 2004)</span>. <img src="images/excel_date_error.jpg" alt="An example of gene names accidentally being converted to dates in Microsoft Excel" />{.big_window .knit_image .knit_border}</p>
 <p>For data entry, Excel is a fantastic program because it’s intuitive to enter data into cells, but Excel also reinforces a lot of bad habits that can make your data inaccessible to analyses down the line.</p>
 </div>
 <div id="how-should-i-format-my-data" class="section level2">
@@ -377,26 +376,17 @@ div.tocify {
 <div id="long-data" class="section level4">
 <h4>Long data</h4>
 <p>Long data is so named because there are typically a vast number of rows, each with a single datum and its associated treatments, creating tables that tend to have more rows than columns.</p>
-<div class="figure">
-<img src="images/long_data.png" class="knit_border knit_image" />
-
-</div>
+<p><img src="images/long_data.png" alt="" />{.knit_border .knit_image}</p>
 </div>
 <div id="wide-data" class="section level4">
 <h4>Wide data</h4>
 <p>Wide data is the opposite: each row has data for all treatments and each treatment is a column. It’s called wide data because the number of columns tends to exceed the number of rows.</p>
-<div class="figure">
-<img src="images/wide_data.png" class="knit_border knit_image" />
-
-</div>
+<p><img src="images/wide_data.png" alt="" />{.knit_border .knit_image}</p>
 </div>
 <div id="an-appropriate-mixture-of-long-and-wide-data" class="section level4">
 <h4>An appropriate mixture of long and wide data</h4>
 <p>Of course, recording observations in either long or wide data exclusively is not necessarily intuitive for the person entering the data, so a combination of these can be beneficial. Also, tools exist to convert between long and wide tables so data can be entered however it is most convenient. The example below encodes two columns for data: one for fungicide treated and the other for untreated. The date and cultivar are specified as they are in the long data in the first two fields.</p>
-<div class="figure">
-<img src="images/two_column_data.png" class="knit_border knit_image" />
-
-</div>
+<p><img src="images/two_column_data.png" alt="" />{.knit_border .knit_image}</p>
 </div>
 </div>
 <div id="the-bad-storing-data-in-excel-and-using-multiple-sheets" class="section level2">
@@ -405,10 +395,7 @@ div.tocify {
 <div id="multiple-sheets" class="section level4">
 <h4>Multiple sheets</h4>
 <p>One thing that is commonly done is to store data across multiple sheets. While this may seem to help organize, it prevents you from storing your data in a flat text format and makes it more difficult to read it in to R (although it is possible with the <em>readxl</em> package).</p>
-<div class="figure">
-<img src="images/two_sheet_data.png" class="knit_border knit_image" />
-
-</div>
+<p><img src="images/two_sheet_data.png" alt="" />{.knit_border .knit_image}</p>
 </div>
 </div>
 <div id="the-ugly-multiple-tables-color-coding-etc" class="section level2">
@@ -417,10 +404,7 @@ div.tocify {
 <div id="small-multiples" class="section level4">
 <h4>Small Multiples</h4>
 <p>Separate tables within the spreadsheet with merged cells, numbers and spaces within headers, and inconsistent formatting (different names for columns, zeroes vs blanks).</p>
-<div class="figure">
-<img src="images/ugly_data.png" class="knit_border knit_image" />
-
-</div>
+<p><img src="images/ugly_data.png" alt="" />{.knit_border .knit_image}</p>
 </div>
 </div>
 </div>
@@ -478,9 +462,13 @@ div.tocify {
 <script>
 
 // add bootstrap table styles to pandoc tables
-$(document).ready(function () {
+function bootstrapStylePandocTables() {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
 });
+
 
 </script>
 
