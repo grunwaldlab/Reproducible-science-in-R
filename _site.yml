@@ -30,3 +30,5 @@ output:
     toc_depth: 2
     theme: flatly
     css: tutorial.css
+    includes:
+      before_body: header.html

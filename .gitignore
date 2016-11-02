@@ -6,3 +6,4 @@
 *_files/**
 *.cache/**
 site_libs/**
+!header.html
